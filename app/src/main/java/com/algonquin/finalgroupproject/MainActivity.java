@@ -46,8 +46,23 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+                //break;
+
+            case R.id.create_PatientIntakeForm:
+                    item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem menuItem) {
+                            Toast.makeText(MainActivity.this, "Patient form Selected!", Toast.LENGTH_SHORT).show();
+                            //Jump to PatientFormActivity.
+                            Intent intent = new Intent(MainActivity.this, PatientIntakeFormActivity.class);
+                            startActivity(intent);
+                            return true;
+                        }
+                    });
+                   // break;
 
             default:
+               // break;
                 return super.onOptionsItemSelected(item);
         }
     }
