@@ -8,4 +8,11 @@
         android:icon="@drawable/quiz"
         app:showAsAction="ifRoom"
         />
+
+    <item
+        android:id="@+id/Patient"
+        android:title="Patient form"
+        android:icon="@drawable/patient"
+        app:showAsAction="always"
+        />
 </menu>

@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                 //break;
-
-            case R.id.create_PatientIntakeForm:
+//
+            case R.id.Patient:
                     item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem menuItem) {

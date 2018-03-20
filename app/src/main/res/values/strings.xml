@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">FinalGroupProject</string>
     <string name="ButtonQuiz">Multiple Choice Quiz Creater</string>
+
+    <string name="hint_doctorOffice">Any previous surgeries, or allergies?</string>
+    <string name="hint_dentist">Have had braces?</string>
+    <string name="hint_optometrist">What date and from where?</string>
 </resources>
