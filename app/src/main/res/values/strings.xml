@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">FinalGroupProject</string>
+    <string name="app_name">FinalProject</string>
     <string name="ButtonQuiz">Multiple Choice Quiz Creater</string>
+    <string name="button_addQuestion">Add Question</string>
 </resources>

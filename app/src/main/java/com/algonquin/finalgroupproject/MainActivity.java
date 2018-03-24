@@ -46,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+                break;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
+        return true;
     }
 }
