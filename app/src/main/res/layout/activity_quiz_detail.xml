@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Quiz_MultiChoice_Framlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.algonquin.finalgroupproject.QuizDetail">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/Question_multichoice_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:id="@+id/AnswerA_multichoice_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Question_multichoice_framelayout" />
+
+    <TextView android:id="@+id/AnswerB_multichoice_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AnswerA_multichoice_framelayout"/>
+
+    <TextView android:id="@+id/AnswerC_multichoice_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AnswerB_multichoice_framelayout"/>
+
+    <TextView android:id="@+id/AnswerD_multichoice_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AnswerC_multichoice_framelayout"/>
+
+    <Button
+        android:id="@+id/delete_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELETE THIS QUESTION"
+        android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

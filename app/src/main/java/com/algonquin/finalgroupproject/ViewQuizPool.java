@@ -3,6 +3,7 @@ package com.algonquin.finalgroupproject;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -60,21 +62,19 @@ public class ViewQuizPool extends Activity {
         txt_answerD = findViewById(R.id.edittext_D);
         btn_addMultipleChoice = findViewById(R.id.button_addQuestion);
 
-        //ArrayList here is used to store one quesiton information
-        //final ArrayList<String> oneQuestion = new ArrayList<String>();
-
         progressBar.setVisibility(View.VISIBLE);
 
         //in this case, “this” is the ChatWindow, which is-A Context object
-        final QuizAdapter messageAdapter = new QuizAdapter(this);
-        listview.setAdapter(messageAdapter);
+        final QuizAdapter quizAdapter = new QuizAdapter(this);
+        listview.setAdapter(quizAdapter);
 
         String query = "SELECT * FROM " + tableName + ";";
         Cursor c = db.rawQuery(query, null);
 
-
-        //Read existed messages from database.
+        //Read existed questions from database.
         c.moveToFirst();
+        //counter is used to count the database record
+        int counter = 0;
         while(!c.isAfterLast()){
 
             String question = c.getString( c.getColumnIndex( dbHelper.QUIZ_KEY_QUESTION_MULTICHOICE) );
@@ -82,8 +82,8 @@ public class ViewQuizPool extends Activity {
             String answerB = c.getString( c.getColumnIndex( dbHelper.QUIZ_KEY_ANSWERB_MULTICHOICE) );
             String answerC = c.getString( c.getColumnIndex( dbHelper.QUIZ_KEY_ANSWERC_MULTICHOICE) );
             String answerD = c.getString( c.getColumnIndex( dbHelper.QUIZ_KEY_ANSWERD_MULTICHOICE) );
+            //ArrayList here is used to store one question
             ArrayList<String> oneQuestion = new ArrayList<String>();
-            //oneQuestion.clear();
             oneQuestion.add(question);
             oneQuestion.add(answerA);
             oneQuestion.add(answerB);
@@ -91,16 +91,24 @@ public class ViewQuizPool extends Activity {
             oneQuestion.add(answerD);
             quizPool.add(oneQuestion);
             //for debug
-//            Log.i("ViewQuizPool", "quizPool:" + quizPool);
 //            Log.i("ViewQuizPool", "SQL QUESTION:" + question );
 //            Log.i("ViewQuizPool", "SQL ANSWERA:" + answerA );
 //            Log.i("ViewQuizPool", "SQL ANSWERB:" + answerB );
 //            Log.i("ViewQuizPool", "SQL ANSWERC:" + answerC );
 //            Log.i("ViewQuizPool", "SQL ANSWERD:" + answerD );
+
+            //update progress bar
+            counter++;
+            if(counter != c.getCount()){
+                progressBar.setProgress(counter * 100 /(c.getCount()));
+            }else{
+                progressBar.setVisibility(View.INVISIBLE);
+            }
+
             c.moveToNext();
         }
         //this restarts the process of getCount() & getView() to retrieve chat history
-        messageAdapter.notifyDataSetChanged();
+        quizAdapter.notifyDataSetChanged();
 
         //Print colomn name.
         Log.i("ViewQuizPool", "Cursor’s  column count = " + c.getColumnCount());
@@ -127,7 +135,7 @@ public class ViewQuizPool extends Activity {
                 quizPool.add(oneQuestion);
 
                 //this restarts the process of getCount() & getView()
-                messageAdapter.notifyDataSetChanged();
+                quizAdapter.notifyDataSetChanged();
 
                 //when the user clicks “Send”, clear the edittext
                 txt_question.setText("");
@@ -144,6 +152,35 @@ public class ViewQuizPool extends Activity {
                 cv.put(keyAnswerC, answerC);
                 cv.put(keyAnswerD, answerD);
                 db.insert(tableName,null,cv);
+
+            }
+        });
+
+        //click a question will display the detailes on another fragment layout.
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                ArrayList<String> oneQuestion = new ArrayList<>();
+                oneQuestion = quizAdapter.getItem(position);
+                String question = oneQuestion.get(0);
+                String answerA = oneQuestion.get(1);
+                String answerB = oneQuestion.get(2);
+                String answerC = oneQuestion.get(3);
+                String answerD = oneQuestion.get(4);
+
+                //a bundle is used to pass message
+                QuizMultiChoiceFragment quizMultiChoiceFragment = new QuizMultiChoiceFragment();
+                //pass data to fragment
+                Bundle bundle = new Bundle();
+                bundle.putString("Question", question);
+                bundle.putString("AnswerA", answerA);
+                bundle.putString("AnswerB", answerB);
+                bundle.putString("AnswerC", answerC);
+                bundle.putString("AnswerD", answerD);
+
+                Intent intent = new Intent(ViewQuizPool.this, QuizDetail.class);
+                intent.putExtra("QuizMultiChoiceDetail", bundle);
+                startActivityForResult(intent, 820, bundle);
 
             }
         });
