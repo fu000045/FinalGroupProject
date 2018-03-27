@@ -43,11 +43,11 @@ public class MovieActivity extends Activity {
                         .make(linearlayout, "Welcome movie2", Snackbar.LENGTH_LONG);
 
                 snackbar.show();
-
+                Intent intent = new Intent(MovieActivity.this, Movie2.class);
+                startActivity(intent);
             }
         });
         //Jump to Movie2.
-        Intent intent = new Intent(MovieActivity.this, Movie2.class);
-        startActivity(intent);
+
     }
 }

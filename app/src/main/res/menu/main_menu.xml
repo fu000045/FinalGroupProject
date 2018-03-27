@@ -10,9 +10,8 @@
         app:showAsAction="ifRoom"
         />
     <item
-        androd:id="@+id/Movie"
-        android:title="Movie Information"
+        android:id="@+id/Movie"
         android:icon="@drawable/movie"
-        app:showAsAction="ifRoom"
-        />
+        android:title="Movie Information"
+        app:showAsAction="ifRoom" />
 </menu>
