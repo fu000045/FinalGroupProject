@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">FinalGroupProject</string>
+    <string name="app_name">FinalProject</string>
     <string name="ButtonQuiz">Multiple Choice Quiz Creater</string>
+    <string name="button_addQuestion">Add Question</string>
+    <string name="quiz_dialog_message">Delete this question? Can\'t restore!</string>
+    <string name="quiz_dialog_title">DELETE</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>

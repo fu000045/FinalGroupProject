@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+                break;
 
             case R.id.Movie:
                 item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
@@ -61,11 +62,14 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+                break;
+            
             default:
                 return super.onOptionsItemSelected(item);
         }
 
 
+        return true;
 
     }
 }
