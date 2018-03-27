@@ -51,18 +51,6 @@ public class MainActivity extends AppCompatActivity {
                 });
                 break;
 
-            case R.id.Movie:
-                item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        Toast.makeText(MainActivity.this, "Movie Selected!", Toast.LENGTH_SHORT).show();
-                        //Jump to MovieActivity.
-                        Intent intent = new Intent(MainActivity.this, MovieActivity.class);
-                        startActivity(intent);
-                        return true;
-                    }
-                });
-                break;
             
             default:
                 return super.onOptionsItemSelected(item);
