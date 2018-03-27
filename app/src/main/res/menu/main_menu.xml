@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:androd="http://schemas.android.com/tools">
 
     <item
         android:id="@+id/Quiz"
         android:title="Quiz Creater"
         android:icon="@drawable/quiz"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        androd:id="@+id/Movie"
+        android:title="Movie Information"
+        android:icon="@drawable/movie"
         app:showAsAction="ifRoom"
         />
 
