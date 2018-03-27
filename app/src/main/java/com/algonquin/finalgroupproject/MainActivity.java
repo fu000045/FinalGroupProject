@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
 
@@ -36,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.Quiz:
                 item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                     @Override
@@ -49,23 +48,26 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
-
+                break;
             case R.id.Movie:
                 item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
-                        Toast.makeText(MainActivity.this, "Movie Selected!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Movie List Selected!", Toast.LENGTH_SHORT).show();
                         //Jump to MovieActivity.
                         Intent intent = new Intent(MainActivity.this, MovieActivity.class);
                         startActivity(intent);
                         return true;
                     }
                 });
+                break;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
 
-
+             return true;
 
     }
+
 }

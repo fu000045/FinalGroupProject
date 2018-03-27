@@ -1,6 +1,7 @@
 package com.algonquin.finalgroupproject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -28,20 +29,11 @@ public class MovieActivity extends Activity {
             public void onClick(View view) {
                 Snackbar snackbar = Snackbar
                         .make(linearlayout, "Welcome movie1", Snackbar.LENGTH_LONG);
-//                        .setAction("RETRY", new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//                            }
-//                        });
-//                snackbar.setActionTextColor(Color.RED);
-//                View sbView = snackbar.getView();
-//                TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
-//                textView.setTextColor(Color.YELLOW);
                 snackbar.show();
 
-//                //Jump to ViewQuizPool.
-//                Intent intent = new Intent(QuizCreatorActivity.this, CreateAQuiz.class);
-//                startActivity(intent);
+                //Jump to movie1
+                Intent intent = new Intent(MovieActivity.this, Movie1.class);
+                startActivity(intent);
             }
         });
         btn_movie2.setOnClickListener(new View.OnClickListener() {
@@ -49,21 +41,13 @@ public class MovieActivity extends Activity {
             public void onClick(View view) {
                 Snackbar snackbar = Snackbar
                         .make(linearlayout, "Welcome movie2", Snackbar.LENGTH_LONG);
-//                        .setAction("RETRY", new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//                            }
-//                        });
-//                snackbar.setActionTextColor(Color.RED);
-//                View sbView = snackbar.getView();
-//                TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
-//                textView.setTextColor(Color.YELLOW);
+
                 snackbar.show();
 
-//                //Jump to ViewQuizPool.
-//                Intent intent = new Intent(QuizCreatorActivity.this, CreateAQuiz.class);
-//                startActivity(intent);
             }
         });
+        //Jump to Movie2.
+        Intent intent = new Intent(MovieActivity.this, Movie2.class);
+        startActivity(intent);
     }
 }
