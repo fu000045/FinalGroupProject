@@ -2,11 +2,14 @@ package com.algonquin.finalgroupproject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class QuizCreatorActivity extends Activity {
 
@@ -30,6 +33,15 @@ public class QuizCreatorActivity extends Activity {
             public void onClick(View view) {
                 Snackbar snackbar = Snackbar
                         .make(linearlayout, "Create a quiz from the pool!", Snackbar.LENGTH_LONG);
+//                        .setAction("RETRY", new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                            }
+//                        });
+//                snackbar.setActionTextColor(Color.RED);
+//                View sbView = snackbar.getView();
+//                TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+//                textView.setTextColor(Color.YELLOW);
                 snackbar.show();
 
 //                //Jump to ViewQuizPool.
