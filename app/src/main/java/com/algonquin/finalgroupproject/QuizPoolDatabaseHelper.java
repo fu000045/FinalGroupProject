@@ -28,6 +28,7 @@ public class QuizPoolDatabaseHelper extends SQLiteOpenHelper {
     public static String QUIZ_KEY_ANSWERB_MULTICHOICE = "answerB";
     public static String QUIZ_KEY_ANSWERC_MULTICHOICE = "answerC";
     public static String QUIZ_KEY_ANSWERD_MULTICHOICE = "answerD";
+    public static String QUIZ_KEY_CORRECT_ANSWER_MULTICHOICE = "correctAnswer";
 
     public QuizPoolDatabaseHelper(Context ctx) {
         super(ctx, QUIZ_DATABASE_NAME, null, QUIZ_DATABASE_VERSION);
@@ -38,7 +39,8 @@ public class QuizPoolDatabaseHelper extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + QUIZ_TABLE_NAME_MULTICHOICE +
                 " (" + QUIZ_KEY_ID_MULTICHOICE + " INTEGER PRIMARY KEY AUTOINCREMENT, " + QUIZ_KEY_QUESTION_MULTICHOICE + " TEXT, " +
                 QUIZ_KEY_ANSWERA_MULTICHOICE + " TEXT, " + QUIZ_KEY_ANSWERB_MULTICHOICE + " TEXT, " +
-                QUIZ_KEY_ANSWERC_MULTICHOICE + " TEXT, " + QUIZ_KEY_ANSWERD_MULTICHOICE + " TEXT);";
+                QUIZ_KEY_ANSWERC_MULTICHOICE + " TEXT, " + QUIZ_KEY_CORRECT_ANSWER_MULTICHOICE + " CHAR(1), " +
+                QUIZ_KEY_ANSWERD_MULTICHOICE + " TEXT);";
         try {
             Log.i("QuizPoolDatabaseHelper", query);
             db.execSQL(query);

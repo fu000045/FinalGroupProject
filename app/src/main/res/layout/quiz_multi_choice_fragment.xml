@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_ques"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Q: "
+        android:layout_marginBottom="20dp" />
+
+    <EditText
+        android:id="@+id/Question_multichoice_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_ques"
+        android:layout_toEndOf="@+id/tv_ques" />
+
+    <CheckBox
+        android:id="@+id/AnswerA_multichoice_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_ques"/>
+    <EditText
+        android:id="@+id/txt_answerA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/AnswerA_multichoice_fragment"
+        android:layout_toEndOf="@+id/AnswerA_multichoice_fragment"/>
+    <CheckBox
+        android:id="@+id/AnswerB_multichoice_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_answerA"/>
+    <EditText
+        android:id="@+id/txt_answerB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/AnswerB_multichoice_fragment"
+        android:layout_below="@+id/txt_answerA"/>
+    <CheckBox
+        android:id="@+id/AnswerC_multichoice_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_answerB"/>
+    <EditText
+        android:id="@+id/txt_answerC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/AnswerC_multichoice_fragment"
+        android:layout_below="@+id/txt_answerB"/>
+    <CheckBox
+        android:id="@+id/AnswerD_multichoice_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_answerC"/>
+    <EditText
+        android:id="@+id/txt_answerD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/AnswerD_multichoice_fragment"
+        android:layout_below="@+id/txt_answerC"/>
+
+    <Button
+        android:id="@+id/update_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPDATE"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"/>
+    <Button
+        android:id="@+id/delete_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELETE"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

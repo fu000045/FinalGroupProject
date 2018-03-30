@@ -4,6 +4,14 @@
     <string name="button_addQuestion">Add Question</string>
     <string name="quiz_dialog_message">Delete this question? Can\'t restore!</string>
     <string name="quiz_dialog_title">DELETE</string>
+    <string name="quiz_viewpool">View Quiz Pool</string>
+    <string name="quiz_import">Import Quiz From Website</string>
+    <string name="quiz_stat">Statistics</string>
+    <string name="quiz_multichoice">Multi Choice Question</string>
+    <string name="quiz_truefalse">True/False Question</string>
+    <string name="quiz_numeric">Numeric Question</string>
+    <string name="quiz_help">Help</string>
+    <string name="quiz_multichoice_dialog_message">Information Missing! No gaps!</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
 </resources>
