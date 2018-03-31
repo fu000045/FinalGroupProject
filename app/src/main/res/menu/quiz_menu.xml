@@ -9,7 +9,7 @@
             <item android:id="@+id/pool_truefalse"
                   android:title="@string/quiz_truefalse" />
             <item android:id="@+id/pool_numeric"
-                android:title="@string/quiz_numeric" />
+                  android:title="@string/quiz_numeric" />
         </menu>
     </item>
 

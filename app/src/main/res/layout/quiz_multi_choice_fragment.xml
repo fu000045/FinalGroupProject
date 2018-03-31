@@ -67,14 +67,14 @@
         android:id="@+id/update_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UPDATE"
+        android:text="@string/button_updateQuestion"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"/>
     <Button
         android:id="@+id/delete_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DELETE"
+        android:text="@string/quiz_dialog_title"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"/>
 

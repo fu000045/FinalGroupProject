@@ -9,7 +9,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,7 +104,6 @@ public class QuizMultiChoicePool extends Activity {
             oneQuestion.add(answerC);
             oneQuestion.add(answerD);
             oneQuestion.add(correct);
-//            quizPool.add(oneQuestion);
             //for debug
 //            Log.i("QuizMultiChoicePool", "SQL QUESTION:" + question );
 //            Log.i("QuizMultiChoicePool", "SQL ANSWERA:" + answerA );
@@ -151,7 +149,6 @@ public class QuizMultiChoicePool extends Activity {
                         || (answerC.isEmpty() || answerC.trim().isEmpty())
                         || (answerD.isEmpty() || answerD.trim().isEmpty())){
                     AlertDialog.Builder builder = new AlertDialog.Builder(QuizMultiChoicePool.this);
-                    // 2. Chain together various setter methods to set the dialog characteristics
                     builder.setMessage(R.string.quiz_multichoice_dialog_message)
                         .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -320,7 +317,7 @@ public class QuizMultiChoicePool extends Activity {
             answerB.setText("B. " + getItem(position).get(2));
             answerC.setText("C. " + getItem(position).get(3));
             answerD.setText("D. " + getItem(position).get(4));
-            correct.setText("Correct Answer is: " + getItem(position).get(5));
+            correct.setText(getString(R.string.quiz_pool_crtAns) + getItem(position).get(5));
             if(getItem(position).get(5).equalsIgnoreCase("A")){
                 checkAnswer.check(R.id.quiz_Answer_A);
             }else if(getItem(position).get(5).equalsIgnoreCase("B")){
