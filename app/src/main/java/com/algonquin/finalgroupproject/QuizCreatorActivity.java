@@ -17,13 +17,10 @@ public class QuizCreatorActivity extends AppCompatActivity {
 
     LinearLayout linearlayout;
     Button btn_createAQuiz;
+    Button btn_viewQuizPool;
+    Button btn_quizStat;
+    Button btn_quizHelp;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-
-        getMenuInflater().inflate(R.menu.quiz_menu, menu);
-        return true;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +29,9 @@ public class QuizCreatorActivity extends AppCompatActivity {
 
         linearlayout = findViewById(R.id.linearlayout);
         btn_createAQuiz = findViewById(R.id.Create_Quiz);
+        btn_viewQuizPool = findViewById(R.id.View_Quiz_Pool);
+        btn_quizStat = findViewById(R.id.Quiz_Statistics);
+        btn_quizHelp = findViewById(R.id.Quiz_help);
 
         //From: Android Snackbar Example Tutorial [Web Page]
         //Retrieved from: https://www.journaldev.com/10324/android-snackbar-example-tutorial
@@ -43,48 +43,41 @@ public class QuizCreatorActivity extends AppCompatActivity {
                 snackbar.show();
             }
         });
+
+        btn_viewQuizPool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Jump to QuizCreaterActivity.
+                Intent intent = new Intent(QuizCreatorActivity.this, QuizMultiChoicePool.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_quizStat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        btn_quizHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LayoutInflater inflater = QuizCreatorActivity.this.getLayoutInflater();
+
+                //Pop up a dialogue box.
+                AlertDialog.Builder builder = new AlertDialog.Builder(QuizCreatorActivity.this);
+                builder.setView(inflater.inflate(R.layout.quiz_help_layout, null));
+                // 2. Chain together various setter methods to set the dialog characteristics
+                builder.setTitle(R.string.quiz_help)
+                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        })
+                        .show();
+            }
+        });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
-            case R.id.viewquizpool:
-                item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        //Jump to QuizCreaterActivity.
-                        Intent intent = new Intent(QuizCreatorActivity.this, QuizMultiChoicePool.class);
-                        startActivity(intent);
-                        return true;
-                    }
-                });
-                break;
-
-            case R.id.help:
-                item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        LayoutInflater inflater = QuizCreatorActivity.this.getLayoutInflater();
-
-                        //Pop up a dialogue box.
-                        AlertDialog.Builder builder = new AlertDialog.Builder(QuizCreatorActivity.this);
-                        builder.setView(inflater.inflate(R.layout.quiz_help_layout, null));
-                        // 2. Chain together various setter methods to set the dialog characteristics
-                        builder.setTitle(R.string.quiz_help)
-                                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-
-                                    }
-                                })
-                                .show();
-                        return true;
-                    }
-                });
-                break;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-        return true;
-    }
 }

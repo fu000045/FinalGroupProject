@@ -11,12 +11,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Create_Quiz"
-        android:text="Create A Quiz" />
+        android:text="Create A Quiz"
+        android:visibility="invisible"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/View_Quiz_Pool"
-        android:text="View Quiz Pool" />
+        android:text="@string/quiz_viewpool" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Quiz_Import"
+        android:text="@string/quiz_import" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Quiz_Statistics"
+        android:text="@string/quiz_stat" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Quiz_help"
+        android:text="@string/quiz_help" />
 
 </LinearLayout>
