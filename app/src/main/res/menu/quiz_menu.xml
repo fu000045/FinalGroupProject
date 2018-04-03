@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/viewquizpool"
+          android:title="@string/quiz_viewpool" >
+        <menu>
+            <item android:id="@+id/pool_multichoice"
+                  android:title="@string/quiz_multichoice" />
+            <item android:id="@+id/pool_truefalse"
+                  android:title="@string/quiz_truefalse" />
+            <item android:id="@+id/pool_numeric"
+                  android:title="@string/quiz_numeric" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/importquiz"
+        android:title="@string/quiz_import" >
+        <menu>
+            <item android:id="@+id/import_multichoice"
+                android:title="@string/quiz_multichoice" />
+            <item android:id="@+id/import_truefalse"
+                android:title="@string/quiz_truefalse" />
+            <item android:id="@+id/import_numeric"
+                android:title="@string/quiz_numeric" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/statistics "
+        android:title="@string/quiz_stat" >
+        <menu>
+            <item android:id="@+id/stat_multichoice"
+                android:title="@string/quiz_multichoice" />
+            <item android:id="@+id/stat_truefalse"
+                android:title="@string/quiz_truefalse" />
+            <item android:id="@+id/stat_numeric"
+                android:title="@string/quiz_numeric" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/help"
+        android:title="@string/quiz_help"
+    />
+
+</menu>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.algonquin.finalgroupproject.QuizMultiChoicePool">
+
+    <ListView
+        android:id="@+id/listview_quizpool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/progressBar_Quiz" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_Quiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_above="@+id/edittext_newQuiz"
+        style="?android:attr/progressBarStyleHorizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quiz_pool_question"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/edittext_A" />
+
+    <EditText
+        android:id="@+id/edittext_newQuiz"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edittext_A"
+        android:layout_toLeftOf="@+id/button_addQuestion" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quiz_pool_answerA"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/edittext_B"/>
+
+    <EditText
+        android:id="@+id/edittext_A"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edittext_B"
+        android:layout_toLeftOf="@+id/button_addQuestion" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quiz_pool_answerB"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/edittext_C"/>
+
+    <EditText
+        android:id="@+id/edittext_B"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edittext_C"
+        android:layout_toLeftOf="@+id/button_addQuestion" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quiz_pool_answerC"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/edittext_D"/>
+
+    <EditText
+        android:id="@+id/edittext_C"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edittext_D"
+        android:layout_toLeftOf="@+id/button_addQuestion" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quiz_pool_answerD"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/edittext_correct"/>
+
+    <EditText
+        android:id="@+id/edittext_D"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edittext_correct"
+        android:layout_toLeftOf="@+id/button_addQuestion" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quiz_pool_crtAns2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"/>
+
+    <EditText
+        android:id="@+id/edittext_correct"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/button_addQuestion" />
+
+    <Button
+        android:id="@+id/button_addQuestion"
+        android:layout_width="95dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/button_addQuestion" />
+
+</RelativeLayout>

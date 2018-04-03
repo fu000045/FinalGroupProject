@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
-                        Toast.makeText(MainActivity.this, "Quiz Creater Selected!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, R.string.toast_quiz, Toast.LENGTH_SHORT).show();
                         //Jump to QuizCreaterActivity.
                         Intent intent = new Intent(MainActivity.this, QuizCreatorActivity.class);
                         startActivity(intent);
