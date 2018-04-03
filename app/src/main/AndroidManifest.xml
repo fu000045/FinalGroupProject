@@ -21,6 +21,10 @@
         <activity android:name=".CreateAQuiz" />
         <activity android:name=".QuizMultiChoicePool" />
         <activity android:name=".QuizMultiChoiceDetail"></activity>
+	      <activity android:name=".MovieActivity" />
+        <activity android:name=".Movie2" />
+        <activity android:name=".Movie1"></activity>
+
     </application>
 
 </manifest>
