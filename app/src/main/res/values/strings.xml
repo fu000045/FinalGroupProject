@@ -13,4 +13,5 @@
     <string name="movie_dialog_title">DELETE</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="button_delete_this_movie">button delete this movie</string>
 </resources>
