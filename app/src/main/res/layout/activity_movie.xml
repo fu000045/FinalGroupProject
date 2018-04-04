@@ -8,27 +8,18 @@
     android:id="@+id/linearlayout"
     tools:context="com.algonquin.finalgroupproject.MovieActivity">
 
-    <ProgressBar
-        android:id="@+id/indeterminateBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/TestViewFaveriate"
+        android:id="@+id/popularMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Favorite" />
+        android:text="@string/popularMovie" />
 
-    <EditText
-        android:id="@+id/EditTextInputFav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text" />
     <Button
         android:id="@+id/Movie1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Button_Movie1"
+        android:text="@string/button_Movie1"
         tools:layout_editor_absoluteX="131dp"
         tools:layout_editor_absoluteY="181dp" />
 
@@ -36,10 +27,8 @@
         android:id="@+id/Movie2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Button_Movie2"
+        android:text="@string/button_Movie2"
         tools:layout_editor_absoluteX="131dp"
         tools:layout_editor_absoluteY="181dp" />
-    <!--<RatingBar-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="match_parent" />-->
+
 </LinearLayout>

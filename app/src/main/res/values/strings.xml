@@ -2,9 +2,15 @@
     <string name="app_name">FinalGroupProject</string>
     <string name="ButtonQuiz">Multiple Choice Quiz Creater</string>
 
-    <string name="ButtonMovie">Movie Information</string>
-    <string name="Favorite">What is your favorite moive?</string>
+    <string name="buttonMovie">Movie Information</string>
+    <string name="popularMovie">Popular Movies : </string>
 
-    <string name="Button_Movie1">Life of Pi</string>
-    <string name="Button_Movie2">Zootopia</string>
+    <string name="button_Movie1">Life of Pi</string>
+    <string name="button_Movie2">Zootopia</string>
+    <string name="button_addMovie">Add Movie</string>
+
+    <string name="movie_dialog_message">Delete this movie? Can\'t restore!</string>
+    <string name="movie_dialog_title">DELETE</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>
