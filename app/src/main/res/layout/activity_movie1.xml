@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.algonquin.finalgroupproject.EditMovieActivity">
+
+    <ListView
+        android:id="@+id/listview_movieInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/progressBar_movie" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_movie"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edittext_movieTitle"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="8dp"
+        android:visibility="visible" />
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Movie No.:"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_above="@+id/edittext_movieTitle"-->
+        <!--android:layout_toLeftOf="@+id/edittext_newMovie"/>-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Movie Title:"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/edittext_mainActors"
+        android:layout_toLeftOf="@+id/edittext_movieTitle"
+        android:id="@+id/textView" />
+    <EditText
+        android:id="@+id/edittext_movieTitle"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edittext_mainActors"
+        android:layout_toLeftOf="@+id/button_addMovie"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Actors:"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/edittext_length"
+        android:layout_toLeftOf="@+id/edittext_mainActors"/>
+
+    <EditText
+        android:id="@+id/edittext_mainActors"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edittext_length"
+        android:layout_toLeftOf="@+id/button_addMovie"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Length:"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/edittext_genre"
+        android:layout_toLeftOf="@+id/edittext_length"/>
+    <EditText
+        android:id="@+id/edittext_length"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edittext_genre"
+        android:layout_toLeftOf="@+id/button_addMovie"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Genre:"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/edittext_description"
+        android:layout_toLeftOf="@+id/edittext_genre" />
+
+
+    <EditText
+        android:id="@+id/edittext_genre"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edittext_description"
+        android:layout_toLeftOf="@+id/button_addMovie"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description:"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/edittext_description"/>
+
+
+    <EditText
+        android:id="@+id/edittext_description"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/button_addMovie"/>
+
+    <Button
+        android:id="@+id/button_addMovie"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/button_addMovie" />
+</RelativeLayout>
