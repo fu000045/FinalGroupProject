@@ -8,8 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        >
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,9 +19,9 @@
         <activity android:name=".QuizCreatorActivity" />
         <activity android:name=".CreateAQuiz" />
         <activity android:name=".QuizMultiChoicePool" />
-        <activity android:name=".QuizMultiChoiceDetail"></activity>
-	      <activity android:name=".MovieActivity" />
-
+        <activity android:name=".QuizMultiChoiceDetail" />
+        <activity android:name=".MovieActivity" />
+        <activity android:name=".OCTranspoActivity"></activity>
     </application>
 
 </manifest>
