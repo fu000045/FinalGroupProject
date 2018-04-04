@@ -47,5 +47,5 @@
 
     <string name="movie_dialog_message">Delete this movie? Can\'t restore!</string>
     <string name="movie_dialog_title">DELETE</string>
-
+    <string name="button_delete_this_movie">button delete this movie</string>
 </resources>

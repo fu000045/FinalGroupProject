@@ -51,7 +51,7 @@
             android:id="@+id/delete_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="delete this movie"
+            android:text="@string/button_delete_this_movie"
             android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
