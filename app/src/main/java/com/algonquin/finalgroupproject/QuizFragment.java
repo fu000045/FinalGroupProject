@@ -19,7 +19,7 @@ import android.widget.EditText;
  * Created by Yali Fu on 3/24/2018.
  */
 
-public class QuizMultiChoiceFragment extends Fragment {
+public class QuizFragment extends Fragment {
 
     //used to judge if it's a tablet or phone
     public boolean isTablet;
@@ -61,7 +61,7 @@ public class QuizMultiChoiceFragment extends Fragment {
             btn_update = view.findViewById(R.id.update_question);
             btn_delete = view.findViewById(R.id.delete_question);
 
-            //Get message passed by QuizMultiChoicePool
+            //Get message passed by QuizPool
             final String questionType = bundle.getString("QuestionType");
             String question = bundle.getString("Question");
             String answerA = bundle.getString("AnswerA");
@@ -142,7 +142,7 @@ public class QuizMultiChoiceFragment extends Fragment {
                             || (newAnsC.isEmpty() || newAnsC.trim().isEmpty())
                             || (newAnsD.isEmpty() || newAnsD.trim().isEmpty())){
                         AlertDialog.Builder builder =
-                                new AlertDialog.Builder(QuizMultiChoiceFragment.this.getActivity());
+                                new AlertDialog.Builder(QuizFragment.this.getActivity());
                         builder.setMessage(R.string.quiz_multichoice_dialog_message)
                                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
@@ -161,7 +161,7 @@ public class QuizMultiChoiceFragment extends Fragment {
                         newCrt = "D";
                     }
                     if(isTablet) {
-                        QuizMultiChoicePool quizpool = (QuizMultiChoicePool)getActivity();
+                        QuizPool quizpool = (QuizPool)getActivity();
                         quizpool.addForTablet(questionType, Id, newQues, newAnsA, newAnsB, newAnsC, newAnsD, newCrt);
                     } else {
                         Intent resultIntent = new Intent();
@@ -198,7 +198,7 @@ public class QuizMultiChoiceFragment extends Fragment {
                         newCrt = "D";
                     }
                     if(isTablet) {
-                        QuizMultiChoicePool quizpool = (QuizMultiChoicePool)getActivity();
+                        QuizPool quizpool = (QuizPool)getActivity();
                         quizpool.updateForTablet(questionType, Id, newQues, newAnsA, newAnsB, newAnsC, newAnsD, newCrt);
                     } else {
                         Intent resultIntent = new Intent();
@@ -219,7 +219,7 @@ public class QuizMultiChoiceFragment extends Fragment {
             btn_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(QuizMultiChoiceFragment.this.getActivity());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QuizFragment.this.getActivity());
                     // 2. Chain together various setter methods to set the dialog characteristics
                     builder.setMessage(R.string.quiz_dialog_message)
                             .setTitle(R.string.quiz_dialog_title)
@@ -227,7 +227,7 @@ public class QuizMultiChoiceFragment extends Fragment {
                                 public void onClick(DialogInterface dialog, int id) {
                                     // User clicked OK button to end the activity and go back to the previous activity
                                     if(isTablet) {
-                                        QuizMultiChoicePool quizpool = (QuizMultiChoicePool)getActivity();
+                                        QuizPool quizpool = (QuizPool)getActivity();
                                         quizpool.deleteForTablet(questionType, Id);
                                     } else {
                                         Intent resultIntent = new Intent();
@@ -256,7 +256,7 @@ public class QuizMultiChoiceFragment extends Fragment {
             btn_update = view.findViewById(R.id.update_question);
             btn_delete = view.findViewById(R.id.delete_question);
 
-            //Get message passed by QuizMultiChoicePool
+            //Get message passed by QuizPool
             final String questionType = bundle.getString("QuestionType");
             String question = bundle.getString("Question");
             String correct = bundle.getString("Correct");
@@ -298,7 +298,7 @@ public class QuizMultiChoiceFragment extends Fragment {
                     if((newQues.isEmpty() || newQues.trim().isEmpty())
                             || (check_answerA.isChecked()==false &&check_answerB.isChecked()==false)){
                         AlertDialog.Builder builder =
-                                new AlertDialog.Builder(QuizMultiChoiceFragment.this.getActivity());
+                                new AlertDialog.Builder(QuizFragment.this.getActivity());
                         builder.setMessage(R.string.quiz_multichoice_dialog_message)
                                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
@@ -313,7 +313,7 @@ public class QuizMultiChoiceFragment extends Fragment {
                         newCrt = "False";
                     }
                     if(isTablet) {
-                        QuizMultiChoicePool quizpool = (QuizMultiChoicePool)getActivity();
+                        QuizPool quizpool = (QuizPool)getActivity();
                         quizpool.addForTablet(questionType, Id, newQues, null, null, null, null, newCrt);
                     } else {
                         Intent resultIntent = new Intent();
@@ -338,7 +338,7 @@ public class QuizMultiChoiceFragment extends Fragment {
                         newCrt = "False";
                     }
                     if(isTablet) {
-                        QuizMultiChoicePool quizpool = (QuizMultiChoicePool)getActivity();
+                        QuizPool quizpool = (QuizPool)getActivity();
                         quizpool.updateForTablet(questionType, Id, newQues, null, null, null, null, newCrt);
                     } else {
                         Intent resultIntent = new Intent();
@@ -355,7 +355,7 @@ public class QuizMultiChoiceFragment extends Fragment {
             btn_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(QuizMultiChoiceFragment.this.getActivity());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QuizFragment.this.getActivity());
                     // 2. Chain together various setter methods to set the dialog characteristics
                     builder.setMessage(R.string.quiz_dialog_message)
                             .setTitle(R.string.quiz_dialog_title)
@@ -363,7 +363,7 @@ public class QuizMultiChoiceFragment extends Fragment {
                                 public void onClick(DialogInterface dialog, int id) {
                                     // User clicked OK button to end the activity and go back to the previous activity
                                     if(isTablet) {
-                                        QuizMultiChoicePool quizpool = (QuizMultiChoicePool)getActivity();
+                                        QuizPool quizpool = (QuizPool)getActivity();
                                         quizpool.deleteForTablet(questionType, Id);
                                     } else {
                                         Intent resultIntent = new Intent();
@@ -392,7 +392,7 @@ public class QuizMultiChoiceFragment extends Fragment {
             btn_update = view.findViewById(R.id.update_question);
             btn_delete = view.findViewById(R.id.delete_question);
 
-            //Get message passed by QuizMultiChoicePool
+            //Get message passed by QuizPool
             final String questionType = bundle.getString("QuestionType");
             String question = bundle.getString("Question");
             String answerA = bundle.getString("AnswerA");
@@ -418,7 +418,7 @@ public class QuizMultiChoiceFragment extends Fragment {
                             || (newAnsA.isEmpty() || newAnsA.trim().isEmpty())
                             || (newCrt.isEmpty() || newCrt.trim().isEmpty())){
                         AlertDialog.Builder builder =
-                                new AlertDialog.Builder(QuizMultiChoiceFragment.this.getActivity());
+                                new AlertDialog.Builder(QuizFragment.this.getActivity());
                         builder.setMessage(R.string.quiz_multichoice_dialog_message)
                                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
@@ -428,7 +428,7 @@ public class QuizMultiChoiceFragment extends Fragment {
                     }
 
                     if(isTablet) {
-                        QuizMultiChoicePool quizpool = (QuizMultiChoicePool)getActivity();
+                        QuizPool quizpool = (QuizPool)getActivity();
                         quizpool.addForTablet(questionType, Id, newQues, newAnsA, null, null, null, newCrt);
                     } else {
                         Intent resultIntent = new Intent();
@@ -450,7 +450,7 @@ public class QuizMultiChoiceFragment extends Fragment {
                     String newAnsA = text_answerA.getText().toString();
                     String newCrt = text_correct.getText().toString();
                     if(isTablet) {
-                        QuizMultiChoicePool quizpool = (QuizMultiChoicePool)getActivity();
+                        QuizPool quizpool = (QuizPool)getActivity();
                         quizpool.updateForTablet(questionType, Id, newQues, newAnsA, null, null, null, newCrt);
                     } else {
                         Intent resultIntent = new Intent();
@@ -468,7 +468,7 @@ public class QuizMultiChoiceFragment extends Fragment {
             btn_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(QuizMultiChoiceFragment.this.getActivity());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(QuizFragment.this.getActivity());
                     // 2. Chain together various setter methods to set the dialog characteristics
                     builder.setMessage(R.string.quiz_dialog_message)
                             .setTitle(R.string.quiz_dialog_title)
@@ -476,7 +476,7 @@ public class QuizMultiChoiceFragment extends Fragment {
                                 public void onClick(DialogInterface dialog, int id) {
                                     // User clicked OK button to end the activity and go back to the previous activity
                                     if(isTablet) {
-                                        QuizMultiChoicePool quizpool = (QuizMultiChoicePool)getActivity();
+                                        QuizPool quizpool = (QuizPool)getActivity();
                                         quizpool.deleteForTablet(questionType, Id);
                                     } else {
                                         Intent resultIntent = new Intent();
