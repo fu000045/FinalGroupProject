@@ -4,7 +4,7 @@
     android:id="@+id/Quiz_MultiChoice_Framlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.algonquin.finalgroupproject.QuizMultiChoiceDetail">
+    tools:context="com.algonquin.finalgroupproject.QuizDetail">
 
 
 </FrameLayout>

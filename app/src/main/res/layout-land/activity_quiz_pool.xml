@@ -1,0 +1,59 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<ScrollView android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:fillViewport="true"-->
+<!--xmlns:android="http://schemas.android.com/apk/res/android" >-->
+
+<RelativeLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <ListView
+            android:id="@+id/listview_multichoice"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"/>
+
+        <ListView
+            android:id="@+id/listview_truefalse"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/listview_multichoice" />
+
+        <ListView
+            android:id="@+id/listview_numeric"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/listview_truefalse" />
+
+        <ProgressBar
+            android:id="@+id/progressBar_Quiz"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_below="@+id/listview_numeric"
+            style="?android:attr/progressBarStyleHorizontal" />
+
+        <Button
+            android:id="@+id/button_addQuestion"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/listview_multichoice"
+            android:text="@string/button_addQuestion" />
+
+        <FrameLayout
+            android:id="@+id/tablet_framelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/listview_multichoice">
+        </FrameLayout>
+
+</RelativeLayout>
+
+    <!--</ScrollView>-->
