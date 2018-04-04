@@ -496,13 +496,6 @@ public class QuizMultiChoiceFragment extends Fragment {
             });
         }
 
-
-
-
-
-
-
-
         return view;
     }
 

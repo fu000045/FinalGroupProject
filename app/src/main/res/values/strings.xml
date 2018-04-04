@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FinalProject</string>
     <string name="toast_quiz">Quiz Creater Selected!</string>
-    <string name="ButtonQuiz">Multiple Choice Quiz Creater</string>
+    <string name="quiz_creater">Quiz Creater</string>
     <string name="button_addQuestion">ADD</string>
     <string name="button_updateQuestion">UPDATE</string>
     <string name="quiz_dialog_message">Delete this question? Can\'t restore!</string>

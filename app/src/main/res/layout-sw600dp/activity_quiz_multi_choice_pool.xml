@@ -1,125 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.algonquin.finalgroupproject.QuizMultiChoicePool">
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <ListView
-        android:id="@+id/listview_quizpool"
-        android:layout_width="500dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/progressBar_Quiz" />
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
 
-    <ProgressBar
-        android:id="@+id/progressBar_Quiz"
-        android:layout_width="500dp"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:layout_above="@+id/edittext_newQuiz"
-        style="?android:attr/progressBarStyleHorizontal" />
+        <ListView
+            android:id="@+id/listview_multichoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Question:"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/edittext_A" />
+        <ListView
+            android:id="@+id/listview_truefalse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/listview_multichoice" />
 
-    <EditText
-        android:id="@+id/edittext_newQuiz"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/edittext_A"
-        android:layout_toLeftOf="@+id/button_addQuestion" />
+        <ListView
+            android:id="@+id/listview_numeric"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/listview_truefalse" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Answer A:"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/edittext_B"/>
+        <ProgressBar
+            android:id="@+id/progressBar_Quiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_below="@+id/listview_numeric"
+            style="?android:attr/progressBarStyleHorizontal" />
 
-    <EditText
-        android:id="@+id/edittext_A"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/edittext_B"
-        android:layout_toLeftOf="@+id/button_addQuestion" />
+        <Button
+            android:id="@+id/button_addQuestion"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/listview_multichoice"
+            android:text="@string/button_addQuestion" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Answer B:"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/edittext_C"/>
+        <FrameLayout
+            android:id="@+id/tablet_framelayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/listview_multichoice"
+            android:layout_alignParentEnd="true">
+        </FrameLayout>
 
-    <EditText
-        android:id="@+id/edittext_B"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/edittext_C"
-        android:layout_toLeftOf="@+id/button_addQuestion" />
+    </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Answer C:"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/edittext_D"/>
 
-    <EditText
-        android:id="@+id/edittext_C"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/edittext_D"
-        android:layout_toLeftOf="@+id/button_addQuestion" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Answer D:"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/edittext_correct"/>
-
-    <EditText
-        android:id="@+id/edittext_D"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/edittext_correct"
-        android:layout_toLeftOf="@+id/button_addQuestion" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correct \nAnswer:"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"/>
-
-    <EditText
-        android:id="@+id/edittext_correct"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/button_addQuestion" />
-
-    <Button
-        android:id="@+id/button_addQuestion"
-        android:layout_width="95dp"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/tablet_framelayout"
-        android:layout_alignEnd="@+id/listview_quizpool"
-        android:layout_alignParentBottom="true"
-        android:text="@string/button_addQuestion" />
-
-    <FrameLayout
-        android:id="@+id/tablet_framelayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/listview_quizpool"
-        android:layout_alignParentEnd="true">
-    </FrameLayout>
-
-</RelativeLayout>
+</ScrollView>

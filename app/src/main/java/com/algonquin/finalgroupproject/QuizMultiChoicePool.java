@@ -27,7 +27,6 @@ public class QuizMultiChoicePool extends Activity {
     private ListView listview_multichoice;
     private ListView listview_truefalse;
     private ListView listview_numeric;
-//    private ArrayList<ArrayList<String>> quizPool = new ArrayList<>();
     private ProgressBar progressBar;
     private Button btn_addQues;
     private boolean isTablet = false;
@@ -97,12 +96,6 @@ public class QuizMultiChoicePool extends Activity {
             oneQuestion.add(answerC);
             oneQuestion.add(answerD);
             oneQuestion.add(correct);
-            //for debug
-//            Log.i("QuizMultiChoicePool", "SQL QUESTION:" + question );
-//            Log.i("QuizMultiChoicePool", "SQL ANSWERA:" + answerA );
-//            Log.i("QuizMultiChoicePool", "SQL ANSWERB:" + answerB );
-//            Log.i("QuizMultiChoicePool", "SQL ANSWERC:" + answerC );
-//            Log.i("QuizMultiChoicePool", "SQL ANSWERD:" + answerD );
 
             //update progress bar
             counter++;

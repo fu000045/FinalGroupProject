@@ -17,8 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QuizCreatorActivity" />
-        <activity android:name=".CreateAQuiz" />
+        <activity android:name=".QuizCreatorActivity"/>
         <activity android:name=".QuizMultiChoicePool" />
         <activity android:name=".QuizMultiChoiceDetail"></activity>
 
