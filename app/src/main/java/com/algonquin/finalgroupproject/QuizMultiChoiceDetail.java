@@ -12,7 +12,6 @@ public class QuizMultiChoiceDetail extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_multi_choice_detail);
 
-
         Bundle bundle = getIntent().getBundleExtra("QuizMultiChoiceDetail");
 
         //start a FragmentTransaction to add a fragment to the FrameLayout
