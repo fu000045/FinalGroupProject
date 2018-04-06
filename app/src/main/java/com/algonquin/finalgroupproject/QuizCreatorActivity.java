@@ -74,7 +74,9 @@ public class QuizCreatorActivity extends AppCompatActivity {
         btn_quizStat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //Jump to QuizStat Activity.
+                Intent intent = new Intent(QuizCreatorActivity.this, QuizStat.class);
+                startActivity(intent);
             }
         });
 

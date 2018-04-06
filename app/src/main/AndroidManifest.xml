@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.algonquin.finalgroupproject">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -20,7 +21,8 @@
         <activity android:name=".QuizCreatorActivity" />
         <activity android:name=".QuizPool" />
         <activity android:name=".QuizDetail" />
-        <activity android:name=".QuizParser"></activity>
+        <activity android:name=".QuizParser" />
+        <activity android:name=".QuizStat"></activity>
     </application>
 
 </manifest>

@@ -34,7 +34,7 @@ public class QuizPool extends Activity {
     private QuizPoolDatabaseHelper dbHelper;
     private SQLiteDatabase db = null;
     private Cursor c;
-    private Bundle bundle = new Bundle();;
+    private Bundle bundle = new Bundle();
 
     QuizFragment quizFragment = new QuizFragment();
 
