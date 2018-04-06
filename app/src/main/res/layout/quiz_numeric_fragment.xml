@@ -4,10 +4,20 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quiz_numeric"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimary"/>
+
+    <TextView
         android:id="@+id/tv_ques"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/quiz_pool_question"
+        android:layout_below="@+id/title"
         android:layout_marginBottom="20dp" />
 
     <EditText
