@@ -73,7 +73,10 @@ public class QuizFragment extends Fragment {
 
             if(question == null){
                 Log.i("fragment", "add question");
+                btn_update.setVisibility(View.INVISIBLE);
+                btn_delete.setVisibility(View.INVISIBLE);
             }else{
+                btn_add.setVisibility(View.INVISIBLE);
                 questionMultiChoice.setText(question);
                 text_answerA.setText(answerA);
                 text_answerB.setText(answerB);
@@ -264,7 +267,10 @@ public class QuizFragment extends Fragment {
 
             if(question == null){
                 Log.i("fragment", "add question");
+                btn_update.setVisibility(View.INVISIBLE);
+                btn_delete.setVisibility(View.INVISIBLE);
             }else{
+                btn_add.setVisibility(View.INVISIBLE);
                 questionMultiChoice.setText(question);
                 if(correct.equalsIgnoreCase("True")){
                     check_answerA.setChecked(true);
@@ -401,7 +407,10 @@ public class QuizFragment extends Fragment {
 
             if(question == null){
                 Log.i("fragment", "add question");
+                btn_update.setVisibility(View.INVISIBLE);
+                btn_delete.setVisibility(View.INVISIBLE);
             }else{
+                btn_add.setVisibility(View.INVISIBLE);
                 questionMultiChoice.setText(question);
                 text_answerA.setText(answerA);
                 text_correct.setText(correct);

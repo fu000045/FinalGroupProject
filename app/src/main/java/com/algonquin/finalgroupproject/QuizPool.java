@@ -34,6 +34,7 @@ public class QuizPool extends Activity {
     private QuizPoolDatabaseHelper dbHelper;
     private SQLiteDatabase db = null;
     private Cursor c;
+    private Bundle bundle = new Bundle();;
 
     QuizFragment quizFragment = new QuizFragment();
 
@@ -149,7 +150,7 @@ public class QuizPool extends Activity {
         numericAdapter.notifyDataSetChanged();
 
 
-        //when click ADD button, clear the edit text and add the new message into database, update listview as well
+        //when click ADD button, clear the edit text and add the new question into database, update listview as well
         btn_addQues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -240,7 +241,6 @@ public class QuizPool extends Activity {
 
                 //a bundle is used to pass message
                 //pass data to fragment
-                Bundle bundle = new Bundle();
                 bundle.putString("QuestionType", "MultiChoice");
                 bundle.putString("Question", question);
                 bundle.putString("AnswerA", answerA);
@@ -281,7 +281,6 @@ public class QuizPool extends Activity {
 
                 //a bundle is used to pass message
                 //pass data to fragment
-                Bundle bundle = new Bundle();
                 bundle.putString("QuestionType", "TrueFalse");
                 bundle.putString("Question", question);
                 bundle.putString("Correct", correct);
@@ -319,7 +318,6 @@ public class QuizPool extends Activity {
 
                 //a bundle is used to pass message
                 //pass data to fragment
-                Bundle bundle = new Bundle();
                 bundle.putString("QuestionType", "Numeric");
                 bundle.putString("Question", question);
                 bundle.putString("AnswerA", answerA);
@@ -411,7 +409,7 @@ public class QuizPool extends Activity {
                     query = "DELETE FROM " + tableName_numeric +" WHERE " + keyID + " = " + id + ";";
                 }
                 db.execSQL(query);
-                truefalseAdapter.notifyDataSetChanged();
+                numericAdapter.notifyDataSetChanged();
             }
         }
 

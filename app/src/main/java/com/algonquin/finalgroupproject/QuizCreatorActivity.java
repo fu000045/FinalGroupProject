@@ -16,6 +16,7 @@ public class QuizCreatorActivity extends AppCompatActivity {
     LinearLayout linearlayout;
     Button btn_createAQuiz;
     Button btn_viewQuizPool;
+    Button btn_quizImport;
     Button btn_quizStat;
     Button btn_quizHelp;
 
@@ -28,6 +29,7 @@ public class QuizCreatorActivity extends AppCompatActivity {
         linearlayout = findViewById(R.id.linearlayout);
         btn_createAQuiz = findViewById(R.id.Create_Quiz);
         btn_viewQuizPool = findViewById(R.id.View_Quiz_Pool);
+        btn_quizImport = findViewById(R.id.Quiz_Import);
         btn_quizStat = findViewById(R.id.Quiz_Statistics);
         btn_quizHelp = findViewById(R.id.Quiz_help);
 
@@ -54,8 +56,17 @@ public class QuizCreatorActivity extends AppCompatActivity {
         btn_viewQuizPool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Jump to QuizCreaterActivity.
+                //Jump to QuizPool Activity.
                 Intent intent = new Intent(QuizCreatorActivity.this, QuizPool.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_quizImport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Jump to QuizParser Activity.
+                Intent intent = new Intent(QuizCreatorActivity.this, QuizParser.class);
                 startActivity(intent);
             }
         });

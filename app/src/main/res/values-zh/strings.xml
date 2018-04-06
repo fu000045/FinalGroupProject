@@ -2,6 +2,9 @@
 <resources>
     <string name="app_name">毕业设计</string>
     <string name="toast_quiz">已选择测试题产生器!</string>
+    <string name="toast_quizMultiChoiceParser">题库中已有此多选题</string>
+    <string name="toast_quizTFParser">题库中已有此是否题</string>
+    <string name="toast_quizNumericParser">题库中已有此数字题</string>
     <string name="ButtonQuiz">多选题测试题库</string>
     <string name="button_addQuestion">新增</string>
     <string name="button_updateQuestion">更新</string>
