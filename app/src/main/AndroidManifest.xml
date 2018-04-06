@@ -18,8 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".QuizCreatorActivity"/>
-        <activity android:name=".QuizMultiChoicePool" />
-        <activity android:name=".QuizMultiChoiceDetail"></activity>
+        <activity android:name=".QuizPool" />
+        <activity android:name=".QuizDetail"></activity>
 
     </application>
 

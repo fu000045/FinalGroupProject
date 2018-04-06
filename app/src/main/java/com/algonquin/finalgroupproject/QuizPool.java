@@ -1,7 +1,6 @@
 package com.algonquin.finalgroupproject;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -22,7 +21,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class QuizMultiChoicePool extends Activity {
+public class QuizPool extends Activity {
 
     private ListView listview_multichoice;
     private ListView listview_truefalse;
@@ -36,7 +35,7 @@ public class QuizMultiChoicePool extends Activity {
     private SQLiteDatabase db = null;
     private Cursor c;
 
-    QuizMultiChoiceFragment quizMultiChoiceFragment = new QuizMultiChoiceFragment();
+    QuizFragment quizFragment = new QuizFragment();
 
     //in this case, “this” is the ChatWindow, which is-A Context object
     MultichoiceAdapter multichoiceAdapter;
@@ -58,7 +57,7 @@ public class QuizMultiChoicePool extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_multi_choice_pool);
+        setContentView(R.layout.activity_quiz_pool);
 
         dbHelper = new QuizPoolDatabaseHelper(this);
         db = dbHelper.getWritableDatabase();
@@ -154,24 +153,24 @@ public class QuizMultiChoicePool extends Activity {
         btn_addQues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(QuizMultiChoicePool.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(QuizPool.this);
                 builder.setMessage(R.string.quiz_pool_message)
                         .setPositiveButton(R.string.quiz_multichoice, new DialogInterface.OnClickListener() {
                             Bundle bundle = new Bundle();
                             public void onClick(DialogInterface dialog, int id) {
                                 bundle.putString("QuestionType", "MultiChoice");
                                 if(isTablet){//for tablet
-                                    quizMultiChoiceFragment.setArguments(bundle);
+                                    quizFragment.setArguments(bundle);
                                     //tell the MessageFragment this is a tablet
-                                    quizMultiChoiceFragment.setIsTablet(true);
+                                    quizFragment.setIsTablet(true);
                                     //start a FragmentTransaction to add a fragment to the FrameLayout
-                                    getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout,quizMultiChoiceFragment).commit();
+                                    getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                                 }else{//for phone
                                     //tell the MessageFragment this is not a tablet
-                                    quizMultiChoiceFragment.setIsTablet(false);
+                                    quizFragment.setIsTablet(false);
                                     //Jump to MessageDetails, pass the message and id information
-                                    Intent intent = new Intent(QuizMultiChoicePool.this, QuizMultiChoiceDetail.class);
-                                    intent.putExtra("QuizMultiChoiceDetail", bundle);
+                                    Intent intent = new Intent(QuizPool.this, QuizDetail.class);
+                                    intent.putExtra("QuizDetail", bundle);
                                     startActivityForResult(intent, 820, bundle);
                                 }
                             }
@@ -181,17 +180,17 @@ public class QuizMultiChoicePool extends Activity {
                             public void onClick(DialogInterface dialog, int id) {
                                 bundle.putString("QuestionType", "TrueFalse");
                                 if(isTablet){//for tablet
-                                    quizMultiChoiceFragment.setArguments(bundle);
+                                    quizFragment.setArguments(bundle);
                                     //tell the MessageFragment this is a tablet
-                                    quizMultiChoiceFragment.setIsTablet(true);
+                                    quizFragment.setIsTablet(true);
                                     //start a FragmentTransaction to add a fragment to the FrameLayout
-                                    getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout,quizMultiChoiceFragment).commit();
+                                    getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                                 }else{//for phone
                                     //tell the MessageFragment this is not a tablet
-                                    quizMultiChoiceFragment.setIsTablet(false);
+                                    quizFragment.setIsTablet(false);
                                     //Jump to MessageDetails, pass the message and id information
-                                    Intent intent = new Intent(QuizMultiChoicePool.this, QuizMultiChoiceDetail.class);
-                                    intent.putExtra("QuizMultiChoiceDetail", bundle);
+                                    Intent intent = new Intent(QuizPool.this, QuizDetail.class);
+                                    intent.putExtra("QuizDetail", bundle);
                                     startActivityForResult(intent, 820, bundle);
                                 }
                             }
@@ -201,17 +200,17 @@ public class QuizMultiChoicePool extends Activity {
                             public void onClick(DialogInterface dialog, int id) {
                                 bundle.putString("QuestionType", "Numeric");
                                 if(isTablet){//for tablet
-                                    quizMultiChoiceFragment.setArguments(bundle);
+                                    quizFragment.setArguments(bundle);
                                     //tell the MessageFragment this is a tablet
-                                    quizMultiChoiceFragment.setIsTablet(true);
+                                    quizFragment.setIsTablet(true);
                                     //start a FragmentTransaction to add a fragment to the FrameLayout
-                                    getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout,quizMultiChoiceFragment).commit();
+                                    getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                                 }else{//for phone
                                     //tell the MessageFragment this is not a tablet
-                                    quizMultiChoiceFragment.setIsTablet(false);
+                                    quizFragment.setIsTablet(false);
                                     //Jump to MessageDetails, pass the message and id information
-                                    Intent intent = new Intent(QuizMultiChoicePool.this, QuizMultiChoiceDetail.class);
-                                    intent.putExtra("QuizMultiChoiceDetail", bundle);
+                                    Intent intent = new Intent(QuizPool.this, QuizDetail.class);
+                                    intent.putExtra("QuizDetail", bundle);
                                     startActivityForResult(intent, 820, bundle);
                                 }
                             }
@@ -252,17 +251,17 @@ public class QuizMultiChoicePool extends Activity {
                 bundle.putLong("ID", Id);
 
                 if(isTablet){//for tablet
-                    quizMultiChoiceFragment.setArguments(bundle);
+                    quizFragment.setArguments(bundle);
                     //tell the MessageFragment this is a tablet
-                    quizMultiChoiceFragment.setIsTablet(true);
+                    quizFragment.setIsTablet(true);
                     //start a FragmentTransaction to add a fragment to the FrameLayout
-                    getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout,quizMultiChoiceFragment).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                 }else{//for phone
                     //tell the MessageFragment this is not a tablet
-                    quizMultiChoiceFragment.setIsTablet(false);
+                    quizFragment.setIsTablet(false);
                     //Jump to MessageDetails, pass the message and id information
-                    Intent intent = new Intent(QuizMultiChoicePool.this, QuizMultiChoiceDetail.class);
-                    intent.putExtra("QuizMultiChoiceDetail", bundle);
+                    Intent intent = new Intent(QuizPool.this, QuizDetail.class);
+                    intent.putExtra("QuizDetail", bundle);
                     startActivityForResult(intent, 820, bundle);
                 }
 
@@ -289,17 +288,17 @@ public class QuizMultiChoicePool extends Activity {
                 bundle.putLong("ID", Id);
 
                 if(isTablet){//for tablet
-                    quizMultiChoiceFragment.setArguments(bundle);
+                    quizFragment.setArguments(bundle);
                     //tell the MessageFragment this is a tablet
-                    quizMultiChoiceFragment.setIsTablet(true);
+                    quizFragment.setIsTablet(true);
                     //start a FragmentTransaction to add a fragment to the FrameLayout
-                    getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout,quizMultiChoiceFragment).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                 }else{//for phone
                     //tell the MessageFragment this is not a tablet
-                    quizMultiChoiceFragment.setIsTablet(false);
+                    quizFragment.setIsTablet(false);
                     //Jump to MessageDetails, pass the message and id information
-                    Intent intent = new Intent(QuizMultiChoicePool.this, QuizMultiChoiceDetail.class);
-                    intent.putExtra("QuizMultiChoiceDetail", bundle);
+                    Intent intent = new Intent(QuizPool.this, QuizDetail.class);
+                    intent.putExtra("QuizDetail", bundle);
                     startActivityForResult(intent, 820, bundle);
                 }
 
@@ -328,17 +327,17 @@ public class QuizMultiChoicePool extends Activity {
                 bundle.putLong("ID", Id);
 
                 if(isTablet){//for tablet
-                    quizMultiChoiceFragment.setArguments(bundle);
+                    quizFragment.setArguments(bundle);
                     //tell the MessageFragment this is a tablet
-                    quizMultiChoiceFragment.setIsTablet(true);
+                    quizFragment.setIsTablet(true);
                     //start a FragmentTransaction to add a fragment to the FrameLayout
-                    getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout,quizMultiChoiceFragment).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                 }else{//for phone
                     //tell the MessageFragment this is not a tablet
-                    quizMultiChoiceFragment.setIsTablet(false);
+                    quizFragment.setIsTablet(false);
                     //Jump to MessageDetails, pass the message and id information
-                    Intent intent = new Intent(QuizMultiChoicePool.this, QuizMultiChoiceDetail.class);
-                    intent.putExtra("QuizMultiChoiceDetail", bundle);
+                    Intent intent = new Intent(QuizPool.this, QuizDetail.class);
+                    intent.putExtra("QuizDetail", bundle);
                     startActivityForResult(intent, 820, bundle);
                 }
 
@@ -489,7 +488,7 @@ public class QuizMultiChoicePool extends Activity {
             numericAdapter.notifyDataSetChanged();
         }
 
-        getFragmentManager().beginTransaction().remove(quizMultiChoiceFragment).commit();
+        getFragmentManager().beginTransaction().remove(quizFragment).commit();
     }
 
     @Override
@@ -504,7 +503,7 @@ public class QuizMultiChoicePool extends Activity {
             super(ctx, 0);
         }
 
-        LayoutInflater inflater = QuizMultiChoicePool.this.getLayoutInflater();
+        LayoutInflater inflater = QuizPool.this.getLayoutInflater();
         @Override
         public View getView(int position, View convertView, ViewGroup parent){
             View result;
@@ -585,7 +584,7 @@ public class QuizMultiChoicePool extends Activity {
             super(ctx, 0);
         }
 
-        LayoutInflater inflater = QuizMultiChoicePool.this.getLayoutInflater();
+        LayoutInflater inflater = QuizPool.this.getLayoutInflater();
         @Override
         public View getView(int position, View convertView, ViewGroup parent){
             View result;
@@ -652,7 +651,7 @@ public class QuizMultiChoicePool extends Activity {
             super(ctx, 0);
         }
 
-        LayoutInflater inflater = QuizMultiChoicePool.this.getLayoutInflater();
+        LayoutInflater inflater = QuizPool.this.getLayoutInflater();
         @Override
         public View getView(int position, View convertView, ViewGroup parent){
             View result;
