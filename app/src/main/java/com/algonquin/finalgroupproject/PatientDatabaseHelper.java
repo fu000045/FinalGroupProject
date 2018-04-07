@@ -17,21 +17,23 @@ public class PatientDatabaseHelper extends SQLiteOpenHelper {
 
     //public final static String TABLE_NAME = "chatTable";
     public final static String KEY_ID = "id";
-    public final static String KEY_MESSAGE = "message";
+   // public final static String KEY_MESSAGE = "message";
     public final static String KEY_NAME = "name";
     public final static String KEY_ADDRESS = "address";
     public final static String KEY_BOD = "birthday";
     public final static String KEY_PHONE = "phoneNumber";
     public final static String KEY_CARD = "healthCardNumber";
-    public final static String KEY_DES = "description";
+    public final static String KEY_DOC = "doctor";
+    public final static String KEY_DEN = "dentist";
+    public final static String KEY_OPT = "optometrist";
 
 
     private static final String createDoctorOfficeTable = "CREATE TABLE "
-            + "doctorTable" +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_NAME+" TEXT, "+KEY_ADDRESS+" TEXT, "+KEY_BOD+" TEXT, "+KEY_PHONE+" TEXT, "+KEY_CARD+" TEXT, "+KEY_DES+" TEXT);";
+            + "doctorTable" +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_NAME+" TEXT, "+KEY_ADDRESS+" TEXT, "+KEY_BOD+" TEXT, "+KEY_PHONE+" TEXT, "+KEY_CARD+" TEXT, "+KEY_DOC+" TEXT);";
     private static final String createDentistTable = "CREATE TABLE "
-            + "dentistTable" +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_NAME+" TEXT, "+KEY_ADDRESS+" TEXT, "+KEY_BOD+" TEXT, "+KEY_PHONE+" TEXT, "+KEY_CARD+" TEXT, "+KEY_DES+" TEXT);";
+            + "dentistTable" +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_NAME+" TEXT, "+KEY_ADDRESS+" TEXT, "+KEY_BOD+" TEXT, "+KEY_PHONE+" TEXT, "+KEY_CARD+" TEXT, "+KEY_DEN+" TEXT);";
     private static final String createOptometristTable = "CREATE TABLE "
-            + "optometristTable" +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_NAME+" TEXT, "+KEY_ADDRESS+" TEXT, "+KEY_BOD+" TEXT, "+KEY_PHONE+" TEXT, "+KEY_CARD+" TEXT, "+KEY_DES+" TEXT);";
+            + "optometristTable" +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_NAME+" TEXT, "+KEY_ADDRESS+" TEXT, "+KEY_BOD+" TEXT, "+KEY_PHONE+" TEXT, "+KEY_CARD+" TEXT, "+KEY_OPT+" TEXT);";
 //
 //    private static final String createTable =  "CREATE TABLE "
 //            + TABLE_NAME +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_MESSAGE+" text);";

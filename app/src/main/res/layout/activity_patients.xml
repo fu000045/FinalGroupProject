@@ -6,22 +6,23 @@
     android:layout_height="match_parent"
     tools:context="com.algonquin.finalgroupproject.PatientsActivity">
 
-    <RelativeLayout android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        android:orientation="vertical">
 
         <ListView
-        android:id="@+id/list_doctor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-         </ListView>
+            android:id="@+id/list_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+        </ListView>
 
         <ListView
             android:id="@+id/list_dentist"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/list_doctor">
@@ -34,65 +35,165 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/list_dentist">
+
         </ListView>
 
-        <Button
-            android:id="@+id/btn_patient"
-           android:text="@string/add_patient"
+        <EditText
+            android:id="@+id/edit_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/list_optometrist"/>
-    <!--<ListView-->
-    <!--android:id="@+id/listView"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_alignParentTop="true"-->
-    <!--android:layout_alignParentStart="true"-->
-    <!--android:layout_alignParentEnd="true"-->
-    <!--/>-->
 
-    <!--<EditText-->
-    <!--android:id="@+id/edit_text_doctor"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!---->
-    <!--android:hint="doctor office"/>-->
-    <!--<Button-->
-    <!--android:id="@+id/doctorOffice"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!---->
-    <!--android:layout_toLeftOf="@id/dentistPatient"-->
-    <!--android:layout_below="@id/listView"-->
-    <!--android:text="doctor office"/>-->
+            android:layout_alignBottom="@+id/btn_dentist"
+            android:layout_centerHorizontal="true"
+            android:hint="name" />
 
-    <!--<EditText-->
-    <!--android:id="@+id/edit_text_dentist"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!---->
-    <!--android:hint="dentist patient"/>-->
-    <!--<Button-->
-    <!--android:id="@+id/dentistPatient"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!---->
-    <!--android:layout_toRightOf="@id/doctorOffice"-->
-    <!--android:layout_toLeftOf="@id/optometrist"-->
-    <!--android:text="dentist patient"/>-->
+        <EditText
+            android:id="@+id/edit_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-    <!--<EditText-->
-    <!--android:id="@+id/edit_text_optometrist"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!---->
-    <!--android:hint="optometrist"/>-->
-    <!--<Button-->
-    <!--android:id="@+id/optometrist"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!---->
-    <!--android:layout_toRightOf="@id/dentistPatient"-->
-    <!--android:text="optometrist"/>-->
+            android:layout_alignBottom="@+id/btn_dentist"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@+id/edit_name"
+            android:hint="address" />
+
+        <EditText
+            android:id="@+id/edit_bd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignBaseline="@+id/edit_address"
+            android:layout_alignBottom="@+id/edit_address"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="13dp"
+            android:hint="DOB" />
+
+        <EditText
+            android:id="@+id/edit_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/edit_name"
+            android:layout_toEndOf="@+id/btn_optometrist"
+            android:hint="phone number" />
+
+        <EditText
+            android:id="@+id/edit_health_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignBaseline="@+id/edit_phone"
+            android:layout_alignBottom="@+id/edit_phone"
+            android:layout_toEndOf="@+id/edit_phone"
+            android:hint="health card" />
+
+
+        <Button
+            android:id="@+id/btn_dentist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/list_optometrist"
+            android:layout_marginTop="29dp"
+            android:text="add dentist" />
+
+        <EditText
+            android:id="@+id/edit_des_dentist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/btn_doctor"
+            android:hint="description of dentist" />
+
+        <Button
+            android:id="@+id/btn_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/btn_dentist"
+            android:layout_marginTop="13dp"
+            android:text="add doctor" />
+
+        <EditText
+            android:id="@+id/edit_des_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:hint="description of doctor" />
+
+        <Button
+            android:id="@+id/btn_optometrist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/btn_doctor"
+            android:layout_marginTop="24dp"
+            android:text="add optometrist" />
+
+        <EditText
+            android:id="@+id/edit_des_optometrist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_above="@+id/edit_phone"
+            android:layout_marginBottom="24dp"
+            android:layout_toStartOf="@+id/edit_health_card"
+            android:hint="description of optometrist" />
+        <!--<ListView-->
+        <!--android:id="@+id/listView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--/>-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/edit_text_doctor"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!---->
+        <!--android:hint="doctor office"/>-->
+        <!--<Button-->
+        <!--android:id="@+id/doctorOffice"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!---->
+        <!--android:layout_toLeftOf="@id/dentistPatient"-->
+        <!--android:layout_below="@id/listView"-->
+        <!--android:text="doctor office"/>-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/edit_text_dentist"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!---->
+        <!--android:hint="dentist patient"/>-->
+        <!--<Button-->
+        <!--android:id="@+id/dentistPatient"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!---->
+        <!--android:layout_toRightOf="@id/doctorOffice"-->
+        <!--android:layout_toLeftOf="@id/optometrist"-->
+        <!--android:text="dentist patient"/>-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/edit_text_optometrist"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!---->
+        <!--android:hint="optometrist"/>-->
+        <!--<Button-->
+        <!--android:id="@+id/optometrist"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!---->
+        <!--android:layout_toRightOf="@id/dentistPatient"-->
+        <!--android:text="optometrist"/>-->
     </RelativeLayout>
+
+
 </ScrollView>
