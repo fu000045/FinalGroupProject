@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".QuizCreatorActivity" />
-        <activity android:name=".PatientIntakeFormActivity"></activity>
+        <activity android:name=".PatientIntakeFormActivity" />
+        <activity android:name=".PatientsActivity" />
+        <activity android:name=".PatientDetails"></activity>
     </application>
 
 </manifest>

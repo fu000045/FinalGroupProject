@@ -1,41 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.algonquin.finalgroupproject.PatientIntakeFormActivity">
-
     <Button
-        android:id="@+id/doctorOffice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/dentistPatient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/optometrist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ListView
-        android:id="@+id/listView"
+        android:id="@+id/button_patients"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contextClickable="true"
-        />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp"
+        android:text="create update delete patients" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="download xml file"
+        android:id="@+id/button_download" />
+
+    <Button
+        android:id="@+id/button_view_statistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="31dp"
+        android:text="view statistics" />
+
 
 
 
     <ProgressBar
         android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
-        style="?android:attr/progressBarStyleHorizontal"/>
 
+        android:layout_centerHorizontal="true"
+        android:visibility="visible" />
 
-</LinearLayout>
+</RelativeLayout>

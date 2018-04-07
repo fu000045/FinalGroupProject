@@ -3,11 +3,11 @@ package com.algonquin.finalgroupproject;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class DentistActivity extends Activity {
+public class PatientsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dentist);
+        setContentView(R.layout.activity_patients);
     }
 }
