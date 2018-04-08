@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,33 +12,38 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:descendantFocusability="blocksDescendants" />
+        android:text="@string/MovieTitle"/>
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/movie_title"
-        android:descendantFocusability="blocksDescendants" >
-
-        <RadioButton
+        <TextView
             android:id="@+id/main_actors"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <RadioButton
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/MainActors"/>
+        <TextView
             android:id="@+id/movie_length"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/movie_title"/>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/MovieLength"/>
 
-        <RadioButton
+        <TextView
             android:id="@+id/movie_genre"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <RadioButton
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/MovieGenre"/>
+        <TextView
             android:id="@+id/movie_description"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RadioGroup>
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/MovieDescription"/>
 
 
-</RelativeLayout>
+
+</LinearLayout>

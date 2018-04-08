@@ -3,15 +3,45 @@
     <string name="ButtonQuiz">Multiple Choice Quiz Creater</string>
 
     <string name="buttonMovie">Movie Information</string>
-    <string name="popularMovie">Popular Movies : </string>
+    <string name="popularMovie">Movie Information: </string>
+    <string name="getMovieFromXML">Get movies from website</string>
 
     <string name="button_Movie1">Life of Pi</string>
     <string name="button_Movie2">Zootopia</string>
     <string name="button_addMovie">Add Movie</string>
+    <string name="button_update">Update Movie</string>
 
     <string name="movie_dialog_message">Delete this movie? Can\'t restore!</string>
     <string name="movie_dialog_title">DELETE</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="button_delete_this_movie">button delete this movie</string>
+    <string name="button_delete">Delete movie</string>
+    <string name="rating">moving rating</string>
+
+    <string name="MovieTitle">Movie Title:</string>
+    <string name="MainActors">Main Actors:</string>
+    <string name="MovieLength">Movie Length:</string>
+    <string name="MovieGenre">Movie Genre:</string>
+    <string name="MovieDescription">Movie Description:</string>
+
+    <string name="title_web">Movie Title:</string>
+    <string name="actors_web">Main Actors:</string>
+    <string name="length_web">Movie Length:</string>
+    <string name="genre_web">Movie Type:</string>
+    <string name="description_web">Movie Description:</string>
+    <string name="rating_web">Rating level:</string>
+    <string name="http_web">Web address:</string>
+
+    <string name="movie_help_author">Author: Bo Zhu</string>
+    <string name="movie_help_version">Verion: V1.0</string>
+    <string name="movie_help_instruction">Instruciton: This is a movie info APP. You can view the movie list,
+                                            add, update and delete the movie. You can download a XML file
+                                            from an http server to import pre-defined questions into the
+                                            application. You can get statistics highest, lowest, and average
+                                             movie rating</string>
+    <string name="statistic">Movie Statistic</string>
+    <string name="help">Help</string>
+
+    <string name="movie_all">Popular Movie Info</string>
+
 </resources>

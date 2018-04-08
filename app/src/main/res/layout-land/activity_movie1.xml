@@ -4,22 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.algonquin.finalgroupproject.Movie1">
+    android:layout_height="match_parent">
 
     <ListView
         android:id="@+id/listview_movieInfo"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_above="@+id/progressBar_movie" />
 
     <ProgressBar
         android:id="@+id/progressBar_movie"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/edittext_movieTitle"
         android:layout_alignParentEnd="true"
@@ -27,12 +25,12 @@
         android:visibility="visible" />
 
     <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Movie No.:"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_above="@+id/edittext_movieTitle"-->
-        <!--android:layout_toLeftOf="@+id/edittext_newMovie"/>-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Movie No.:"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_above="@+id/edittext_movieTitle"-->
+    <!--android:layout_toLeftOf="@+id/edittext_newMovie"/>-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,6 +44,7 @@
         android:id="@+id/edittext_movieTitle"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/listview_movieInfo"
         android:layout_above="@+id/edittext_mainActors"
         android:layout_toLeftOf="@+id/button_addMovie"/>
 
@@ -61,6 +60,7 @@
         android:id="@+id/edittext_mainActors"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/listview_movieInfo"
         android:layout_above="@+id/edittext_length"
         android:layout_toLeftOf="@+id/button_addMovie"/>
 
@@ -75,6 +75,7 @@
         android:id="@+id/edittext_length"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/listview_movieInfo"
         android:layout_above="@+id/edittext_genre"
         android:layout_toLeftOf="@+id/button_addMovie"/>
 
@@ -92,6 +93,7 @@
         android:id="@+id/edittext_genre"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/listview_movieInfo"
         android:layout_above="@+id/edittext_description"
         android:layout_toLeftOf="@+id/button_addMovie"/>
 
@@ -108,6 +110,7 @@
         android:id="@+id/edittext_description"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/listview_movieInfo"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/button_addMovie"/>
 
@@ -115,7 +118,15 @@
         android:id="@+id/button_addMovie"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_toLeftOf="@+id/movie_Framelayout"
+        android:layout_alignEnd="@+id/listview_movieInfo"
         android:layout_alignParentBottom="true"
         android:text="@string/button_addMovie" />
+
+    <FrameLayout
+        android:id="@+id/movie_Framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/listview_movieInfo"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

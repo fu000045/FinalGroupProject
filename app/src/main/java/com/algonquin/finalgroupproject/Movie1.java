@@ -32,17 +32,23 @@ public class Movie1 extends Activity {
     private TextView txt_genre;
     private TextView txt_description;
 
+    //   private String ACTIVITY_NAME = "Movie1";
+//    private boolean isTablet = false;
+//    private Cursor c;
+
     //get a writable database
     private MovieDatabaseHelper dbHelper;
     private SQLiteDatabase db = null;
 
     //get table name and column name
     String tableName = dbHelper.MOVIE_TABLE_NAME;
+    String keyID = dbHelper.MOVIE_KEY_ID;
     String keyMovieTitle = dbHelper.MOVIE_TITLE_ANSWER;
     String keyMainActors = dbHelper.MOVIE_MAINACTORS_ANSWER;
     String keyLength = dbHelper.MOVIE_LENGTH_ANSWER;
     String keyGenre = dbHelper.MOVIE_GENRE_ANSWER;
     String keyDescription = dbHelper.MOVIE_DESCRIPTION_ANSWER;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +69,7 @@ public class Movie1 extends Activity {
         btn_addMovie = findViewById(R.id.button_addMovie);
 
         progressBar.setVisibility(View.VISIBLE);
-
+        //isTablet = (findViewById(R.id.movie_Framelayout) != null);
         final MovieAdapter movieAdapter = new MovieAdapter(this);
         listview.setAdapter(movieAdapter);
 
@@ -75,7 +81,7 @@ public class Movie1 extends Activity {
         //counter is used to count the database record
         int counter = 0;
         while(!c.isAfterLast()){
-
+            //long id = c.getLong(c.getColumnIndex(dbHelper.MOVIE_KEY_ID));
             //String movieNo = c.getString(c.getColumnIndex( dbHelper.MOVIE_KEY_ID));
             String movieTitle = c.getString( c.getColumnIndex( dbHelper.MOVIE_TITLE_ANSWER) );
             String mainActors = c.getString( c.getColumnIndex( dbHelper.MOVIE_MAINACTORS_ANSWER) );
@@ -114,7 +120,7 @@ public class Movie1 extends Activity {
         //Print colomn name.
         Log.i("Movie1", "Cursor’s  column count = " + c.getColumnCount());
         for(int i = 0; c.getColumnCount() > i; i++){
-            Log.i("Movie2", "Coloumn " + i + " : " + c.getColumnName(i));
+            Log.i("Movie1", "Coloumn " + i + " : " + c.getColumnName(i));
         }
 
         //when click send button, clear the edit text and add the new message into database, update listview as well
@@ -124,7 +130,7 @@ public class Movie1 extends Activity {
                 //New question.
                 ArrayList<String> oneMovie = new ArrayList<String>();
                 //String movieNo = txt_movieNo.getText().toString();
-               // oneMovie.add(movieNo);
+                // oneMovie.add(movieNo);
                 String movieTitle = txt_movieTitle.getText().toString();
                 oneMovie.add(movieTitle);
                 String mainActors = txt_mainActors.getText().toString();
@@ -150,7 +156,7 @@ public class Movie1 extends Activity {
 
 //                //Write new question to database.
                 ContentValues cv = new ContentValues();
-               // cv.put(keyMovieNo, movieNo);
+                // cv.put(keyMovieNo, movieNo);
                 cv.put(keyMovieTitle, movieTitle);
                 cv.put(keyMainActors, mainActors);
                 cv.put(keyLength, length);
@@ -174,8 +180,11 @@ public class Movie1 extends Activity {
                 String genre = oneMovie.get(3);
                 String description = oneMovie.get(4);
 
+                // long ID = id;
+//                Long id_movie = movieAdapter.getId(position);
+
                 //a bundle is used to pass message
-                Movie1Fragment quizMultiChoiceFragment = new Movie1Fragment();
+                Movie1Fragment movie1Fragment = new Movie1Fragment();
                 //pass data to fragment
                 Bundle bundle = new Bundle();
                 //bundle.putString("Movie No", movieNo);
@@ -184,11 +193,18 @@ public class Movie1 extends Activity {
                 bundle.putString("Length", length);
                 bundle.putString("Genre", genre);
                 bundle.putString("Description", description);
+                // bundle.putLong("ID",Id);
 
+//                if(isTablet){
+//                    movie1Fragment.setArguments(bundle);
+//                    //tell the MessageFragment this is a tablet
+//                    movie1Fragment.setIsTablet(true);
+//                    //start a FragmentTransaction to add a fragment to the FrameLayout
+//                    getFragmentManager().beginTransaction().replace(R.id.movie_Framelayout,movie1Fragment).commit();
+//                }else{
                 Intent intent = new Intent(Movie1.this, Movie1Detail.class);
                 intent.putExtra("Movie1Detail", bundle);
                 startActivityForResult(intent, 820, bundle);
-
             }
         });
     }
@@ -199,10 +215,10 @@ public class Movie1 extends Activity {
         }
 
         LayoutInflater inflater = Movie1.this.getLayoutInflater();
+
         @Override
-        public View getView(int position, View convertView, ViewGroup parent){
+        public View getView(int position, View convertView, ViewGroup parent) {
             View result;
-            //TextView movieNo;
             TextView movieTitle;
             TextView mainActors;
             TextView length;
@@ -210,32 +226,31 @@ public class Movie1 extends Activity {
             TextView description;
 
             result = inflater.inflate(R.layout.movie_layout, null);
-           // movieNo = result.findViewById(R.id.movieList);
+            // movieNo = result.findViewById(R.id.movieList);
             movieTitle = result.findViewById(R.id.movie_title);
             mainActors = result.findViewById(R.id.main_actors);
             length = result.findViewById(R.id.movie_length);
             genre = result.findViewById(R.id.movie_genre);
-            description= result.findViewById(R.id.movie_description);
+            description = result.findViewById(R.id.movie_description);
 
             //movieNo.setText(getItem(position).get(0)); // get the string at position
-            movieTitle.setText(getItem(position).get(0));
-            mainActors.setText(getItem(position).get(1));
-            length.setText(getItem(position).get(2));
-            genre.setText(getItem(position).get(3));
-            description.setText(getItem(position).get(4));
+            movieTitle.setText(getString(R.string.MovieTitle) + getItem(position).get(0));
+            mainActors.setText(getString(R.string.MainActors) + getItem(position).get(1));
+            length.setText(getString(R.string.MovieLength) + getItem(position).get(2));
+            genre.setText(getString(R.string.MovieGenre) + getItem(position).get(3));
+            description.setText(getString(R.string.MovieDescription) + getItem(position).get(4));
 
             return result;
         }
 
         @Override
-        public int getCount(){
+        public int getCount() {
             return movieInfo.size();
         }
 
         @Override
-        public ArrayList<String> getItem(int position){
+        public ArrayList<String> getItem(int position) {
             return movieInfo.get(position);
         }
-
     }
 }
