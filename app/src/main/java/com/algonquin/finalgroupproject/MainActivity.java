@@ -37,36 +37,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.Quiz:
-                item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        Toast.makeText(MainActivity.this, "Quiz Creater Selected!", Toast.LENGTH_SHORT).show();
-                        //Jump to QuizCreaterActivity.
-                        Intent intent = new Intent(MainActivity.this, QuizCreatorActivity.class);
-                        startActivity(intent);
-                        return true;
-                    }
-                });
-                break;
             case R.id.Movie:
-                item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
+
                         Toast.makeText(MainActivity.this, "Movie List Selected!", Toast.LENGTH_SHORT).show();
                         //Jump to MovieActivity.
                         Intent intent = new Intent(MainActivity.this, MovieActivity.class);
                         startActivity(intent);
-                        return true;
-                    }
-                });
-                break;
+                        break;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
-
-             return true;
+        return true;
 
     }
 
