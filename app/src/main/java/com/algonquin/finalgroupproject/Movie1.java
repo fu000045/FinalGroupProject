@@ -33,12 +33,15 @@ public class Movie1 extends Activity {
     private TextView txt_description;
 
     //   private String ACTIVITY_NAME = "Movie1";
-//    private boolean isTablet = false;
-//    private Cursor c;
+    private boolean isTablet = false;
+    private Cursor c;
+
+    Movie1Fragment movie1Fragment = new Movie1Fragment();
 
     //get a writable database
     private MovieDatabaseHelper dbHelper;
     private SQLiteDatabase db = null;
+    MovieAdapter movieAdapter;
 
     //get table name and column name
     String tableName = dbHelper.MOVIE_TABLE_NAME;
@@ -70,11 +73,11 @@ public class Movie1 extends Activity {
 
         progressBar.setVisibility(View.VISIBLE);
         //isTablet = (findViewById(R.id.movie_Framelayout) != null);
-        final MovieAdapter movieAdapter = new MovieAdapter(this);
+        movieAdapter = new MovieAdapter(this);
         listview.setAdapter(movieAdapter);
 
         String query = "SELECT * FROM " + tableName + ";";
-        Cursor c = db.rawQuery(query, null);
+        c = db.rawQuery(query, null);
 
         //Read existed questions from database.
         c.moveToFirst();
@@ -97,14 +100,7 @@ public class Movie1 extends Activity {
             oneMovie.add(genre);
             oneMovie.add(description);
             movieInfo.add(oneMovie);
-            //for debug
-//            Log.i("ViewQuizPool", "SQL QUESTION:" + question
-//            Log.i("ViewQuizPool", "SQL ANSWERA:" + answerA );
-//            Log.i("ViewQuizPool", "SQL ANSWERB:" + answerB );
-//            Log.i("ViewQuizPool", "SQL ANSWERC:" + answerC );
-//            Log.i("ViewQuizPool", "SQL ANSWERD:" + answerD );
 
-            //update progress bar
             counter++;
             if(counter != c.getCount()){
                 progressBar.setProgress(counter * 100 /(c.getCount()));
@@ -180,11 +176,11 @@ public class Movie1 extends Activity {
                 String genre = oneMovie.get(3);
                 String description = oneMovie.get(4);
 
-                // long ID = id;
-//                Long id_movie = movieAdapter.getId(position);
+                long Id = id;
+                // Long id_inMovie = movieAdapter.getId(position);
 
                 //a bundle is used to pass message
-                Movie1Fragment movie1Fragment = new Movie1Fragment();
+               Movie1Fragment movie1Fragment = new Movie1Fragment();
                 //pass data to fragment
                 Bundle bundle = new Bundle();
                 //bundle.putString("Movie No", movieNo);
@@ -193,22 +189,100 @@ public class Movie1 extends Activity {
                 bundle.putString("Length", length);
                 bundle.putString("Genre", genre);
                 bundle.putString("Description", description);
-                // bundle.putLong("ID",Id);
+                bundle.putLong("ID", Id);
+                // bundle.getLong("ID", id_inMovie);
 
-//                if(isTablet){
-//                    movie1Fragment.setArguments(bundle);
-//                    //tell the MessageFragment this is a tablet
-//                    movie1Fragment.setIsTablet(true);
-//                    //start a FragmentTransaction to add a fragment to the FrameLayout
-//                    getFragmentManager().beginTransaction().replace(R.id.movie_Framelayout,movie1Fragment).commit();
-//                }else{
-                Intent intent = new Intent(Movie1.this, Movie1Detail.class);
-                intent.putExtra("Movie1Detail", bundle);
-                startActivityForResult(intent, 820, bundle);
+                if (isTablet) {
+                    movie1Fragment.setArguments(bundle);
+                    //tell the MessageFragment this is a tablet
+                    movie1Fragment.setIsTablet(true);
+                    //start a FragmentTransaction to add a fragment to the FrameLayout
+                    getFragmentManager().beginTransaction().replace(R.id.movie_tablet_Framelayout, movie1Fragment).commit();
+                } else {
+                    movie1Fragment.setIsTablet(false);
+                    Intent intent = new Intent(Movie1.this, Movie1Detail.class);
+                    intent.putExtra("MovieInfo", bundle);
+                    startActivityForResult(intent, 820, bundle);
+                }
             }
         });
     }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Bundle extras = data.getExtras();
+        long id = extras.getLong("ID");
+        String title = extras.getString("Movie Title");
+        String mainAcotrs = extras.getString("Main Actors");
+        String length = extras.getString("Length");
+        String genre = extras.getString("Genre");
+        String description = extras.getString("Description");
+        String query = "";
 
+        if(requestCode == 820){
+            if (resultCode == 222) {
+                query = "INSERT INTO " + tableName + " ( " + keyMovieTitle + " , " + keyMainActors
+                        + " , " + keyLength + " , " + keyGenre + " , " + keyDescription
+                        + " ) VALUES ( '" + title + "' , '" + mainAcotrs + "' , '"
+                        + length + "' , '" + genre + "' , '" + description +  "' );";
+            }else if(resultCode == 666){
+                query = "UPDATE " + tableName + " SET " + keyMovieTitle + " = '" + title
+                        + "', " + keyMainActors + " = '" + mainAcotrs
+                        + "', " + keyLength + " = '" + length
+                        + "', " + keyGenre + " = '" + genre
+                        + "', " + keyDescription + " = '" + description
+                        + "' WHERE " + keyID + " = " + id + ";";
+            }else if(resultCode == Activity.RESULT_OK){
+                query = "DELETE FROM " + tableName +" WHERE " + keyID + " = " + id + ";";
+            }
+            db.execSQL(query);
+            movieAdapter.notifyDataSetChanged();
+        }
+
+    }
+
+    //for tablet to add a movie
+    public void addForTablet( long id, String title, String actors,
+                             String length, String genre, String description){
+        String query;
+            query = "INSERT INTO " + tableName + " ( " + keyMovieTitle + " , " + keyMainActors
+                    + " , " + keyLength + " , " + keyGenre + " , " + keyDescription
+                    + " ) VALUES ( '" + title + "' , '" + actors + "' , '"
+                    + length + "' , '" + genre + "' , '" + description + "' );";
+            db.execSQL(query);
+            movieAdapter.notifyDataSetChanged();
+
+    }
+
+    //for tablet to update a movie
+    public void updateForTablet(long id, String title, String actors,
+                                String length, String genre, String description){
+        String query;
+            query = "UPDATE " + tableName + " SET " + keyMovieTitle + " = " + "'" + title
+                    + "', " + keyMainActors + " = " + "'" + actors
+                    + "', " + keyLength + " = " + "'" + length
+                    + "', " + keyGenre + " = " + "'" + genre
+                    + "', " + keyDescription + " = " + "'" + description
+                    + "' WHERE " + keyID + " = " + id + ";";
+            db.execSQL(query);
+            movieAdapter.notifyDataSetChanged();
+
+    }
+
+    //for tablet to delete a message
+    public void deleteForTablet( long id){
+        String query;
+        long Id = id;
+//        long id_inMovie = idInMovie;
+        query = "DELETE FROM " + tableName + " WHERE " + keyID + " = " + id + ";";
+        db.execSQL(query);
+        movieInfo.remove((int)Id);
+        movieAdapter.notifyDataSetChanged();
+        getFragmentManager().beginTransaction().remove(movie1Fragment).commit();
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        db.close();
+    }
     private class MovieAdapter extends ArrayAdapter<ArrayList<String>> {
         public MovieAdapter(Context ctx) {
             super(ctx, 0);
@@ -245,12 +319,35 @@ public class Movie1 extends Activity {
 
         @Override
         public int getCount() {
-            return movieInfo.size();
+            String query =  "SELECT * FROM " + tableName + ";";
+            c = db.rawQuery(query, null);
+            return c.getCount();
         }
 
         @Override
         public ArrayList<String> getItem(int position) {
-            return movieInfo.get(position);
+            String query = "SELECT * FROM " + tableName + ";";
+            c = db.rawQuery(query, null);
+            ArrayList<String> oneMovie = new ArrayList<>();
+
+            c.moveToPosition(position);
+            oneMovie.add(c.getString(c.getColumnIndex(keyMovieTitle)));
+            oneMovie.add(c.getString(c.getColumnIndex(keyMainActors)));
+            oneMovie.add(c.getString(c.getColumnIndex(keyLength)));
+            oneMovie.add(c.getString(c.getColumnIndex(keyGenre)));
+            oneMovie.add(c.getString(c.getColumnIndex(keyDescription)));
+            return oneMovie;
+        }
+        public long getId(int position){
+            return position;
+        }
+        @Override
+        public long getItemId(int position){
+            String query = "SELECT * FROM " + tableName + ";";
+            c = db.rawQuery(query, null);
+            c.moveToPosition(position);
+            int id = c.getInt(c.getColumnIndex(keyID));
+            return id;
         }
     }
 }

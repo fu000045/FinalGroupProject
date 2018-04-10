@@ -14,7 +14,7 @@ public class Movie1Detail extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie1_detail);
 
-        Bundle bundle = getIntent().getBundleExtra("ChatItem");
+        Bundle bundle = getIntent().getBundleExtra("MovieInfo");
 
         //start a FragmentTransaction to add a fragment to the FrameLayout
         Movie1Fragment myFragment = new Movie1Fragment();
