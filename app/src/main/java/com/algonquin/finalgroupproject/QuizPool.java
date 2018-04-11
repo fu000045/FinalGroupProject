@@ -1,6 +1,7 @@
 package com.algonquin.finalgroupproject;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
@@ -36,7 +38,7 @@ public class QuizPool extends Activity {
     private Cursor c;
     private Bundle bundle = new Bundle();
 
-    QuizFragment quizFragment = new QuizFragment();
+    QuizFragment quizFragment = null;
 
     //in this case, “this” is the ChatWindow, which is-A Context object
     MultichoiceAdapter multichoiceAdapter;
@@ -108,7 +110,7 @@ public class QuizPool extends Activity {
         }
         //this restarts the process of getCount() & getView() to retrieve multi choice list
         multichoiceAdapter.notifyDataSetChanged();
-
+        setListViewHeightBasedOnChildren(listview_multichoice);
 
         //true false listview
         truefalseAdapter = new TrueFalseAdapter(this);
@@ -127,7 +129,7 @@ public class QuizPool extends Activity {
             c.moveToNext();
         }
         truefalseAdapter.notifyDataSetChanged();
-
+        setListViewHeightBasedOnChildren(listview_truefalse);
 
         //numeric listview
         numericAdapter = new NumericAdapter(this);
@@ -148,7 +150,7 @@ public class QuizPool extends Activity {
             c.moveToNext();
         }
         numericAdapter.notifyDataSetChanged();
-
+        setListViewHeightBasedOnChildren(listview_numeric);
 
         //when click ADD button, clear the edit text and add the new question into database, update listview as well
         btn_addQues.setOnClickListener(new View.OnClickListener() {
@@ -161,6 +163,7 @@ public class QuizPool extends Activity {
                             public void onClick(DialogInterface dialog, int id) {
                                 bundle.putString("QuestionType", "MultiChoice");
                                 if(isTablet){//for tablet
+                                    quizFragment = new QuizFragment();
                                     quizFragment.setArguments(bundle);
                                     //tell the MessageFragment this is a tablet
                                     quizFragment.setIsTablet(true);
@@ -168,7 +171,7 @@ public class QuizPool extends Activity {
                                     getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                                 }else{//for phone
                                     //tell the MessageFragment this is not a tablet
-                                    quizFragment.setIsTablet(false);
+                                    //quizFragment.setIsTablet(false);
                                     //Jump to MessageDetails, pass the message and id information
                                     Intent intent = new Intent(QuizPool.this, QuizDetail.class);
                                     intent.putExtra("QuizDetail", bundle);
@@ -181,6 +184,7 @@ public class QuizPool extends Activity {
                             public void onClick(DialogInterface dialog, int id) {
                                 bundle.putString("QuestionType", "TrueFalse");
                                 if(isTablet){//for tablet
+                                    quizFragment = new QuizFragment();
                                     quizFragment.setArguments(bundle);
                                     //tell the MessageFragment this is a tablet
                                     quizFragment.setIsTablet(true);
@@ -188,7 +192,7 @@ public class QuizPool extends Activity {
                                     getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                                 }else{//for phone
                                     //tell the MessageFragment this is not a tablet
-                                    quizFragment.setIsTablet(false);
+                                    //quizFragment.setIsTablet(false);
                                     //Jump to MessageDetails, pass the message and id information
                                     Intent intent = new Intent(QuizPool.this, QuizDetail.class);
                                     intent.putExtra("QuizDetail", bundle);
@@ -201,6 +205,7 @@ public class QuizPool extends Activity {
                             public void onClick(DialogInterface dialog, int id) {
                                 bundle.putString("QuestionType", "Numeric");
                                 if(isTablet){//for tablet
+                                    quizFragment = new QuizFragment();
                                     quizFragment.setArguments(bundle);
                                     //tell the MessageFragment this is a tablet
                                     quizFragment.setIsTablet(true);
@@ -208,7 +213,7 @@ public class QuizPool extends Activity {
                                     getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                                 }else{//for phone
                                     //tell the MessageFragment this is not a tablet
-                                    quizFragment.setIsTablet(false);
+                                    //quizFragment.setIsTablet(false);
                                     //Jump to MessageDetails, pass the message and id information
                                     Intent intent = new Intent(QuizPool.this, QuizDetail.class);
                                     intent.putExtra("QuizDetail", bundle);
@@ -217,8 +222,6 @@ public class QuizPool extends Activity {
                             }
                         })
                         .show();
-
-
 
             }
         });
@@ -251,6 +254,7 @@ public class QuizPool extends Activity {
                 bundle.putLong("ID", Id);
 
                 if(isTablet){//for tablet
+                    quizFragment = new QuizFragment();
                     quizFragment.setArguments(bundle);
                     //tell the MessageFragment this is a tablet
                     quizFragment.setIsTablet(true);
@@ -258,7 +262,7 @@ public class QuizPool extends Activity {
                     getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                 }else{//for phone
                     //tell the MessageFragment this is not a tablet
-                    quizFragment.setIsTablet(false);
+                    //quizFragment.setIsTablet(false);
                     //Jump to MessageDetails, pass the message and id information
                     Intent intent = new Intent(QuizPool.this, QuizDetail.class);
                     intent.putExtra("QuizDetail", bundle);
@@ -287,6 +291,7 @@ public class QuizPool extends Activity {
                 bundle.putLong("ID", Id);
 
                 if(isTablet){//for tablet
+                    quizFragment = new QuizFragment();
                     quizFragment.setArguments(bundle);
                     //tell the MessageFragment this is a tablet
                     quizFragment.setIsTablet(true);
@@ -294,7 +299,7 @@ public class QuizPool extends Activity {
                     getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                 }else{//for phone
                     //tell the MessageFragment this is not a tablet
-                    quizFragment.setIsTablet(false);
+                    //quizFragment.setIsTablet(false);
                     //Jump to MessageDetails, pass the message and id information
                     Intent intent = new Intent(QuizPool.this, QuizDetail.class);
                     intent.putExtra("QuizDetail", bundle);
@@ -325,6 +330,7 @@ public class QuizPool extends Activity {
                 bundle.putLong("ID", Id);
 
                 if(isTablet){//for tablet
+                    quizFragment = new QuizFragment();
                     quizFragment.setArguments(bundle);
                     //tell the MessageFragment this is a tablet
                     quizFragment.setIsTablet(true);
@@ -332,7 +338,7 @@ public class QuizPool extends Activity {
                     getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                 }else{//for phone
                     //tell the MessageFragment this is not a tablet
-                    quizFragment.setIsTablet(false);
+                    //quizFragment.setIsTablet(false);
                     //Jump to MessageDetails, pass the message and id information
                     Intent intent = new Intent(QuizPool.this, QuizDetail.class);
                     intent.putExtra("QuizDetail", bundle);
@@ -486,7 +492,34 @@ public class QuizPool extends Activity {
             numericAdapter.notifyDataSetChanged();
         }
 
-        getFragmentManager().beginTransaction().remove(quizFragment).commit();
+        if(quizFragment != null) {
+            getFragmentManager().beginTransaction().remove(quizFragment).commit();
+        }
+    }
+
+    //set the three listviews with one scroll
+    private void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = listView.getPaddingTop() + listView.getPaddingBottom();
+
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            if (listItem instanceof ViewGroup) {
+                listItem.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            }
+
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
     }
 
     @Override
