@@ -36,8 +36,8 @@
     <string name="movie_help_version">Verion: V1.0</string>
     <string name="movie_help_instruction">Instruciton: This is a movie info APP. You can view the movie list,
                                             add, update and delete the movie. You can download a XML file
-                                            from an http server to import pre-defined questions into the
-                                            application. You can get statistics highest, lowest, and average
+                                            from an http server to import pre-defined movies into the
+                                            application. You also can get statistics highest, lowest, and average
                                              movie rating</string>
     <string name="statistic">Movie Statistic</string>
     <string name="help">Help</string>
