@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ArrayAdapter;
 import java.util.ArrayList;
-public class DoctorFragment extends Activity {
+public class DoctorFragment extends Patient {
     final String ACTIVITY_NAME = "DoctorFragment";
     Button btn_add;
     Button btn_cancel;
@@ -34,6 +34,50 @@ public class DoctorFragment extends Activity {
     PatientDatabaseHelper patientDatabaseHelper;
     DoctorAdapter docAdapter;
 
+    String name;
+    String DBO;
+    String phone;
+    String address;
+    String card;
+    String description;
+
+    public Context getCon(){
+        return getApplicationContext();
+    }
+    public DoctorFragment(){
+
+    }
+    public DoctorFragment(String name, String DOB, String phone, String address, String card, String description){
+
+        setName(name);
+
+    }
+
+    public void setName(String name){
+
+        this.name=name;
+
+    }
+
+        public String getName(){
+        return name;
+    }
+//    public String getPhon(){
+//        return editTextPhon.getText().toString();
+//    }
+//    public String getAddr(){
+//        return editTextAddr.getText().toString();
+//    }
+//    public String getHeal(){
+//        return editTextHeal.getText().toString();
+//    }
+//    public String getBirt(){
+//        return editTextBirt.getText().toString();
+//    }
+//    public String getDoc(){
+//        return editTextDoc.getText().toString();
+//    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +86,12 @@ public class DoctorFragment extends Activity {
 
         patientDatabaseHelper = new PatientDatabaseHelper(this);
         final SQLiteDatabase db = patientDatabaseHelper.getWritableDatabase();
-
         PatientsActivity patientsActivity = new PatientsActivity();
-        listView = findViewById(R.id.list_view);
-       // listView = patientsActivity.findViewById(R.id.list_view);
+
         btn_add = findViewById(R.id.okay);
         btn_cancel = findViewById(R.id.cancel);
         editTextName = findViewById(R.id.edit_name);
+        Log.i("`````````````","edit_name"+editTextName);
         editTextAddr = findViewById(R.id.edit_address);
         editTextBirt = findViewById(R.id.edit_bd);
         editTextPhon = findViewById(R.id.edit_phone);
@@ -61,6 +104,7 @@ public class DoctorFragment extends Activity {
         cursor = db.rawQuery(selectQuery,null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast()){
+            Log.i(ACTIVITY_NAME, "SQL MESSAGE:" + cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_PHONE)));
             list.add(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_NAME)));
             list.add(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_BOD)));
             list.add(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_PHONE)));
@@ -70,18 +114,30 @@ public class DoctorFragment extends Activity {
             cursor.moveToNext();
         }
         Log.i(ACTIVITY_NAME, "Cursor's  column count =" + cursor.getColumnCount());
+       // LayoutInflater inflater = getBaseContext();
+       // listView = patientsActivity.getListView();
+//        listView = patientsActivity.findViewById(R.id.list_view);
+//        final LayoutInflater factory = getLayoutInflater();
+//        final View textEntryView = factory.inflate(R.layout.activity_patients, null);
+
+        View view = LayoutInflater.from(getApplication()).inflate(R.layout.activity_patients, null);
+        listView = view.findViewById(R.id.list_view);
+        Log.i(ACTIVITY_NAME,"list_view is:"+listView);
+        // listView = patientsActivity.findViewById(R.id.list_view);
+
         listView.setAdapter (docAdapter);
         docAdapter.notifyDataSetChanged();
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                list.add(editTextName.getText().toString());
+            /*    list.add(editTextName.getText().toString());
                 list.add(editTextPhon.getText().toString());
                 list.add(editTextAddr.getText().toString());
                 list.add(editTextHeal.getText().toString());
                 list.add(editTextBirt.getText().toString());
                 list.add(editTextDoc.getText().toString());
+              */
                 ContentValues cValues = new ContentValues();
                 cValues.put(PatientDatabaseHelper.KEY_NAME, editTextName.getText().toString());
                 cValues.put(PatientDatabaseHelper.KEY_PHONE, editTextPhon.getText().toString());
@@ -99,8 +155,8 @@ public class DoctorFragment extends Activity {
                 editTextBirt.setText("");
                 editTextDoc.setText("");
 
-                Log.i(ACTIVITY_NAME, "SQL MESSAGE:" + cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_PHONE)));
-                cursor = db.rawQuery("SELECT  * FROM " + "doctorTable", null);
+                finish();
+                //cursor = db.rawQuery("SELECT  * FROM " + "doctorTable", null);
                 Toast.makeText(DoctorFragment.this, "Successfully added!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -114,24 +170,30 @@ public class DoctorFragment extends Activity {
         });
     }
 
+    /*    list.add(editTextName.getText().toString());
+                list.add(editTextPhon.getText().toString());
+                list.add(editTextAddr.getText().toString());
+                list.add(editTextHeal.getText().toString());
+                list.add(editTextBirt.getText().toString());
+                list.add(editTextDoc.getText().toString());
+              */
+
+
+
     private class DoctorAdapter extends ArrayAdapter<String> {
         public DoctorAdapter(Context ctx){super(ctx,0);}
-        //        public int getCount(){
-//            return listDoc.size();
-//        }
         public String getItem(int position){
             return list.get(position);
         }
-
+        public int getCount(){
+            return list.size();
+        }
         public View getView(int position, View convertView, ViewGroup parent){
             LayoutInflater inflater = DoctorFragment.this.getLayoutInflater();
             View result;
-            // if(position%2 == 0)
-            result = inflater.inflate(R.layout.doctor_layout, null);
-//            else
-//                result = inflater.inflate(R.layout.chat_row_outgoing, null);
-            TextView message = result.findViewById(R.id.text_view_name);
-            message.setText(  getItem(position)  ); // get the string at position
+            result = inflater.inflate(R.layout.activity_patient, null);
+                TextView editText = result.findViewById(R.id.text_view);
+            editText.setText(  getItem(position)  ); // get the string at position
             return result;
         }
     }
