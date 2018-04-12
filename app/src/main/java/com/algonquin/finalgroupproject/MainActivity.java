@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Button btn_quizCreater;
+    //private Button btn_movieInfo;
     Toolbar toolbar;
 
     @Override
@@ -33,19 +34,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
-            case R.id.Quiz:
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.Movie:
 
-                Toast.makeText(MainActivity.this, R.string.toast_quiz, Toast.LENGTH_SHORT).show();
-                //Jump to QuizCreaterActivity.
-                Intent intent = new Intent(MainActivity.this, QuizCreatorActivity.class);
-                startActivity(intent);
-                break;
+                        Toast.makeText(MainActivity.this, "Movie List Selected!", Toast.LENGTH_SHORT).show();
+                        //Jump to MovieActivity.
+                        Intent intent = new Intent(MainActivity.this, MovieActivity.class);
+                        startActivity(intent);
+                        break;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
         return true;
+
     }
+
 }
