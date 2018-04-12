@@ -46,7 +46,7 @@ public class MovieFromWebActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_from_web);
+//        setContentView(R.layout.activity_movie_from_web);
 
        // img_movie = findViewById(R.id.movieImage);
 //        text_title = findViewById(R.id.title);
