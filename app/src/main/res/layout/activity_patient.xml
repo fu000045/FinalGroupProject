@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.algonquin.finalgroupproject.Patient">
 
-    <EditText
-        android:id="@+id/edit_view_patient"
+    <TextView
+        android:id="@+id/text_view_patient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>

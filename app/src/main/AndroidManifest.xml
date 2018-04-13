@@ -21,7 +21,8 @@
         <activity android:name=".PatientsActivity" />
         <activity android:name=".PatientDetails" />
         <activity android:name=".DoctorFragment" />
-        <activity android:name=".Patient"></activity>
+        <activity android:name=".Patient" />
+        <activity android:name=".UpdateDoctorActivity"></activity>
     </application>
 
 </manifest>

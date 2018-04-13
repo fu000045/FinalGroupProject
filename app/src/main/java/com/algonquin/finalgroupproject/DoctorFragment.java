@@ -44,17 +44,12 @@ public class DoctorFragment extends Patient {
     public Context getCon(){
         return getApplicationContext();
     }
-    public DoctorFragment(){
-
-    }
+    public DoctorFragment(){}
     public DoctorFragment(String name, String DOB, String phone, String address, String card, String description){
-
         setName(name);
-
     }
 
     public void setName(String name){
-
         this.name=name;
 
     }
@@ -114,16 +109,9 @@ public class DoctorFragment extends Patient {
             cursor.moveToNext();
         }
         Log.i(ACTIVITY_NAME, "Cursor's  column count =" + cursor.getColumnCount());
-       // LayoutInflater inflater = getBaseContext();
-       // listView = patientsActivity.getListView();
-//        listView = patientsActivity.findViewById(R.id.list_view);
-//        final LayoutInflater factory = getLayoutInflater();
-//        final View textEntryView = factory.inflate(R.layout.activity_patients, null);
-
         View view = LayoutInflater.from(getApplication()).inflate(R.layout.activity_patients, null);
         listView = view.findViewById(R.id.list_view);
         Log.i(ACTIVITY_NAME,"list_view is:"+listView);
-        // listView = patientsActivity.findViewById(R.id.list_view);
 
         listView.setAdapter (docAdapter);
         docAdapter.notifyDataSetChanged();
@@ -154,7 +142,6 @@ public class DoctorFragment extends Patient {
                 editTextHeal.setText("");
                 editTextBirt.setText("");
                 editTextDoc.setText("");
-
                 finish();
                 //cursor = db.rawQuery("SELECT  * FROM " + "doctorTable", null);
                 Toast.makeText(DoctorFragment.this, "Successfully added!", Toast.LENGTH_SHORT).show();
@@ -170,16 +157,6 @@ public class DoctorFragment extends Patient {
         });
     }
 
-    /*    list.add(editTextName.getText().toString());
-                list.add(editTextPhon.getText().toString());
-                list.add(editTextAddr.getText().toString());
-                list.add(editTextHeal.getText().toString());
-                list.add(editTextBirt.getText().toString());
-                list.add(editTextDoc.getText().toString());
-              */
-
-
-
     private class DoctorAdapter extends ArrayAdapter<String> {
         public DoctorAdapter(Context ctx){super(ctx,0);}
         public String getItem(int position){
@@ -192,8 +169,6 @@ public class DoctorFragment extends Patient {
             LayoutInflater inflater = DoctorFragment.this.getLayoutInflater();
             View result;
             result = inflater.inflate(R.layout.activity_patient, null);
-//                TextView editText = result.findViewById(R.id.text_view);
-//            editText.setText(  getItem(position)  ); // get the string at position
             return result;
         }
     }

@@ -26,6 +26,7 @@ public class PatientsActivity extends Activity {
     ArrayList<String> listType = new ArrayList<>();
     PatientDatabaseHelper patientDatabaseHelper;
     PatientAdapter patientAdapter;
+    UpdateDoctorActivity updateDoctorFrag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,59 +39,23 @@ public class PatientsActivity extends Activity {
         btn_dentist = findViewById(R.id.btn_dentist);
         btn_optometrist = findViewById(R.id.btn_optometrist);
         listView.setAdapter(patientAdapter);
-        //load patients into list
         patientDatabaseHelper = new PatientDatabaseHelper(this);
         final SQLiteDatabase db = patientDatabaseHelper.getWritableDatabase();
         String selectQuery = "SELECT  * FROM " + "doctorTable";
         cursor = db.rawQuery(selectQuery, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            // Log.i(ACTIVITY_NAME, "SQL MESSAGE:" + cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_PHONE)));
-//            list.add(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_NAME)));
-//            list.add(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_BOD)));
-//            list.add(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_PHONE)));
-//            list.add(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_ADDRESS)));
-//            list.add(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_CARD)));
-//            list.add(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_DOC)));
-
-
             String name = cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_NAME));
             Log.i("in PatientActivity","name that get from database is : "+name);
             DoctorFragment doctorFragment = new DoctorFragment(name, "DOB", "PHONE", "ADDRESS", "CARD", "DES");
-
             listType.add(doctorFragment.getName());
-
             View view = LayoutInflater.from(getApplication()).inflate(R.layout.activity_doctor_fragment, null);
             editText = view.findViewById(R.id.edit_name);
             Log.i("############list is :", "" + listType.toString());
             cursor.moveToNext();
         }
-
         listView.setAdapter(patientAdapter);
         patientAdapter.notifyDataSetChanged();
-
-
-        //add new patient to the database
-//        btn_doctor.setOnClickListener(new View.OnClickListener() {
-//                                          @Override
-//                                          public void onClick(View view) {
-//                                              listDoc.add(editTextName.getText().toString());
-//                                              ContentValues cValues = new ContentValues();
-//                                              cValues.put(PatientDatabaseHelper.KEY_NAME, editTextName.getText().toString());
-//                                              db.insert("doctorTable", null, cValues);
-//                                             // listViewDoc.setAdapter(docAdapter);
-//                                              docAdapter.notifyDataSetChanged();
-//                                              editTextName.setText("");
-//                                              cursor = db.rawQuery("SELECT  * FROM " + "doctorTable" ,null);
-//                                              Toast.makeText(PatientsActivity.this, "Successfully added!", Toast.LENGTH_SHORT).show();
-//                                             // finish();
-//                                          }
-//                messageAdapter.notifyDataSetChanged(); //this restarts the process of getCount() & getView()
-//                editText.setText("");
-//                cursor = db.query(false, ChatDatabaseHelper.TABLE_NAME,
-//                        new String[] { ChatDatabaseHelper.KEY_ID, ChatDatabaseHelper.KEY_MESSAGE }, null, null, null, null, null, null);
-        //           });
-
         btn_doctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,14 +85,11 @@ public class PatientsActivity extends Activity {
                 Bundle bundle = new Bundle();
                 bundle.putLong("ID",id);
                 bundle.putString("Message", patientAdapter.getItem(i));
-
                     Intent intent = new Intent(PatientsActivity.this,PatientDetails.class);
                     intent.putExtra("ID", id);
                     intent.putExtra("Message", patientAdapter.getItem(i));//pass the Database ID and message to next activity
                     startActivityForResult(intent,5);
-
-            }
-        });
+            } });
     }
 
 private class PatientAdapter extends ArrayAdapter<String> {
@@ -143,12 +105,44 @@ public String getItem(int position){
 
         public View getView(int position, View convertView, ViewGroup parent){
             View view = LayoutInflater.from(getApplication()).inflate(R.layout.activity_patient, null);
-            EditText message = view.findViewById(R.id.edit_view_patient);
+            TextView message = view.findViewById(R.id.text_view_patient);
             message.setText(  getItem(position)  ); // get the string at position
             return view;
         }
+    public long getItemId(int position){
+        cursor.moveToPosition(position);
+        long id = cursor.getLong(cursor.getColumnIndex(PatientDatabaseHelper.KEY_ID));
+        // Log.i(ACTIVITY_NAME, "@@@@@@@@@@@@@@@@@@@@@@@@"+id);
+        return id;
+    }}
+    
+    public void onActivityResult(int requestCode,int resultCode, Intent data){
+        if ((requestCode == 5)&&(resultCode == Activity.RESULT_OK)){
+            Log.i("PatientsActivity", "Returned to PatientActivity.onActivityResult");
+            Long deleteId = data.getLongExtra("DeleteID", -1);
+            deleteListMessage(deleteId);}
     }
-
+    public void deleteListMessage(Long id)
+    {
+        final SQLiteDatabase db = patientDatabaseHelper.getWritableDatabase();
+        db.delete("doctorTable", PatientDatabaseHelper.KEY_ID+" = " + id , null);
+        Log.i("in PatientsActivity","the list before delete which is clear "+listType);
+        listType.clear();
+        Log.i("in PatientsActivity","the list after delete which is clear "+listType);
+        String selectQuery = "SELECT  * FROM " + "doctorTable";
+        cursor = db.rawQuery(selectQuery, null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()) {
+            listType.add(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_NAME)));
+            Log.i("PatientsActivity", "SQL MESSAGE:" + cursor.getString( cursor.getColumnIndex( PatientDatabaseHelper.KEY_NAME) ) );
+            cursor.moveToNext();
+        }
+        patientAdapter.notifyDataSetChanged();
+    }
+    public void removeFragment()
+    {
+        getFragmentManager().beginTransaction().remove(updateDoctorFrag).commit();
+    }
     @Override
     public void onDestroy(){
         cursor.close();
