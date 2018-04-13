@@ -192,8 +192,8 @@ public class DoctorFragment extends Patient {
             LayoutInflater inflater = DoctorFragment.this.getLayoutInflater();
             View result;
             result = inflater.inflate(R.layout.activity_patient, null);
-                TextView editText = result.findViewById(R.id.text_view);
-            editText.setText(  getItem(position)  ); // get the string at position
+//                TextView editText = result.findViewById(R.id.text_view);
+//            editText.setText(  getItem(position)  ); // get the string at position
             return result;
         }
     }
