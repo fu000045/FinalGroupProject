@@ -27,7 +27,6 @@ public class PatientsActivity extends Activity {
     PatientDatabaseHelper patientDatabaseHelper;
     PatientAdapter patientAdapter;
     UpdateDoctorActivity updateDoctorFrag;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,25 +59,19 @@ public class PatientsActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PatientsActivity.this, DoctorFragment.class);
-                startActivity(intent);
-            }
-        });
+                startActivity(intent);}});
 
         btn_dentist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PatientsActivity.this, DoctorFragment.class);
-                startActivity(intent);
-            }
-        });
+                startActivity(intent);}});
 
         btn_optometrist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PatientsActivity.this, DoctorFragment.class);
-                startActivity(intent);
-            }
-        });
+                startActivity(intent);}});
      listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
@@ -94,15 +87,12 @@ public class PatientsActivity extends Activity {
 
 private class PatientAdapter extends ArrayAdapter<String> {
         public PatientAdapter(Context ctx){super(ctx,0);}
-
         public int getCount(){
             return listType.size();
         }
-
-public String getItem(int position){
+        public String getItem(int position){
     return listType.get(position);
 }
-
         public View getView(int position, View convertView, ViewGroup parent){
             View view = LayoutInflater.from(getApplication()).inflate(R.layout.activity_patient, null);
             TextView message = view.findViewById(R.id.text_view_patient);
@@ -112,10 +102,9 @@ public String getItem(int position){
     public long getItemId(int position){
         cursor.moveToPosition(position);
         long id = cursor.getLong(cursor.getColumnIndex(PatientDatabaseHelper.KEY_ID));
-        // Log.i(ACTIVITY_NAME, "@@@@@@@@@@@@@@@@@@@@@@@@"+id);
         return id;
     }}
-    
+
     public void onActivityResult(int requestCode,int resultCode, Intent data){
         if ((requestCode == 5)&&(resultCode == Activity.RESULT_OK)){
             Log.i("PatientsActivity", "Returned to PatientActivity.onActivityResult");
@@ -139,10 +128,7 @@ public String getItem(int position){
         }
         patientAdapter.notifyDataSetChanged();
     }
-    public void removeFragment()
-    {
-        getFragmentManager().beginTransaction().remove(updateDoctorFrag).commit();
-    }
+    public void removeFragment() {getFragmentManager().beginTransaction().remove(updateDoctorFrag).commit();}
     @Override
     public void onDestroy(){
         cursor.close();

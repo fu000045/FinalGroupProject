@@ -57,21 +57,21 @@ public class DoctorFragment extends Patient {
         public String getName(){
         return name;
     }
-//    public String getPhon(){
-//        return editTextPhon.getText().toString();
-//    }
-//    public String getAddr(){
-//        return editTextAddr.getText().toString();
-//    }
-//    public String getHeal(){
-//        return editTextHeal.getText().toString();
-//    }
-//    public String getBirt(){
-//        return editTextBirt.getText().toString();
-//    }
-//    public String getDoc(){
-//        return editTextDoc.getText().toString();
-//    }
+    public String getPhon(){
+        return phone;
+    }
+    public String getAddr(){
+        return address;
+    }
+    public String getHeal(){
+        return card;
+    }
+    public String getBirt(){
+        return DBO;
+    }
+    public String getDoc(){
+        return description;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

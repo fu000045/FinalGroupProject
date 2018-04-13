@@ -17,21 +17,31 @@
 
 
     <Button
+        android:id="@+id/button_download"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/button_patients"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="download xml file"
-        android:id="@+id/button_download" />
+        android:layout_marginTop="41dp"
+        android:text="download xml file" />
 
     <Button
         android:id="@+id/button_view_statistics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/button_download"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="31dp"
+        android:layout_marginTop="90dp"
         android:text="view statistics" />
+
+    <Button
+        android:id="@+id/btn_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_view_statistics"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:text="HELP" />
 
 
 
