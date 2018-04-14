@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".octranspo.OCDetails">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/stopDescript"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/oc_textview"
+            android:textSize="30dp"
+            />
+
+
+        <ProgressBar
+
+            style="?android:attr/progressBarStyleHorizontal"
+            android:id="@+id/progressPB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/stopDescript"
+            />
+
+        <Button
+            android:id="@+id/butB1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/progressPB" />
+
+        <TextView
+            android:id="@+id/texV1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/butB1" />
+
+        <Button
+            android:id="@+id/butB2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/texV1" />
+
+        <TextView
+            android:id="@+id/texV2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/butB2" />
+
+
+        <Button
+            android:id="@+id/butB3"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/texV2" />
+
+        <TextView
+            android:id="@+id/texV3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/butB3" />
+
+        <Button
+            android:id="@+id/butB4"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/texV3" />
+
+        <TextView
+            android:id="@+id/texV4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/butB4" />
+
+        <Button
+            android:id="@+id/butB5"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/texV4" />
+
+        <TextView
+            android:id="@+id/texV5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/butB5" />
+
+
+
+
+        <Button
+            android:id="@+id/delete_B"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/oc_button_delete"
+            android:layout_below="@+id/texV5"
+            />
+
+
+
+    </RelativeLayout>
+
+
+</ScrollView>
