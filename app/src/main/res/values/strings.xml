@@ -44,10 +44,14 @@
     <string name="button_addMovie">Add Movie</string>
     <string name="button_update">Update</string>
     <string name="popularMovie">Movie Information: </string>
-    <string name="getMovieFromXML">Get movies from website</string> <string name="button_delete">Delete movie</string>
+    <string name="getMovieFromXML">Get movies from website</string>
+    <string name="button_delete">Delete movie</string>
     <string name="rating">moving rating</string>
     <string name="movie_dialog_message">Delete this movie? Can\'t restore!</string>
     <string name="movie_dialog_title">DELETE</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
 
     <string name="MovieTitle">Movie Title:</string>
     <string name="MainActors">Main Actors:</string>
@@ -72,6 +76,8 @@
                                               movie rating</string>
     <string name="statistic">Movie Statistic</string>
     <string name="help">Help</string>
+    <string name="button_return">Return</string>
+    <string name="toast_movie">go back main activity</string>
 
     <string name="movie_all">Popular Movie Info</string>
 </resources>

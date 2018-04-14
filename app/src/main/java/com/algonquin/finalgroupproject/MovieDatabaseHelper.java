@@ -25,6 +25,7 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
     public static String MOVIE_GENRE_ANSWER = "genre";
     public static String MOVIE_DESCRIPTION_ANSWER = "description";
 
+
     public MovieDatabaseHelper(Context ctx) {
         super(ctx, MOVIE_DATABASE_NAME, null, MOVIE_DATABASE_VERSION);
     }

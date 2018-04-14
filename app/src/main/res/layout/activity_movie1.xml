@@ -111,6 +111,7 @@
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/button_addMovie"/>
 
+
     <Button
         android:id="@+id/button_addMovie"
         android:layout_width="80dp"
