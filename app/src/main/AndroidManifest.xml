@@ -31,6 +31,8 @@
         <activity android:name=".Movie1Detail" />
         <activity android:name=".MovieFromWebActivity" />
         <!--<activity android:name=".HttpUtils"></activity>-->
+
+        <activity android:name=".octranspo.OCBusNumberWindow"></activity>
     </application>
 
 </manifest>
