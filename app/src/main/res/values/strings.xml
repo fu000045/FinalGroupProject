@@ -35,4 +35,46 @@
 
     <string name="Button_Movie1">Life of Pi</string>
     <string name="Button_Movie2">Zootopia</string>
+
+
+
+
+
+
+
+
+    <string name="oc_title_toolbar">OC Transpo Info</string>
+
+    <string name="oc_toast">OC Transpo Selected!</string>
+    <string name="oc_dialog">About Selected!</string>
+
+    <string name="oc_edit_text">Type Bus Route</string>
+    <string name="oc_add">ADD</string>
+    <string name="oc_textview">Bus Route Details</string>
+    <string name="oc_button_delete">DELETE THIS ROUTE</string>
+
+    <string name="oc_destination">Destination:</string>
+    <string name="oc_start_time">Start Time:</string>
+    <string name="oc_late_time">Late Time:</string>
+    <string name="oc_latitude">Latitude:</string>
+    <string name="oc_longitude">Longitude:</string>
+    <string name="oc_gps">GPS Speed:</string>
+
+    <string name="oc_about">ABOUT</string>
+    <string name="oc_about_title">OC Transpo Information</string>
+    <string name="oc_about_context1">Designed by Byeongyun Goo</string>
+    <string name="oc_about_context2">Version 1.0</string>
+    <string name="oc_about_context3">[Bus Route Information]</string>
+    <string name="oc_about_context4">3017: Baseline</string>
+    <string name="oc_about_context5">3050: BayShore</string>
+    <string name="oc_about_context6">3058: Terry Fox</string>
+    <string name="oc_about_context7">3014: Lincoln Field</string>
+    <string name="oc_about_context8">3000: Mackenzie King</string>
+    <string name="oc_about_ok">OK</string>
+
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

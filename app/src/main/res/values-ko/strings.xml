@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="oc_title_toolbar">OC 교통 정보</string>
+
+    <string name="oc_toast">OC 교통이 선택되었습니다!</string>
+    <string name="oc_dialog">앱에 관하여 선택되었습니다!</string>
+
+    <string name="oc_edit_text">버스 노선 입력</string>
+    <string name="oc_add">추가</string>
+    <string name="oc_textview">버스 노선 정보</string>
+    <string name="oc_button_delete">제거</string>
+
+    <string name="oc_destination">도착지: </string>
+    <string name="oc_start_time">도착 시간: </string>
+    <string name="oc_late_time">연착 시간: </string>
+    <string name="oc_latitude">위도: </string>
+    <string name="oc_longitude">경도: </string>
+    <string name="oc_gps">GPS 속도: </string>
+
+    <string name="oc_about">앱 정보</string>
+    <string name="oc_about_title">OC 교통 정보</string>
+    <string name="oc_about_context1">구병윤 디자인</string>
+    <string name="oc_about_context2">버전 1.0</string>
+    <string name="oc_about_context3">[버스 노선 정보]</string>
+    <string name="oc_about_context4">3017: 베이스라인</string>
+    <string name="oc_about_context5">3050: 베이쇼어</string>
+    <string name="oc_about_context6">3058: 테리 폭스</string>
+    <string name="oc_about_context7">3014: 링컨 필드</string>
+    <string name="oc_about_context8">3000: 맥켄지 킹</string>
+    <string name="oc_about_ok">확인</string>
+
+
+
+</resources>

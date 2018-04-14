@@ -1,17 +1,19 @@
 package com.algonquin.finalgroupproject;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.algonquin.finalgroupproject.octranspo.OCBusNumberWindow;
+
 public class MainActivity extends AppCompatActivity {
     private Button btn_quizCreater;
+    //private Button btn_movieInfo;
     Toolbar toolbar;
 
     @Override
@@ -21,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
- //       ActionBar ab = getSupportActionBar();
- //      ab.setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -33,19 +33,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
-            case R.id.Quiz:
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.OCTrans:
 
-                Toast.makeText(MainActivity.this, R.string.toast_quiz, Toast.LENGTH_SHORT).show();
-                //Jump to QuizCreaterActivity.
-                Intent intent = new Intent(MainActivity.this, QuizCreatorActivity.class);
-                startActivity(intent);
+                Toast.makeText(MainActivity.this, getString(R.string.oc_toast), Toast.LENGTH_SHORT).show();
+                //Jump to MovieActivity.
+                Intent intent_oc = new Intent(MainActivity.this, OCBusNumberWindow.class);
+                startActivity(intent_oc);
                 break;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
         return true;
+
     }
+
 }
