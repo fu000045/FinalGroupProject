@@ -31,6 +31,7 @@ public class Movie1Fragment extends Fragment {
 
     Button btn_delete;
     Button btn_update;
+    Button btn_cancel;
     Bundle bundle;
 
  @Nullable
@@ -50,10 +51,10 @@ public class Movie1Fragment extends Fragment {
      e_length = view.findViewById(R.id.edittext_length);
      e_genre = view.findViewById(R.id.edittext_genre);
      e_description = view.findViewById(R.id.edittext_description);
-
      txt_id = view.findViewById(R.id.id_fragment);
      btn_delete = view.findViewById(R.id.delete_movie);
      btn_update = view.findViewById(R.id.update_movie);
+     btn_cancel = view.findViewById(R.id.cancel);
 
 
      String movieTitle = bundle.getString("Movie Title");
@@ -124,6 +125,14 @@ public class Movie1Fragment extends Fragment {
                          }
                      })
                      .show();
+         }
+     });
+     //cancel button to return to quizpool activity
+     btn_cancel.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+             Intent intent = new Intent(getActivity(), Movie1.class);
+             startActivity(intent);
          }
      });
 

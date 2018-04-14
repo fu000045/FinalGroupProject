@@ -37,7 +37,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Movie Title:"
+        android:text="@string/MovieTitle"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/edittext_mainActors"
         android:layout_toLeftOf="@+id/edittext_movieTitle"
@@ -52,7 +52,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Main Actors:"
+        android:text="@string/MainActors"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/edittext_length"
         android:layout_toLeftOf="@+id/edittext_mainActors"/>
@@ -67,7 +67,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Length:"
+        android:text="@string/MovieLength"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/edittext_genre"
         android:layout_toLeftOf="@+id/edittext_length"/>
@@ -82,7 +82,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Genre:"
+        android:text="@string/MovieGenre"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/edittext_description"
         android:layout_toLeftOf="@+id/edittext_genre" />
@@ -98,7 +98,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description:"
+        android:text="@string/MovieDescription"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/edittext_description"/>
@@ -110,7 +110,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/button_addMovie"/>
-
 
     <Button
         android:id="@+id/button_addMovie"

@@ -6,7 +6,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Movie Title:"
+        android:text="@string/MovieTitle"
         android:id="@+id/movie_title_framelayout" />
     <EditText
         android:id="@+id/edittext_movieTitle"
@@ -19,7 +19,7 @@
         android:id="@+id/movie_actors_framelayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Main Actors:"
+        android:text="@string/MainActors"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edittext_movieTitle" />
 
@@ -35,7 +35,7 @@
         android:id="@+id/movie_length_framelayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Length:"
+        android:text="@string/MovieLength"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edittext_mainActors" />
     <EditText
@@ -51,7 +51,7 @@
         android:id="@+id/movie_genre_framelayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Genre:"
+        android:text="@string/MovieGenre"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edittext_length" />
     <EditText
@@ -66,7 +66,7 @@
         android:id="@+id/movie_description_framelayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description:"
+        android:text="@string/MovieDescription"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/edittext_genre"/>
     <EditText
@@ -91,12 +91,20 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"/>
 
+
     <Button
         android:id="@+id/delete_movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_delete"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

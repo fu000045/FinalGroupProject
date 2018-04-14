@@ -36,21 +36,17 @@
     <string name="Favorite">What is your favorite moive?</string>
     <string name="ButtonQuiz">Multiple Choice Quiz Creater</string>
 
-    <string name="Faveriate">What is your faveriate moive?</string>
-
-    <string name="Button_Movie1">Life of Pi</string>
-    <string name="Button_Movie2">Zootopia</string>
 
     <string name="button_addMovie">Add Movie</string>
     <string name="button_update">Update</string>
     <string name="popularMovie">Movie Information: </string>
     <string name="getMovieFromXML">Get movies from website</string>
-    <string name="button_delete">Delete movie</string>
+    <string name="button_delete">Delete</string>
     <string name="rating">moving rating</string>
     <string name="movie_dialog_message">Delete this movie? Can\'t restore!</string>
     <string name="movie_dialog_title">DELETE</string>
     <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
+    <string name="cancel">Cancel/Return</string>
 
 
     <string name="MovieTitle">Movie Title:</string>
@@ -62,10 +58,10 @@
     <string name="title_web">Movie Title:</string>
     <string name="actors_web">Main Actors:</string>
     <string name="length_web">Movie Length:</string>
-    <string name="genre_web">Movie Type:</string>
+    <string name="genre_web">Movie rating:</string>
     <string name="description_web">Movie Description:</string>
     <string name="rating_web">Rating level:</string>
-    <string name="http_web">Web address:</string>
+    <!--<string name="http_web">Web address:</string>-->
 
     <string name="movie_help_author">Author: Bo Zhu</string>
     <string name="movie_help_version">Verion: V1.0</string>
@@ -78,6 +74,7 @@
     <string name="help">Help</string>
     <string name="button_return">Return</string>
     <string name="toast_movie">go back main activity</string>
+    <string name="toastMovieParser">get movie!</string>
 
     <string name="movie_all">Popular Movie Info</string>
 </resources>
