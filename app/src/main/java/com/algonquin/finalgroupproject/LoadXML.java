@@ -29,6 +29,7 @@ public class LoadXML extends Activity {
     private TextView maxTemp ;
    // private ImageView weatherImage ;
     private TextView windSpeed;
+    private TextView patientType;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,19 +41,17 @@ public class LoadXML extends Activity {
         maxTemp = findViewById(R.id.loadXML_birthday);
        // weatherImage = findViewById(R.id.imageWeatherID);
         windSpeed = findViewById(R.id.loadXML_phone);
-
+        patientType = findViewById(R.id.loadXML_type);
         findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
-
 
         ForecastQuery forecast = new ForecastQuery();
         String urlString = "http://torunski.ca/CST2335/PatientList.xml";
         forecast.execute(urlString);
-
         Log.i(ACTIVITY_NAME,"In onCreate()");
     }
 
     public class ForecastQuery extends AsyncTask<String, Integer, String> {
-        private String speed ="speed", min="min", max="max",  currentTemperature="current", iconName;
+        private String speed ="speed", min="min", max="max",  currentTemperature="current", type="type";
 
         protected String doInBackground(String ... args) {
             Log.i(ACTIVITY_NAME, "In doInBackground");
@@ -64,63 +63,32 @@ public class LoadXML extends Activity {
                 conn.setRequestMethod("GET");
                 conn.setDoInput(true);
                 conn.connect();
-
                 XmlPullParser parser = Xml.newPullParser();
                 parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
                 parser.setInput(conn.getInputStream(), null);
-
                 while (parser.next() != XmlPullParser.END_DOCUMENT) {
                     if (parser.getEventType() != XmlPullParser.START_TAG) {
                         continue;
                     }
 
-                    if (parser.getName().equals("temperature")) {
-                        min =   parser.getAttributeValue(null, "min");
+                    if (parser.getName().equals("Patient")) {
+                        type =   parser.getAttributeValue(null, "type");
                         publishProgress(25);
-                        max =  parser.getAttributeValue(null, "max");
-                        publishProgress(50  );
-                        currentTemperature = parser.getAttributeValue(null, "value");
-                        publishProgress(75);
+//                        max =  parser.getAttributeValue(null, "max");
+//                        publishProgress(50  );
+//                        currentTemperature = parser.getAttributeValue(null, "value");
+                     //   publishProgress(75);
                     }
 
-                    if (parser.getName().equals("speed")){
-                        speed= parser.getAttributeValue(null, "value");
-                        publishProgress(125);
-
-
-                    }
-
+//                    if (parser.getName().equals("speed")){
+//                        speed= parser.getAttributeValue(null, "value");
+//                        publishProgress(125);
 //
-//                    if (parser.getName().equals("weather")) {
-//                        iconName =  parser.getAttributeValue(null, "icon");
-//                        // publishProgress(125);
 //
-//                        String iconFile = iconName + ".png";
-//                        if (fileExistance(iconFile)) {
-//                            FileInputStream inputStream = null;
-//                            try {
-//                                inputStream = new FileInputStream(getBaseContext().getFileStreamPath(iconFile));
-//                            } catch (Exception e) {
-//                                e.printStackTrace();
-//                            }
-//                            icon = BitmapFactory.decodeStream(inputStream);
-//                            Log.i(ACTIVITY_NAME, "Image already exists");
-//                        } else {
-//                            URL iconUrl = new URL("http://openweathermap.org/img/w/" + iconName + ".png");
-//                            icon = getImage(iconUrl);
-//                            FileOutputStream outputStream = openFileOutput(iconName + ".png", Context.MODE_PRIVATE);
-//                            icon.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
-//                            outputStream.flush();
-//                            outputStream.close();
-//                            Log.i(ACTIVITY_NAME, "Adding new image");
-//                        }
-//                        Log.i(ACTIVITY_NAME, "file name="+iconFile);
-//                        publishProgress(100);
 //                    }
+
                 }
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
+            } catch(Exception e) {e.printStackTrace();}
             return null;
         }
 
@@ -133,13 +101,14 @@ public class LoadXML extends Activity {
 
         @Override
         protected void onPostExecute(String result) {
-            String degree = Character.toString((char) 0x00B0);
-            currentTemp.setText(currentTemp.getText()+currentTemperature+degree+"C");
-            minTemp.setText(minTemp.getText()+min+degree+"C");
-            maxTemp.setText(maxTemp.getText()+max+degree+"C");
-          //  weatherImage.setImageBitmap(icon);
-            windSpeed.setText(windSpeed.getText()+speed);
+           // String degree = Character.toString((char) 0x00B0);
+//            currentTemp.setText(currentTemp.getText()+currentTemperature+degree+"C");
+//            minTemp.setText(minTemp.getText()+min+degree+"C");
+//            maxTemp.setText(maxTemp.getText()+max+degree+"C");
+//          //  weatherImage.setImageBitmap(icon);
+//            windSpeed.setText(windSpeed.getText()+speed);
 
+            patientType.setText(patientType.getText()+type);
             progressBar.setVisibility(View.INVISIBLE);
         }
     }

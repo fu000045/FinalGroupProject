@@ -1,5 +1,4 @@
 package com.algonquin.finalgroupproject;
-import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ArrayAdapter;
 import java.util.ArrayList;
@@ -33,25 +31,42 @@ public class DoctorFragment extends Patient {
     Cursor cursor;
     PatientDatabaseHelper patientDatabaseHelper;
     DoctorAdapter docAdapter;
-
     String name;
-    String DBO;
+    String DOB;
     String phone;
     String address;
     String card;
     String description;
-
     public Context getCon(){
         return getApplicationContext();
     }
     public DoctorFragment(){}
     public DoctorFragment(String name, String DOB, String phone, String address, String card, String description){
         setName(name);
+        setDOB(DOB);
+        setAddress(address);
+        setPhone(phone);
+        setCard(card);
+        setDescription(description);
     }
 
     public void setName(String name){
         this.name=name;
-
+    }
+    public void setDOB(String DOB){
+        this.DOB=DOB;
+    }
+    public void setPhone(String phone){
+        this.phone=phone;
+    }
+    public void setAddress(String address){
+        this.address=address;
+    }
+    public void setCard(String card){
+        this.card=card;
+    }
+    public void setDescription(String description){
+        this.description=description;
     }
 
         public String getName(){
@@ -67,7 +82,7 @@ public class DoctorFragment extends Patient {
         return card;
     }
     public String getBirt(){
-        return DBO;
+        return DOB;
     }
     public String getDoc(){
         return description;
@@ -115,6 +130,7 @@ public class DoctorFragment extends Patient {
 
         listView.setAdapter (docAdapter);
         docAdapter.notifyDataSetChanged();
+
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override

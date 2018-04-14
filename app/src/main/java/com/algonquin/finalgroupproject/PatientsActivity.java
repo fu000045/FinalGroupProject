@@ -1,5 +1,6 @@
 package com.algonquin.finalgroupproject;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -27,6 +28,11 @@ public class PatientsActivity extends Activity {
     PatientDatabaseHelper patientDatabaseHelper;
     PatientAdapter patientAdapter;
     UpdateDoctorActivity updateDoctorFrag;
+    String edit_birthday;
+    String edit_phone;
+    String edit_card;
+    String edit_description;
+    String edit_address;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +51,24 @@ public class PatientsActivity extends Activity {
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             String name = cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_NAME));
+            String birthday = cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_BOD));
+            String phone = cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_PHONE));
+            String address = cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_ADDRESS));
+            String card = cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_CARD));
+            String description = cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_DOC));
             Log.i("in PatientActivity","name that get from database is : "+name);
-            DoctorFragment doctorFragment = new DoctorFragment(name, "DOB", "PHONE", "ADDRESS", "CARD", "DES");
+            DoctorFragment doctorFragment = new DoctorFragment(name, birthday, phone, address,card, description);
             listType.add(doctorFragment.getName());
+            edit_birthday = doctorFragment.getBirt();
+            edit_phone = doctorFragment.getPhon();
+            edit_address = doctorFragment.getAddr();
+            edit_card = doctorFragment.getHeal();
+            edit_description = doctorFragment.getDoc();
+//            listType.add(doctorFragment.getBirt());
+//            listType.add(doctorFragment.getPhon());
+//            listType.add(doctorFragment.getAddr());
+//            listType.add(doctorFragment.getHeal());
+//            listType.add(doctorFragment.getDoc());
             View view = LayoutInflater.from(getApplication()).inflate(R.layout.activity_doctor_fragment, null);
             editText = view.findViewById(R.id.edit_name);
             Log.i("############list is :", "" + listType.toString());
@@ -78,10 +99,21 @@ public class PatientsActivity extends Activity {
                 Bundle bundle = new Bundle();
                 bundle.putLong("ID",id);
                 bundle.putString("Message", patientAdapter.getItem(i));
+                bundle.putString("Phone",edit_phone);
+                bundle.putString("Description",edit_description);
+                bundle.putString("Address",edit_address);
+                bundle.putString("Card",edit_card);
+                bundle.putString("Birthday",edit_birthday);
                     Intent intent = new Intent(PatientsActivity.this,PatientDetails.class);
                     intent.putExtra("ID", id);
                     intent.putExtra("Message", patientAdapter.getItem(i));//pass the Database ID and message to next activity
-                    startActivityForResult(intent,5);
+                intent.putExtra("Phone", edit_phone);
+                intent.putExtra("Description", edit_description);
+                intent.putExtra("Address", edit_address);
+                intent.putExtra("Card", edit_card);
+                intent.putExtra("Birthday", edit_birthday);
+//                    startActivityForResult(intent,5);
+                startActivityForResult(intent,5);
             } });
     }
 
@@ -110,9 +142,46 @@ private class PatientAdapter extends ArrayAdapter<String> {
             Log.i("PatientsActivity", "Returned to PatientActivity.onActivityResult");
             Long deleteId = data.getLongExtra("DeleteID", -1);
             deleteListMessage(deleteId);}
+
+            else  if ((requestCode == 5)&&(resultCode == Activity.RESULT_CANCELED)){
+            Log.i("PatientsActivity", "Returned to PatientActivity.onActivityResult");
+            Long updateId = data.getLongExtra("UpdateID", -1);
+            String updateName = data.getStringExtra("UpdateName");
+            String updateAddress = data.getStringExtra("UpdatePhone");
+            String updatePhone = data.getStringExtra("UpdateBirthday");
+            String updateBirthday = data.getStringExtra("UpdateAddress");
+            String updateCard = data.getStringExtra("UpdateCard");
+            String updateDescription = data.getStringExtra("UpdateDescription");
+        //    deleteListMessage(deleteId);
+            updateMessage(updateId,updateName,updateAddress,updatePhone,updateBirthday,updateCard,updateDescription);
+        }
     }
-    public void deleteListMessage(Long id)
-    {
+    public void updateMessage(Long id, String name, String address, String phone, String birthday, String card, String description){
+
+        final SQLiteDatabase db = patientDatabaseHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(PatientDatabaseHelper.KEY_ID,id); //These Fields should be your String values of actual column names
+        cv.put(PatientDatabaseHelper.KEY_NAME,name);
+        cv.put(PatientDatabaseHelper.KEY_BOD,birthday);
+        cv.put(PatientDatabaseHelper.KEY_ADDRESS,address);
+        cv.put(PatientDatabaseHelper.KEY_PHONE,phone);
+        cv.put(PatientDatabaseHelper.KEY_CARD,card);
+        cv.put(PatientDatabaseHelper.KEY_DOC,description);
+        db.update("doctorTable",cv,PatientDatabaseHelper.KEY_ID+" = " + id,null);
+        listType.clear();
+        Log.i("in PatientsActivity","the list after delete which is clear "+listType);
+        String selectQuery = "SELECT  * FROM " + "doctorTable";
+        cursor = db.rawQuery(selectQuery, null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()) {
+            listType.add(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.KEY_NAME)));
+            Log.i("PatientsActivity", "SQL MESSAGE:" + cursor.getString( cursor.getColumnIndex( PatientDatabaseHelper.KEY_NAME) ) );
+            cursor.moveToNext();
+        }
+        patientAdapter.notifyDataSetChanged();
+
+    }
+    public void deleteListMessage(Long id) {
         final SQLiteDatabase db = patientDatabaseHelper.getWritableDatabase();
         db.delete("doctorTable", PatientDatabaseHelper.KEY_ID+" = " + id , null);
         Log.i("in PatientsActivity","the list before delete which is clear "+listType);
