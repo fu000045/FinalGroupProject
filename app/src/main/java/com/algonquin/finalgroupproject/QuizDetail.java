@@ -18,6 +18,6 @@ public class QuizDetail extends Activity {
         QuizFragment myFragment = new QuizFragment();
         myFragment.setArguments(bundle);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.Quiz_MultiChoice_Framlayout, myFragment).commit();
+        transaction.replace(R.id.Quiz_Detail_Framelayout, myFragment).commit();
     }
 }

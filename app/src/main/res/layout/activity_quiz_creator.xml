@@ -46,4 +46,10 @@
         android:id="@+id/Quiz_help"
         android:text="@string/quiz_help" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Return"
+        android:text="@string/button_return" />
+
 </LinearLayout>

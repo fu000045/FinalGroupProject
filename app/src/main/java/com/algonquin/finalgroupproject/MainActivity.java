@@ -1,6 +1,7 @@
 package com.algonquin.finalgroupproject;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,10 +9,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btn_quizCreater;
+
+    LinearLayout linearlayout;
     Toolbar toolbar;
 
     @Override
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        linearlayout = findViewById(R.id.linearlayout);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
  //       ActionBar ab = getSupportActionBar();
@@ -36,8 +40,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.Quiz:
+                Snackbar snackbar = Snackbar
+                        .make(linearlayout, "Quiz Creator Selected!", Snackbar.LENGTH_LONG);
+                snackbar.show();
 
-                Toast.makeText(MainActivity.this, R.string.toast_quiz, Toast.LENGTH_SHORT).show();
                 //Jump to QuizCreaterActivity.
                 Intent intent = new Intent(MainActivity.this, QuizCreatorActivity.class);
                 startActivity(intent);

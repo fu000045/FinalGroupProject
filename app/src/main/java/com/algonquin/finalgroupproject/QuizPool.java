@@ -30,6 +30,7 @@ public class QuizPool extends Activity {
     private ListView listview_numeric;
     private ProgressBar progressBar;
     private Button btn_addQues;
+    private Button btn_return;
     private boolean isTablet = false;
 
     //Get a writable database.
@@ -71,6 +72,7 @@ public class QuizPool extends Activity {
         progressBar = findViewById(R.id.progressBar_Quiz);
 
         btn_addQues = findViewById(R.id.button_addQuestion);
+        btn_return = findViewById(R.id.button_return);
         progressBar.setVisibility(View.VISIBLE);
         isTablet = (findViewById(R.id.tablet_framelayout) != null);
 
@@ -223,6 +225,14 @@ public class QuizPool extends Activity {
                         })
                         .show();
 
+            }
+        });
+        //return button to return to QuizCreator activity
+        btn_return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(QuizPool.this, QuizCreatorActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -383,6 +393,7 @@ public class QuizPool extends Activity {
                 }
                 db.execSQL(query);
                 multichoiceAdapter.notifyDataSetChanged();
+                setListViewHeightBasedOnChildren(listview_multichoice);
             }
         }//for true false
         else if(questionType.equals("TrueFalse")){
@@ -399,6 +410,7 @@ public class QuizPool extends Activity {
                 }
                 db.execSQL(query);
                 truefalseAdapter.notifyDataSetChanged();
+                setListViewHeightBasedOnChildren(listview_truefalse);
             }
         }//for numeric
         else if(questionType.equals("Numeric")){
@@ -416,6 +428,7 @@ public class QuizPool extends Activity {
                 }
                 db.execSQL(query);
                 numericAdapter.notifyDataSetChanged();
+                setListViewHeightBasedOnChildren(listview_numeric);
             }
         }
 
@@ -432,17 +445,20 @@ public class QuizPool extends Activity {
                     + answerB + "' , '" + answerC + "' , '" + answerD + "' , '" + correct + "' );";
             db.execSQL(query);
             multichoiceAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_multichoice);
         }else if(questionType.equals("TrueFalse")){
             query = "INSERT INTO " + tableName_truefalse + " ( " + keyQues
                     + " , " + keyCorrect + " ) VALUES ( '" + question + "' , '" + correct + "' );";
             db.execSQL(query);
             truefalseAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_truefalse);
         }else if(questionType.equals("Numeric")){
             query = "INSERT INTO " + tableName_numeric + " ( " + keyQues
                     + " , " + keyAnswerA + " , " + keyCorrect + " ) VALUES ( '"
                     + question + "' , '" + answerA + "' , '" + correct + "' );";
             db.execSQL(query);
             numericAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_numeric);
         }
     }
 
@@ -460,18 +476,21 @@ public class QuizPool extends Activity {
                     + "' WHERE " + keyID + " = " + id + ";";
             db.execSQL(query);
             multichoiceAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_multichoice);
         }else if(questionType.equals("TrueFalse")){
             query = "UPDATE " + tableName_truefalse + " SET " + keyQues + " = " + "'" + question
                     + "', " + keyCorrect + " = '" + correct
                     + "' WHERE " + keyID + " = " + id + ";";
             db.execSQL(query);
             truefalseAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_truefalse);
         }else if(questionType.equals("Numeric")){
             query = "UPDATE " + tableName_numeric + " SET " + keyQues + " = '" + question
                     + "', " + keyAnswerA + " = '" + answerA + "', " + keyCorrect + " = '" + correct
                     + "' WHERE " + keyID + " = " + id + ";";
             db.execSQL(query);
             numericAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_numeric);
         }
     }
 
@@ -482,14 +501,17 @@ public class QuizPool extends Activity {
             query = "DELETE FROM " + tableName_multichoice + " WHERE " + keyID + " = " + id + ";";
             db.execSQL(query);
             multichoiceAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_multichoice);
         }else if(questionType.equals("TrueFalse")){
             query = "DELETE FROM " + tableName_truefalse + " WHERE " + keyID + " = " + id + ";";
             db.execSQL(query);
             truefalseAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_truefalse);
         }else if(questionType.equals("Numeric")){
             query = "DELETE FROM " + tableName_numeric + " WHERE " + keyID + " = " + id + ";";
             db.execSQL(query);
             numericAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_numeric);
         }
 
         if(quizFragment != null) {

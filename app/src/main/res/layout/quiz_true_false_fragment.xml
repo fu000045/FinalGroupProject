@@ -42,18 +42,25 @@
         android:layout_below="@+id/AnswerA_truefalse_fragment"/>
 
     <Button
-        android:id="@+id/add_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_addQuestion"
-        android:layout_centerInParent="true"
-        android:layout_alignParentBottom="true"/>
-    <Button
         android:id="@+id/update_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_updateQuestion"
         android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"/>
+    <Button
+        android:id="@+id/add_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_addQuestion"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"/>
+    <Button
+        android:id="@+id/cancel_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"/>
     <Button
         android:id="@+id/delete_question"

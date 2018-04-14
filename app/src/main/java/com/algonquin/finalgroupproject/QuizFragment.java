@@ -23,7 +23,7 @@ public class QuizFragment extends Fragment {
 
     //used to judge if it's a tablet or phone
     public boolean isTablet;
-    EditText questionMultiChoice;
+    EditText txt_quesiton;
     CheckBox check_answerA;
     CheckBox check_answerB;
     CheckBox check_answerC;
@@ -34,6 +34,7 @@ public class QuizFragment extends Fragment {
     EditText text_answerD;
     EditText text_correct;
     Button btn_add;
+    Button btn_cancel;
     Button btn_update;
     Button btn_delete;
     Bundle bundle;
@@ -48,7 +49,7 @@ public class QuizFragment extends Fragment {
         if(bundle.getString("QuestionType").equals("MultiChoice")){
             view = inflater.inflate(R.layout.quiz_multi_choice_fragment, container, false);
 
-            questionMultiChoice = view.findViewById(R.id.Question_multichoice_fragment);
+            txt_quesiton = view.findViewById(R.id.Question_multichoice_fragment);
             check_answerA = view.findViewById(R.id.AnswerA_multichoice_fragment);
             check_answerB = view.findViewById(R.id.AnswerB_multichoice_fragment);
             check_answerC = view.findViewById(R.id.AnswerC_multichoice_fragment);
@@ -58,6 +59,7 @@ public class QuizFragment extends Fragment {
             text_answerC = view.findViewById(R.id.txt_answerC);
             text_answerD = view.findViewById(R.id.txt_answerD);
             btn_add = view.findViewById(R.id.add_question);
+            btn_cancel = view.findViewById(R.id.cancel_question);
             btn_update = view.findViewById(R.id.update_question);
             btn_delete = view.findViewById(R.id.delete_question);
 
@@ -77,7 +79,7 @@ public class QuizFragment extends Fragment {
                 btn_delete.setVisibility(View.INVISIBLE);
             }else{
                 btn_add.setVisibility(View.INVISIBLE);
-                questionMultiChoice.setText(question);
+                txt_quesiton.setText(question);
                 text_answerA.setText(answerA);
                 text_answerB.setText(answerB);
                 text_answerC.setText(answerC);
@@ -132,7 +134,7 @@ public class QuizFragment extends Fragment {
             btn_add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String newQues = questionMultiChoice.getText().toString();
+                    String newQues = txt_quesiton.getText().toString();
                     String newAnsA = text_answerA.getText().toString();
                     String newAnsB = text_answerB.getText().toString();
                     String newAnsC = text_answerC.getText().toString();
@@ -185,7 +187,7 @@ public class QuizFragment extends Fragment {
             btn_update.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String newQues = questionMultiChoice.getText().toString();
+                    String newQues = txt_quesiton.getText().toString();
                     String newAnsA = text_answerA.getText().toString();
                     String newAnsB = text_answerB.getText().toString();
                     String newAnsC = text_answerC.getText().toString();
@@ -252,10 +254,11 @@ public class QuizFragment extends Fragment {
         }else if(bundle.getString("QuestionType").equals("TrueFalse")){
             view = inflater.inflate(R.layout.quiz_true_false_fragment, container, false);
 
-            questionMultiChoice = view.findViewById(R.id.Question_truefalse_fragment);
+            txt_quesiton = view.findViewById(R.id.Question_truefalse_fragment);
             check_answerA = view.findViewById(R.id.AnswerA_truefalse_fragment);
             check_answerB = view.findViewById(R.id.AnswerB_truefalse_fragment);
             btn_add = view.findViewById(R.id.add_question);
+            btn_cancel = view.findViewById(R.id.cancel_question);
             btn_update = view.findViewById(R.id.update_question);
             btn_delete = view.findViewById(R.id.delete_question);
 
@@ -271,7 +274,7 @@ public class QuizFragment extends Fragment {
                 btn_delete.setVisibility(View.INVISIBLE);
             }else{
                 btn_add.setVisibility(View.INVISIBLE);
-                questionMultiChoice.setText(question);
+                txt_quesiton.setText(question);
                 if(correct.equalsIgnoreCase("True")){
                     check_answerA.setChecked(true);
                 }else if(correct.equalsIgnoreCase("False")){
@@ -298,7 +301,7 @@ public class QuizFragment extends Fragment {
             btn_add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String newQues = questionMultiChoice.getText().toString();
+                    String newQues = txt_quesiton.getText().toString();
                     String newCrt = "";
 
                     if((newQues.isEmpty() || newQues.trim().isEmpty())
@@ -336,7 +339,7 @@ public class QuizFragment extends Fragment {
             btn_update.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String newQues = questionMultiChoice.getText().toString();
+                    String newQues = txt_quesiton.getText().toString();
                     String newCrt = "";
                     if(check_answerA.isChecked()){
                         newCrt = "True";
@@ -391,10 +394,11 @@ public class QuizFragment extends Fragment {
         }else if(bundle.getString("QuestionType").equals("Numeric")){
             view = inflater.inflate(R.layout.quiz_numeric_fragment, container, false);
 
-            questionMultiChoice = view.findViewById(R.id.Question_numeric_fragment);
+            txt_quesiton = view.findViewById(R.id.Question_numeric_fragment);
             text_answerA = view.findViewById(R.id.AnswerA_numeric_fragment);
             text_correct = view.findViewById(R.id.Correct_numeric_fragment);
             btn_add = view.findViewById(R.id.add_question);
+            btn_cancel = view.findViewById(R.id.cancel_question);
             btn_update = view.findViewById(R.id.update_question);
             btn_delete = view.findViewById(R.id.delete_question);
 
@@ -411,7 +415,7 @@ public class QuizFragment extends Fragment {
                 btn_delete.setVisibility(View.INVISIBLE);
             }else{
                 btn_add.setVisibility(View.INVISIBLE);
-                questionMultiChoice.setText(question);
+                txt_quesiton.setText(question);
                 text_answerA.setText(answerA);
                 text_correct.setText(correct);
             }
@@ -419,7 +423,7 @@ public class QuizFragment extends Fragment {
             btn_add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String newQues = questionMultiChoice.getText().toString();
+                    String newQues = txt_quesiton.getText().toString();
                     String newAnsA = text_answerA.getText().toString();
                     String newCrt = text_correct.getText().toString();
 
@@ -455,7 +459,7 @@ public class QuizFragment extends Fragment {
             btn_update.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String newQues = questionMultiChoice.getText().toString();
+                    String newQues = txt_quesiton.getText().toString();
                     String newAnsA = text_answerA.getText().toString();
                     String newCrt = text_correct.getText().toString();
                     if(isTablet) {
@@ -504,6 +508,14 @@ public class QuizFragment extends Fragment {
                 }
             });
         }
+        //cancel button to return to quizpool activity
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), QuizPool.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
