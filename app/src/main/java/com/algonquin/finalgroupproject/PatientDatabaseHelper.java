@@ -1,23 +1,19 @@
 package com.algonquin.finalgroupproject;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
 /**
  * Created by wenchongxu on 2018-04-05.
  */
 
 public class PatientDatabaseHelper extends SQLiteOpenHelper {
-
-
     private static String DATABASE_NAME = "patient.db";
     private static int VERSION_NUM = 1;
-
-    //public final static String TABLE_NAME = "chatTable";
+    public final static String DOCTOR_TABLE_NAME = "doctorTable";
+    public final static String DENTIST_TABLE_NAME = "dentistTable";
+    public final static String OPTOMETRIST_TABLE_NAME = "optometristTable";
     public final static String KEY_ID = "id";
-   // public final static String KEY_MESSAGE = "message";
     public final static String KEY_NAME = "name";
     public final static String KEY_ADDRESS = "address";
     public final static String KEY_BOD = "birthday";
@@ -29,15 +25,11 @@ public class PatientDatabaseHelper extends SQLiteOpenHelper {
 
 
     private static final String createDoctorOfficeTable = "CREATE TABLE "
-            + "doctorTable" +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_NAME+" TEXT, "+KEY_ADDRESS+" TEXT, "+KEY_BOD+" TEXT, "+KEY_PHONE+" TEXT, "+KEY_CARD+" TEXT, "+KEY_DOC+" TEXT);";
+            + DOCTOR_TABLE_NAME +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_NAME+" TEXT, "+KEY_ADDRESS+" TEXT, "+KEY_BOD+" TEXT, "+KEY_PHONE+" TEXT, "+KEY_CARD+" TEXT, "+KEY_DEN+" TEXT, "+KEY_OPT+" TEXT, "+KEY_DOC+" TEXT);";
     private static final String createDentistTable = "CREATE TABLE "
-            + "dentistTable" +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_NAME+" TEXT, "+KEY_ADDRESS+" TEXT, "+KEY_BOD+" TEXT, "+KEY_PHONE+" TEXT, "+KEY_CARD+" TEXT, "+KEY_DEN+" TEXT);";
+            + DENTIST_TABLE_NAME +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_NAME+" TEXT, "+KEY_ADDRESS+" TEXT, "+KEY_BOD+" TEXT, "+KEY_PHONE+" TEXT, "+KEY_CARD+" TEXT, "+KEY_DEN+" TEXT);";
     private static final String createOptometristTable = "CREATE TABLE "
-            + "optometristTable" +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_NAME+" TEXT, "+KEY_ADDRESS+" TEXT, "+KEY_BOD+" TEXT, "+KEY_PHONE+" TEXT, "+KEY_CARD+" TEXT, "+KEY_OPT+" TEXT);";
-//
-//    private static final String createTable =  "CREATE TABLE "
-//            + TABLE_NAME +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_MESSAGE+" text);";
-
+            + OPTOMETRIST_TABLE_NAME +" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+KEY_NAME+" TEXT, "+KEY_ADDRESS+" TEXT, "+KEY_BOD+" TEXT, "+KEY_PHONE+" TEXT, "+KEY_CARD+" TEXT, "+KEY_OPT+" TEXT);";
 
     @Override
     public void onCreate(SQLiteDatabase db){
@@ -50,7 +42,6 @@ public class PatientDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVer, int newVer){
-
         db.execSQL("DROP TABLE IF EXISTS " + "doctorTable");
         db.execSQL("DROP TABLE IF EXISTS " + "dentistTable");
         db.execSQL("DROP TABLE IF EXISTS " + "optometristTable");

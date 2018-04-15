@@ -8,7 +8,7 @@ public class PatientDetails extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_details);
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        UpdateDoctorActivity frag = new UpdateDoctorActivity(null);
+        PatientListviewFragment frag = new PatientListviewFragment(null);
         Bundle bundle = getIntent().getExtras();
         frag.setArguments(bundle);
         fragmentTransaction.add(R.id.patient_frameLayout,frag).commit();
