@@ -7,29 +7,29 @@
         android:id="@+id/Quiz"
         android:title="Quiz Creater"
         android:icon="@drawable/quiz"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         />
 
     <item
         android:id="@+id/OCTrans"
         android:icon="@drawable/ocbus"
         android:title="@string/oc_title_toolbar"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/Movie"
         android:icon="@drawable/movie"
         android:title="Movie Information"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/moving_rating"
-        android:title="@string/rating" />
+        app:showAsAction="always" />
+    <!--<item-->
+        <!--android:id="@+id/moving_rating"-->
+        <!--android:title="@string/rating" />-->
 
     <item
         android:id="@+id/Patient"
         android:title="@string/patient_form"
         android:icon="@drawable/patient"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         />
 
 

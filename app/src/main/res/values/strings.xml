@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">FinalProject</string>
+    <string name="toast_quizHelp">Quiz Help Selected!</string>
+    <string name="toast_quizCreator">Quiz Creator Selected!</string>
     <string name="toast_quiz">Return to Main menu!</string>
     <string name="toast_quizMultiChoiceParser">The multi choice question is already exited in database!</string>
     <string name="toast_quizTFParser">The true false question is already exited in database!</string>
@@ -34,8 +36,8 @@
     <string name="quiz_pool_answerC">Answer C:</string>
     <string name="quiz_pool_answerD">Answer D:</string>
     <string name="quiz_pool_crtAns2">Correct \nAnswer:</string>
-    <string name="quiz_pool_numeric">Digits should be typed: </string>
-    <string name="quiz_pool_numeric2">Digits\nshould be\ntyped: </string>
+    <string name="quiz_pool_numeric">Digits should be rounded: </string>
+    <string name="quiz_pool_numeric2">Digits\nshould be\nrounded: </string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="button_return">RETURN</string>

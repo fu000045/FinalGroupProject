@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">毕业设计</string>
+    <string name="toast_quizHelp">帮助已选!</string>
+    <string name="toast_quizCreator">测试产生器已选!</string>
     <string name="toast_quiz">回到主页!</string>
     <string name="toast_quizMultiChoiceParser">题库中已有此多选题</string>
     <string name="toast_quizTFParser">题库中已有此是否题</string>
