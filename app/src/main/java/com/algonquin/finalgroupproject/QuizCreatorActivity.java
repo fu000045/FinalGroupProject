@@ -1,18 +1,17 @@
 package com.algonquin.finalgroupproject;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class QuizCreatorActivity extends AppCompatActivity {
+public class QuizCreatorActivity extends Activity {
 
     LinearLayout linearlayout;
     Button btn_viewQuizPool;
@@ -20,7 +19,6 @@ public class QuizCreatorActivity extends AppCompatActivity {
     Button btn_quizStat;
     Button btn_quizHelp;
     Button btn_return;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,5 +102,4 @@ public class QuizCreatorActivity extends AppCompatActivity {
             }
         });
     }
-
 }

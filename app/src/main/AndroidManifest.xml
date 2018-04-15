@@ -12,17 +12,45 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
         <activity android:name=".QuizCreatorActivity" />
         <activity android:name=".QuizPool" />
-        <activity android:name=".QuizDetail" />
+
         <activity android:name=".QuizParser" />
         <activity android:name=".QuizStat"></activity>
+        <activity android:name=".QuizDetail"></activity>
+
+        <activity android:name=".QuizCreatorActivity" />
+        <activity android:name=".MovieActivity" />
+        <activity android:name=".Movie1" />
+        <!--<activity android:name=".MovieDatabaseHelper" />-->
+        <!--<activity android:name=".Movie1Fragment" />-->
+        <activity android:name=".Movie1Detail" />
+        <activity android:name=".MovieFromWebActivity" />
+        <!--<activity android:name=".HttpUtils"></activity>-->
+
+        <activity android:name=".octranspo.OCBusNumberWindow"></activity>
+
+        <activity android:name=".PatientIntakeFormActivity">
+
+
+        </activity>
+        <activity android:name=".PatientDetails" />
+        <activity android:name=".PatientLoadXML" >
+        </activity>
+        <activity android:name=".AddPatientActivity">
+
+        </activity>
+        <activity android:name=".PatientListviewFragment"></activity>
+
     </application>
 
 </manifest>
