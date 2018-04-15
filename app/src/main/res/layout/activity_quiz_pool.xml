@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
+<ScrollView
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android" >
@@ -9,33 +10,33 @@
             android:layout_height="wrap_content"
             xmlns:android="http://schemas.android.com/apk/res/android">
 
-                <ListView
+                <com.algonquin.finalgroupproject.NonScrollListView
                     android:id="@+id/listview_multichoice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentStart="true"/>
 
-                <ListView
+                <com.algonquin.finalgroupproject.NonScrollListView
                     android:id="@+id/listview_truefalse"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/listview_multichoice" />
+                    android:layout_below="@id/listview_multichoice" />
 
-                <ListView
+                <com.algonquin.finalgroupproject.NonScrollListView
                     android:id="@+id/listview_numeric"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/listview_truefalse" />
+                    android:layout_below="@id/listview_truefalse" />
 
                 <ProgressBar
                     android:id="@+id/progressBar_Quiz"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="invisible"
-                    android:layout_below="@+id/listview_numeric"
+                    android:layout_below="@id/listview_numeric"
                     style="?android:attr/progressBarStyleHorizontal" />
 
                 <Button
@@ -43,8 +44,17 @@
                     android:layout_width="95dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignEnd="@+id/listview_multichoice"
+                    android:layout_below="@id/listview_numeric"
+                    android:layout_alignEnd="@id/progressBar_Quiz"
                     android:text="@string/button_addQuestion" />
+                <Button
+                    android:id="@+id/button_return"
+                    android:layout_width="95dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@id/progressBar_Quiz"
+                    android:text="@string/button_return" />
 
         </RelativeLayout>
 

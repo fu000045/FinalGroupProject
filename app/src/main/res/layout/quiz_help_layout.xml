@@ -7,6 +7,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/quiz_creater"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimary"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/quiz_help_author"
         android:layout_marginTop="40dp"/>
 
@@ -15,9 +23,13 @@
         android:layout_height="wrap_content"
         android:text="@string/quiz_help_version"/>
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/quiz_help_instruction"/>
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/quiz_help_instruction"/>
+    </ScrollView>
 
 </LinearLayout>

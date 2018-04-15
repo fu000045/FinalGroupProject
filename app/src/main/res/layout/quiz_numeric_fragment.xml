@@ -4,47 +4,66 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quiz_numeric"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimary"/>
+
+    <TextView
         android:id="@+id/tv_ques"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/quiz_pool_question"
+        android:layout_below="@id/title"
         android:layout_marginBottom="20dp" />
 
     <EditText
         android:id="@+id/Question_numeric_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/tv_ques"
-        android:layout_toEndOf="@+id/tv_ques" />
+        android:layout_alignTop="@id/tv_ques"
+        android:layout_toEndOf="@id/tv_ques" />
 
     <TextView
         android:id="@+id/tv_correct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/quiz_pool_crtAns"
-        android:layout_below="@+id/Question_numeric_fragment"/>
+        android:text="@string/quiz_pool_crtAns2"
+        android:layout_below="@id/Question_numeric_fragment"/>
 
     <EditText
         android:id="@+id/Correct_numeric_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/tv_correct"
-        android:layout_toEndOf="@+id/tv_correct" />
+        android:layout_alignStart="@id/Question_numeric_fragment"
+        android:layout_alignTop="@id/tv_correct"
+        android:layout_toEndOf="@id/tv_correct" />
 
     <TextView
         android:id="@+id/tv_AnswerA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/quiz_pool_numeric"
-        android:layout_below="@+id/Correct_numeric_fragment"/>
+        android:text="@string/quiz_pool_numeric2"
+        android:layout_below="@id/Correct_numeric_fragment"/>
 
     <EditText
         android:id="@+id/AnswerA_numeric_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/tv_AnswerA"
-        android:layout_toEndOf="@+id/tv_AnswerA" />
+        android:layout_alignStart="@id/Question_numeric_fragment"
+        android:layout_alignTop="@id/tv_AnswerA"
+        android:layout_toEndOf="@id/tv_AnswerA" />
 
+    <Button
+        android:id="@+id/update_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_updateQuestion"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"/>
     <Button
         android:id="@+id/add_question"
         android:layout_width="wrap_content"
@@ -53,10 +72,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"/>
     <Button
-        android:id="@+id/update_question"
+        android:id="@+id/cancel_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_updateQuestion"
+        android:text="@string/cancel"
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"/>
     <Button

@@ -1,6 +1,7 @@
 package com.algonquin.finalgroupproject;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
@@ -28,14 +30,16 @@ public class QuizPool extends Activity {
     private ListView listview_numeric;
     private ProgressBar progressBar;
     private Button btn_addQues;
+    private Button btn_return;
     private boolean isTablet = false;
 
     //Get a writable database.
     private QuizPoolDatabaseHelper dbHelper;
     private SQLiteDatabase db = null;
     private Cursor c;
+    private Bundle bundle = new Bundle();
 
-    QuizFragment quizFragment = new QuizFragment();
+    QuizFragment quizFragment = null;
 
     //in this case, “this” is the ChatWindow, which is-A Context object
     MultichoiceAdapter multichoiceAdapter;
@@ -68,6 +72,7 @@ public class QuizPool extends Activity {
         progressBar = findViewById(R.id.progressBar_Quiz);
 
         btn_addQues = findViewById(R.id.button_addQuestion);
+        btn_return = findViewById(R.id.button_return);
         progressBar.setVisibility(View.VISIBLE);
         isTablet = (findViewById(R.id.tablet_framelayout) != null);
 
@@ -107,7 +112,7 @@ public class QuizPool extends Activity {
         }
         //this restarts the process of getCount() & getView() to retrieve multi choice list
         multichoiceAdapter.notifyDataSetChanged();
-
+        setListViewHeightBasedOnChildren(listview_multichoice);
 
         //true false listview
         truefalseAdapter = new TrueFalseAdapter(this);
@@ -126,7 +131,7 @@ public class QuizPool extends Activity {
             c.moveToNext();
         }
         truefalseAdapter.notifyDataSetChanged();
-
+        setListViewHeightBasedOnChildren(listview_truefalse);
 
         //numeric listview
         numericAdapter = new NumericAdapter(this);
@@ -147,9 +152,9 @@ public class QuizPool extends Activity {
             c.moveToNext();
         }
         numericAdapter.notifyDataSetChanged();
+        setListViewHeightBasedOnChildren(listview_numeric);
 
-
-        //when click ADD button, clear the edit text and add the new message into database, update listview as well
+        //when click ADD button, clear the edit text and add the new question into database, update listview as well
         btn_addQues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,6 +165,7 @@ public class QuizPool extends Activity {
                             public void onClick(DialogInterface dialog, int id) {
                                 bundle.putString("QuestionType", "MultiChoice");
                                 if(isTablet){//for tablet
+                                    quizFragment = new QuizFragment();
                                     quizFragment.setArguments(bundle);
                                     //tell the MessageFragment this is a tablet
                                     quizFragment.setIsTablet(true);
@@ -167,7 +173,7 @@ public class QuizPool extends Activity {
                                     getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                                 }else{//for phone
                                     //tell the MessageFragment this is not a tablet
-                                    quizFragment.setIsTablet(false);
+                                    //quizFragment.setIsTablet(false);
                                     //Jump to MessageDetails, pass the message and id information
                                     Intent intent = new Intent(QuizPool.this, QuizDetail.class);
                                     intent.putExtra("QuizDetail", bundle);
@@ -180,6 +186,7 @@ public class QuizPool extends Activity {
                             public void onClick(DialogInterface dialog, int id) {
                                 bundle.putString("QuestionType", "TrueFalse");
                                 if(isTablet){//for tablet
+                                    quizFragment = new QuizFragment();
                                     quizFragment.setArguments(bundle);
                                     //tell the MessageFragment this is a tablet
                                     quizFragment.setIsTablet(true);
@@ -187,7 +194,7 @@ public class QuizPool extends Activity {
                                     getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                                 }else{//for phone
                                     //tell the MessageFragment this is not a tablet
-                                    quizFragment.setIsTablet(false);
+                                    //quizFragment.setIsTablet(false);
                                     //Jump to MessageDetails, pass the message and id information
                                     Intent intent = new Intent(QuizPool.this, QuizDetail.class);
                                     intent.putExtra("QuizDetail", bundle);
@@ -200,6 +207,7 @@ public class QuizPool extends Activity {
                             public void onClick(DialogInterface dialog, int id) {
                                 bundle.putString("QuestionType", "Numeric");
                                 if(isTablet){//for tablet
+                                    quizFragment = new QuizFragment();
                                     quizFragment.setArguments(bundle);
                                     //tell the MessageFragment this is a tablet
                                     quizFragment.setIsTablet(true);
@@ -207,7 +215,7 @@ public class QuizPool extends Activity {
                                     getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                                 }else{//for phone
                                     //tell the MessageFragment this is not a tablet
-                                    quizFragment.setIsTablet(false);
+                                    //quizFragment.setIsTablet(false);
                                     //Jump to MessageDetails, pass the message and id information
                                     Intent intent = new Intent(QuizPool.this, QuizDetail.class);
                                     intent.putExtra("QuizDetail", bundle);
@@ -217,8 +225,14 @@ public class QuizPool extends Activity {
                         })
                         .show();
 
-
-
+            }
+        });
+        //return button to return to QuizCreator activity
+        btn_return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(QuizPool.this, QuizCreatorActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -240,7 +254,6 @@ public class QuizPool extends Activity {
 
                 //a bundle is used to pass message
                 //pass data to fragment
-                Bundle bundle = new Bundle();
                 bundle.putString("QuestionType", "MultiChoice");
                 bundle.putString("Question", question);
                 bundle.putString("AnswerA", answerA);
@@ -251,6 +264,7 @@ public class QuizPool extends Activity {
                 bundle.putLong("ID", Id);
 
                 if(isTablet){//for tablet
+                    quizFragment = new QuizFragment();
                     quizFragment.setArguments(bundle);
                     //tell the MessageFragment this is a tablet
                     quizFragment.setIsTablet(true);
@@ -258,7 +272,7 @@ public class QuizPool extends Activity {
                     getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                 }else{//for phone
                     //tell the MessageFragment this is not a tablet
-                    quizFragment.setIsTablet(false);
+                    //quizFragment.setIsTablet(false);
                     //Jump to MessageDetails, pass the message and id information
                     Intent intent = new Intent(QuizPool.this, QuizDetail.class);
                     intent.putExtra("QuizDetail", bundle);
@@ -281,13 +295,13 @@ public class QuizPool extends Activity {
 
                 //a bundle is used to pass message
                 //pass data to fragment
-                Bundle bundle = new Bundle();
                 bundle.putString("QuestionType", "TrueFalse");
                 bundle.putString("Question", question);
                 bundle.putString("Correct", correct);
                 bundle.putLong("ID", Id);
 
                 if(isTablet){//for tablet
+                    quizFragment = new QuizFragment();
                     quizFragment.setArguments(bundle);
                     //tell the MessageFragment this is a tablet
                     quizFragment.setIsTablet(true);
@@ -295,7 +309,7 @@ public class QuizPool extends Activity {
                     getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                 }else{//for phone
                     //tell the MessageFragment this is not a tablet
-                    quizFragment.setIsTablet(false);
+                    //quizFragment.setIsTablet(false);
                     //Jump to MessageDetails, pass the message and id information
                     Intent intent = new Intent(QuizPool.this, QuizDetail.class);
                     intent.putExtra("QuizDetail", bundle);
@@ -319,7 +333,6 @@ public class QuizPool extends Activity {
 
                 //a bundle is used to pass message
                 //pass data to fragment
-                Bundle bundle = new Bundle();
                 bundle.putString("QuestionType", "Numeric");
                 bundle.putString("Question", question);
                 bundle.putString("AnswerA", answerA);
@@ -327,6 +340,7 @@ public class QuizPool extends Activity {
                 bundle.putLong("ID", Id);
 
                 if(isTablet){//for tablet
+                    quizFragment = new QuizFragment();
                     quizFragment.setArguments(bundle);
                     //tell the MessageFragment this is a tablet
                     quizFragment.setIsTablet(true);
@@ -334,7 +348,7 @@ public class QuizPool extends Activity {
                     getFragmentManager().beginTransaction().replace(R.id.tablet_framelayout, quizFragment).commit();
                 }else{//for phone
                     //tell the MessageFragment this is not a tablet
-                    quizFragment.setIsTablet(false);
+                    //quizFragment.setIsTablet(false);
                     //Jump to MessageDetails, pass the message and id information
                     Intent intent = new Intent(QuizPool.this, QuizDetail.class);
                     intent.putExtra("QuizDetail", bundle);
@@ -379,6 +393,7 @@ public class QuizPool extends Activity {
                 }
                 db.execSQL(query);
                 multichoiceAdapter.notifyDataSetChanged();
+                setListViewHeightBasedOnChildren(listview_multichoice);
             }
         }//for true false
         else if(questionType.equals("TrueFalse")){
@@ -395,6 +410,7 @@ public class QuizPool extends Activity {
                 }
                 db.execSQL(query);
                 truefalseAdapter.notifyDataSetChanged();
+                setListViewHeightBasedOnChildren(listview_truefalse);
             }
         }//for numeric
         else if(questionType.equals("Numeric")){
@@ -411,7 +427,8 @@ public class QuizPool extends Activity {
                     query = "DELETE FROM " + tableName_numeric +" WHERE " + keyID + " = " + id + ";";
                 }
                 db.execSQL(query);
-                truefalseAdapter.notifyDataSetChanged();
+                numericAdapter.notifyDataSetChanged();
+                setListViewHeightBasedOnChildren(listview_numeric);
             }
         }
 
@@ -428,17 +445,20 @@ public class QuizPool extends Activity {
                     + answerB + "' , '" + answerC + "' , '" + answerD + "' , '" + correct + "' );";
             db.execSQL(query);
             multichoiceAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_multichoice);
         }else if(questionType.equals("TrueFalse")){
             query = "INSERT INTO " + tableName_truefalse + " ( " + keyQues
                     + " , " + keyCorrect + " ) VALUES ( '" + question + "' , '" + correct + "' );";
             db.execSQL(query);
             truefalseAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_truefalse);
         }else if(questionType.equals("Numeric")){
             query = "INSERT INTO " + tableName_numeric + " ( " + keyQues
                     + " , " + keyAnswerA + " , " + keyCorrect + " ) VALUES ( '"
                     + question + "' , '" + answerA + "' , '" + correct + "' );";
             db.execSQL(query);
             numericAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_numeric);
         }
     }
 
@@ -456,18 +476,21 @@ public class QuizPool extends Activity {
                     + "' WHERE " + keyID + " = " + id + ";";
             db.execSQL(query);
             multichoiceAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_multichoice);
         }else if(questionType.equals("TrueFalse")){
             query = "UPDATE " + tableName_truefalse + " SET " + keyQues + " = " + "'" + question
                     + "', " + keyCorrect + " = '" + correct
                     + "' WHERE " + keyID + " = " + id + ";";
             db.execSQL(query);
             truefalseAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_truefalse);
         }else if(questionType.equals("Numeric")){
             query = "UPDATE " + tableName_numeric + " SET " + keyQues + " = '" + question
                     + "', " + keyAnswerA + " = '" + answerA + "', " + keyCorrect + " = '" + correct
                     + "' WHERE " + keyID + " = " + id + ";";
             db.execSQL(query);
             numericAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_numeric);
         }
     }
 
@@ -478,17 +501,65 @@ public class QuizPool extends Activity {
             query = "DELETE FROM " + tableName_multichoice + " WHERE " + keyID + " = " + id + ";";
             db.execSQL(query);
             multichoiceAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_multichoice);
         }else if(questionType.equals("TrueFalse")){
             query = "DELETE FROM " + tableName_truefalse + " WHERE " + keyID + " = " + id + ";";
             db.execSQL(query);
             truefalseAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_truefalse);
         }else if(questionType.equals("Numeric")){
             query = "DELETE FROM " + tableName_numeric + " WHERE " + keyID + " = " + id + ";";
             db.execSQL(query);
             numericAdapter.notifyDataSetChanged();
+            setListViewHeightBasedOnChildren(listview_numeric);
         }
 
-        getFragmentManager().beginTransaction().remove(quizFragment).commit();
+        if(quizFragment != null) {
+            getFragmentManager().beginTransaction().remove(quizFragment).commit();
+        }
+    }
+
+    //set the three listviews with one scroll
+    private void setListViewHeightBasedOnChildren(ListView listView) {
+//        ListAdapter listAdapter = listView.getAdapter();
+//        if (listAdapter == null) {
+//            // pre-condition
+//            return;
+//        }
+//
+//        int totalHeight = listView.getPaddingTop() + listView.getPaddingBottom();
+//
+//        for (int i = 0; i < listAdapter.getCount(); i++) {
+//            View listItem = listAdapter.getView(i, null, listView);
+//            if (listItem instanceof ViewGroup) {
+//                listItem.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+//            }
+//
+//            listItem.measure(0, 0);
+//            totalHeight += listItem.getMeasuredHeight();
+//        }
+//
+//        ViewGroup.LayoutParams params = listView.getLayoutParams();
+//        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+//        listView.setLayoutParams(params);
+//        ListAdapter listAdapter = listView.getAdapter();
+//        if (listAdapter == null)
+//            return;
+//
+//        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
+//        int totalHeight = listView.getPaddingTop() + listView.getPaddingBottom();
+//        View view = null;
+//        for (int i = 0; i < listAdapter.getCount(); i++) {
+//            view = listAdapter.getView(i, view, listView);
+//            if (i == 0)
+//                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
+//
+//            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+//            totalHeight += view.getMeasuredHeight();
+//        }
+//        ViewGroup.LayoutParams params = listView.getLayoutParams();
+//        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+//        listView.setLayoutParams(params);
     }
 
     @Override
