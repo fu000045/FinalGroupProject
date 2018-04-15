@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">毕业设计</string>
-    <string name="toast_quiz">已选择测试题产生器!</string>
-    <string name="ButtonQuiz">多选题测试题库</string>
+    <string name="toast_quiz">回到主页!</string>
+    <string name="toast_quizMultiChoiceParser">题库中已有此多选题</string>
+    <string name="toast_quizTFParser">题库中已有此是否题</string>
+    <string name="toast_quizNumericParser">题库中已有此数字题</string>
+    <string name="quiz_creater">Quiz Creater</string>
     <string name="button_addQuestion">新增</string>
     <string name="button_updateQuestion">更新</string>
     <string name="quiz_dialog_message">真的要删除吗？无法恢复！</string>
@@ -10,8 +13,11 @@
     <string name="quiz_viewpool">浏览题库</string>
     <string name="quiz_import">从服务器导入题库</string>
     <string name="quiz_stat">统计</string>
+    <string name="quiz_pool_message">你想添加哪种题型？</string>
     <string name="quiz_multichoice">多选题</string>
     <string name="quiz_truefalse">是否题</string>
+    <string name="quiz_true">是</string>
+    <string name="quiz_false">否</string>
     <string name="quiz_numeric">数字题</string>
     <string name="quiz_help">帮助</string>
     <string name="quiz_help_author">作者：Yali Fu</string>
@@ -26,12 +32,11 @@
     <string name="quiz_pool_answerC">选项 C:</string>
     <string name="quiz_pool_answerD">选项 D:</string>
     <string name="quiz_pool_crtAns2">正确\n答案:</string>
+    <string name="quiz_pool_numeric">保留小数点后面几位： </string>
+    <string name="quiz_pool_numeric2">保留小数点\n后面几位： </string>
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
-
-
-
-
+    <string name="button_return">返回</string>
 
     <string name="hint_doctorOffice">是否有过敏史?</string>
     <string name="hint_dentist">是否有加冰?</string>
@@ -56,4 +61,5 @@
     <string name="patient_create_update_delete">添加删除病人</string>
     <string name="title_activity_add_patient_toolbar">添加病人</string>
     <string name="patient_form">病例</string>
+
 </resources>

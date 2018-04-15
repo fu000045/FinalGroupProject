@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">FinalProject</string>
-    <string name="toast_quiz">Quiz Creater Selected!</string>
+    <string name="toast_quiz">Return to Main menu!</string>
+    <string name="toast_quizMultiChoiceParser">The multi choice question is already exited in database!</string>
+    <string name="toast_quizTFParser">The true false question is already exited in database!</string>
+    <string name="toast_quizNumericParser">The numeric question is already exited in database!</string>
     <string name="quiz_creater">Quiz Creater</string>
     <string name="button_addQuestion">ADD</string>
     <string name="button_updateQuestion">UPDATE</string>
@@ -32,15 +35,20 @@
     <string name="quiz_pool_answerD">Answer D:</string>
     <string name="quiz_pool_crtAns2">Correct \nAnswer:</string>
     <string name="quiz_pool_numeric">Digits should be typed: </string>
+    <string name="quiz_pool_numeric2">Digits\nshould be\ntyped: </string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="button_return">RETURN</string>
+  
+  
+  
+
     <string name="ButtonMovie">Movie Information</string>
     <string name="Favorite">What is your favorite moive?</string>
     <string name="ButtonQuiz">Multiple Choice Quiz Creater</string>
-
     <string name="Faveriate">What is your faveriate moive?</string>
-
     <string name="Button_Movie1">Life of Pi</string>
     <string name="Button_Movie2">Zootopia</string>
-
     <string name="button_addMovie">Add Movie</string>
     <string name="button_update">Update</string>
     <string name="popularMovie">Movie Information: </string>
@@ -48,13 +56,11 @@
     <string name="rating">moving rating</string>
     <string name="movie_dialog_message">Delete this movie? Can\'t restore!</string>
     <string name="movie_dialog_title">DELETE</string>
-
     <string name="MovieTitle">Movie Title:</string>
     <string name="MainActors">Main Actors:</string>
     <string name="MovieLength">Movie Length:</string>
     <string name="MovieGenre">Movie Genre:</string>
     <string name="MovieDescription">Movie Description:</string>
-
     <string name="title_web">Movie Title:</string>
     <string name="actors_web">Main Actors:</string>
     <string name="length_web">Movie Length:</string>
@@ -62,7 +68,6 @@
     <string name="description_web">Movie Description:</string>
     <string name="rating_web">Rating level:</string>
     <string name="http_web">Web address:</string>
-
     <string name="movie_help_author">Author: Bo Zhu</string>
     <string name="movie_help_version">Verion: V1.0</string>
     <string name="movie_help_instruction">Instruciton: This is a movie info APP. You can view the movie list,
@@ -72,7 +77,6 @@
                                               movie rating</string>
     <string name="statistic">Movie Statistic</string>
     <string name="help">Help</string>
-
     <string name="movie_all">Popular Movie Info</string>
 
 
@@ -80,22 +84,18 @@
 
 
     <string name="oc_title_toolbar">OC Transpo Info</string>
-
     <string name="oc_toast">OC Transpo Selected!</string>
     <string name="oc_dialog">About Selected!</string>
-
     <string name="oc_edit_text">Type Bus Route</string>
     <string name="oc_add">ADD</string>
     <string name="oc_textview">Bus Route Details</string>
     <string name="oc_button_delete">DELETE THIS ROUTE</string>
-
     <string name="oc_destination">Destination:</string>
     <string name="oc_start_time">Start Time:</string>
     <string name="oc_late_time">Late Time:</string>
     <string name="oc_latitude">Latitude:</string>
     <string name="oc_longitude">Longitude:</string>
     <string name="oc_gps">GPS Speed:</string>
-
     <string name="oc_about">ABOUT</string>
     <string name="oc_about_title">OC Transpo Information</string>
     <string name="oc_about_context1">Designed by Byeongyun Goo</string>
