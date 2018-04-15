@@ -25,6 +25,13 @@
         android:id="@+id/moving_rating"
         android:title="@string/rating" />
 
+    <item
+        android:id="@+id/Patient"
+        android:title="@string/patient_form"
+        android:icon="@drawable/patient"
+        app:showAsAction="ifRoom"
+        />
+
 
 
 </menu>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:id="@+id/new_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:fontFamily="sans-serif"
+        android:hint="@string/hint_doctor_name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/second_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:hint="@string/hint_doctor_phone" />
+
+    <EditText
+        android:id="@+id/third_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/second_message"
+        android:hint="@string/hint_doctor_address" />
+
+    <EditText
+        android:id="@+id/fourth_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/second_message"
+        android:hint="@string/hint_doctor_birthday" />
+
+    <EditText
+        android:id="@+id/fifty_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/third_message"
+        android:hint="@string/hint_doctor_health_card_number" />
+
+    <EditText
+        android:id="@+id/sixth_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/fourth_message"
+        android:hint="@string/hint_optometrist" />
+</RelativeLayout>

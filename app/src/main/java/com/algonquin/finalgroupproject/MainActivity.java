@@ -53,6 +53,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent_oc);
                 break;
 
+
+            case R.id.Patient:
+                item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        Toast.makeText(MainActivity.this, "Patient form Selected!", Toast.LENGTH_SHORT).show();
+                        //Jump to PatientFormActivity.
+                        Intent intent = new Intent(MainActivity.this, PatientIntakeFormActivity.class);
+                        startActivity(intent);
+                        return true;
+                    }
+                });
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }

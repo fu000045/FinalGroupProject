@@ -114,5 +114,31 @@
 
 
 
+    <string name="hint_doctorOffice">Any previous surgeries, or allergies?</string>
+    <string name="hint_dentist">Have had braces?</string>
+    <string name="hint_optometrist">What date and from where?</string>
+    <string name="hint_doctor_name">The Patient Name?</string>
+    <string name="hint_doctor_address">The Patient address?</string>
+    <string name="hint_doctor_birthday">The Patient birthday?</string>
+    <string name="hint_doctor_phone">The Patient phone number?</string>
+    <string name="hint_doctor_health_card_number">The Patient health card number?</string>
+    <string name="add_patient">Add Patient</string>
+    <string name="patient_add_btn">ADD</string>
+    <string name="patient_help_btn">HELP</string>
+    <string name="patient_add_doctor_btn">ADD DOCTOR</string>
+    <string name="patient_add_dentist_btn">ADD DENTIST</string>
+    <string name="patient_add_opt_btn">ADD OPT</string>
+    <string name="patient_update_btn">UPDATE</string>
+    <string name="patient_delete_btn">DELETE</string>
+    <string name="patient_cancel_btn">CANCEL</string>
+    <string name="patient_id_is">ID is : </string>
+    <string name="patient_download_xml_file">download xml file</string>
+    <string name="patient_view_statistics">view statistics</string>
+    <string name="patient_create_update_delete">create update delete patients</string>
+    <string name="title_activity_add_patient_toolbar">add_patient_toolbarActivity</string>
+    <string name="patient_form">Patient form</string>
+
+
+
 
 </resources>
