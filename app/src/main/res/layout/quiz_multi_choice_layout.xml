@@ -16,7 +16,7 @@
         android:id="@+id/radioCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/quizList"
+        android:layout_below="@id/quizList"
         android:descendantFocusability="blocksDescendants" >
         <RadioButton
             android:id="@+id/quiz_Answer_A"
@@ -40,6 +40,6 @@
         android:id="@+id/tv_correct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/radioCheck"/>
+        android:layout_below="@id/radioCheck"/>
 
 </RelativeLayout>

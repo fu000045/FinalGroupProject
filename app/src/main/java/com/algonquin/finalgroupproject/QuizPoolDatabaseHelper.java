@@ -13,7 +13,7 @@ import android.util.Log;
 public class QuizPoolDatabaseHelper extends SQLiteOpenHelper {
     // All Static variables
     // Database Version
-    private static final int QUIZ_DATABASE_VERSION = 2;
+    private static final int QUIZ_DATABASE_VERSION = 1;
 
     // Database Name
     private static final String QUIZ_DATABASE_NAME = "Quiz.db";
