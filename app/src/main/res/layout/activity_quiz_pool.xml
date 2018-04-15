@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_below="@id/listview_numeric"
-                    android:layout_alignEnd="@id/listview_multichoice"
+                    android:layout_alignEnd="@id/progressBar_Quiz"
                     android:text="@string/button_addQuestion" />
                 <Button
                     android:id="@+id/button_return"
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_below="@id/listview_numeric"
+                    android:layout_below="@id/progressBar_Quiz"
                     android:text="@string/button_return" />
 
         </RelativeLayout>
