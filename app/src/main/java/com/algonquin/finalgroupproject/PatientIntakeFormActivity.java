@@ -44,6 +44,13 @@ public class PatientIntakeFormActivity extends Activity {
                 startActivity(intent);
             }
         });
+        btn_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PatientIntakeFormActivity.this, PatientViewStatisticActivity.class);
+                startActivity(intent);
+            }
+        });
         btn_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
