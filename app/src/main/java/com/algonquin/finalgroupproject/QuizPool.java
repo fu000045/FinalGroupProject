@@ -100,16 +100,10 @@ public class QuizPool extends Activity {
             oneQuestion.add(answerC);
             oneQuestion.add(answerD);
             oneQuestion.add(correct);
-
-            //update progress bar
-            counter++;
-            if(counter != c.getCount()){
-                progressBar.setProgress(counter * 100 /(c.getCount()));
-            }else{
-                progressBar.setVisibility(View.INVISIBLE);
-            }
             c.moveToNext();
         }
+        //update progress bar
+        progressBar.setProgress(33);
         //this restarts the process of getCount() & getView() to retrieve multi choice list
         multichoiceAdapter.notifyDataSetChanged();
         setListViewHeightBasedOnChildren(listview_multichoice);
@@ -130,6 +124,8 @@ public class QuizPool extends Activity {
             oneQuestion.add(correct);
             c.moveToNext();
         }
+        //update progress bar
+        progressBar.setProgress(67);
         truefalseAdapter.notifyDataSetChanged();
         setListViewHeightBasedOnChildren(listview_truefalse);
 
@@ -151,6 +147,9 @@ public class QuizPool extends Activity {
             oneQuestion.add(correct);
             c.moveToNext();
         }
+        //update progress bar
+        progressBar.setProgress(100);
+        progressBar.setVisibility(View.INVISIBLE);
         numericAdapter.notifyDataSetChanged();
         setListViewHeightBasedOnChildren(listview_numeric);
 
