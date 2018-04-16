@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.algonquin.finalgroupproject.MovieFromWebActivity">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,47 +17,72 @@
     android:orientation="vertical"
     tools:context="com.algonquin.finalgroupproject.MovieFromWebActivity">
 
-
-    <!--<TextView-->
-        <!--android:id="@+id/textView1"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" />-->
-
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/title_web"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/actors"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/actors_web"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/length"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/length_web"/>
+        android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/description_web"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/rating"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/rating_web"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/genre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/genre_web"/>
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/url"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
 
+    <TextView
+        android:id="@+id/title1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/actors1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/length1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/description1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/rating1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/genre1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/url1"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
     <ProgressBar
         android:id="@+id/progress"
         android:layout_width="match_parent"
@@ -56,3 +91,4 @@
         style="?android:attr/progressBarStyleHorizontal"/>
 
 </LinearLayout>
+</ScrollView>

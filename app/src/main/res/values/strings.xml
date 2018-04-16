@@ -55,13 +55,13 @@
     <string name="MovieGenre">Movie Genre:</string>
     <string name="MovieDescription">Movie Description:</string>
 
-    <string name="title_web">Movie Title:</string>
-    <string name="actors_web">Main Actors:</string>
-    <string name="length_web">Movie Length:</string>
-    <string name="genre_web">Movie rating:</string>
-    <string name="description_web">Movie Description:</string>
-    <string name="rating_web">Rating level:</string>
-    <!--<string name="http_web">Web address:</string>-->
+    <!--<string name="title_web">Movie Title:</string>-->
+    <!--<string name="actors_web">Main Actors:</string>-->
+    <!--<string name="length_web">Movie Length:</string>-->
+    <!--<string name="genre_web">Movie type:</string>-->
+    <!--<string name="description_web">Movie Description:</string>-->
+    <!--<string name="rating_web">Rating level:</string>-->
+    <!--&lt;!&ndash;<string name="url">Web address:</string>&ndash;&gt;-->
 
     <string name="movie_help_author">Author: Bo Zhu</string>
     <string name="movie_help_version">Verion: V1.0</string>
