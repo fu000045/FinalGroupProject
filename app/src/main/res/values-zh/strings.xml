@@ -37,14 +37,11 @@
     <string name="rating">级别</string>
     <string name="movie_dialog_message">删除电影吗？删除后无法恢复！</string>
     <string name="movie_dialog_title">删除</string>
-
-
     <string name="MovieTitle">影名：</string>
     <string name="MainActors">演员：</string>
     <string name="MovieLength">影长：</string>
     <string name="MovieGenre">类别：</string>
     <string name="MovieDescription">简介：</string>
-
     <string name="title_web">影名:</string>
     <string name="actors_web">演员:</string>
     <string name="length_web">影长:</string>
@@ -52,7 +49,6 @@
     <string name="description_web">简介:</string>
     <string name="rating_web">级别:</string>
     <!--<string name="http_web">Web address:</string>-->
-
     <string name="movie_help_author">作者: 博</string>
     <string name="movie_help_version">版本: V1.0</string>
     <string name="movie_help_instruction">使用说明: 这是个电影A， 你可以浏览电影信息，也可以添加，更新和删除电影，
@@ -62,6 +58,5 @@
     <string name="button_return">返回</string>
     <string name="toast_movie">返回主页面</string>
     <string name="toastMovieParser">成功获取电影</string>
-
     <string name="movie_all">电影信息</string>
 </resources>
