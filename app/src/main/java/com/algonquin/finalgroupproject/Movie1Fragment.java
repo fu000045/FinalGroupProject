@@ -17,11 +17,6 @@ import android.widget.TextView;
 public class Movie1Fragment extends Fragment {
     public boolean isTablet;
 
-    //    TextView txt_movieTitle;
-//    TextView txt_mainActors;
-//    TextView txt_length;
-//    TextView txt_genre;
-//    TextView txt_description;
     EditText e_movieTitle;
     EditText e_mainActors;
     EditText e_length;
@@ -40,11 +35,6 @@ public class Movie1Fragment extends Fragment {
         //Get message passed by tablet(chatwindow) or phone(messagedetails)
         bundle = getArguments();
         final View view = inflater.inflate(R.layout.movie_fragment_layout, container, false);
-//     txt_movieTitle = view.findViewById(R.id.movie_title_framelayout);
-//     txt_mainActors = view.findViewById(R.id.movie_actors_framelayout);
-//     txt_length = view.findViewById(R.id.movie_length_framelayout);
-//     txt_genre = view.findViewById(R.id.movie_genre_framelayout);
-//     txt_description = view.findViewById(R.id.movie_description_framelayout);
 
         e_movieTitle = view.findViewById(R.id.edittext_movieTitle);
         e_mainActors = view.findViewById(R.id.edittext_mainActors);
