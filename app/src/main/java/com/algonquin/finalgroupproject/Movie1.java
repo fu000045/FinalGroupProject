@@ -72,7 +72,7 @@ public class Movie1 extends Activity {
         btn_addMovie = findViewById(R.id.button_addMovie);
 
         progressBar.setVisibility(View.VISIBLE);
-        //isTablet = (findViewById(R.id.movie_Framelayout) != null);
+        isTablet = (findViewById(R.id.movie_Framelayout) != null);
         movieAdapter = new MovieAdapter(this);
         listview.setAdapter(movieAdapter);
 
@@ -197,7 +197,7 @@ public class Movie1 extends Activity {
                     //tell the MessageFragment this is a tablet
                     movie1Fragment.setIsTablet(true);
                     //start a FragmentTransaction to add a fragment to the FrameLayout
-                    getFragmentManager().beginTransaction().replace(R.id.movie_tablet_Framelayout, movie1Fragment).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.movie_Framelayout, movie1Fragment).commit();
                 } else {
                     movie1Fragment.setIsTablet(false);
                     Intent intent = new Intent(Movie1.this, Movie1Detail.class);
