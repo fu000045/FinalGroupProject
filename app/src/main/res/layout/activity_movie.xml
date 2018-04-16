@@ -18,14 +18,14 @@
         android:text="@string/popularMovie" />
 
     <!--<ImageButton-->
-        <!--android:id="@+id/btn_movieList"-->
-        <!--android:layout_width="120dp"-->
-        <!--android:layout_height="120dp"-->
-        <!--android:src="@drawable/m1"-->
-        <!--android:layout_gravity="center_vertical|center_horizontal"-->
-        <!--android:text="@string/button_Movie1"-->
-        <!--tools:layout_editor_absoluteX="131dp"-->
-        <!--tools:layout_editor_absoluteY="181dp" />-->
+    <!--android:id="@+id/btn_movieList"-->
+    <!--android:layout_width="120dp"-->
+    <!--android:layout_height="120dp"-->
+    <!--android:src="@drawable/m1"-->
+    <!--android:layout_gravity="center_vertical|center_horizontal"-->
+    <!--android:text="@string/button_Movie1"-->
+    <!--tools:layout_editor_absoluteX="131dp"-->
+    <!--tools:layout_editor_absoluteY="181dp" />-->
     <ImageView
 
         android:layout_width="180dp"
@@ -64,6 +64,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
         android:text="@string/help"
+        tools:layout_editor_absoluteX="131dp"
+        tools:layout_editor_absoluteY="181dp" />
+
+    <Button
+        android:id="@+id/btn_return"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:text="@string/button_return"
         tools:layout_editor_absoluteX="131dp"
         tools:layout_editor_absoluteY="181dp" />
 </LinearLayout>

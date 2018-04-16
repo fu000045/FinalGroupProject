@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class MovieActivity extends Activity {
     LinearLayout linearlayout;
@@ -18,6 +19,7 @@ public class MovieActivity extends Activity {
     Button btn_button_website;
     Button btn_button_statistic;
     Button btn_button_help;
+    Button btn_return;
 
 
     @Override
@@ -30,6 +32,7 @@ public class MovieActivity extends Activity {
         btn_button_website = findViewById(R.id.btn_movieFromWebsite);
         btn_button_statistic = findViewById(R.id.btn_movie_statistic);
         btn_button_help = findViewById(R.id.btn_help);
+        btn_return = findViewById(R.id.btn_return);
 
 
         //From: Android Snackbar Example Tutorial [Web Page]
@@ -81,6 +84,14 @@ public class MovieActivity extends Activity {
                             }
                         })
                         .show();
+            }
+        });
+        btn_return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MovieActivity.this, R.string.toast_movie, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MovieActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

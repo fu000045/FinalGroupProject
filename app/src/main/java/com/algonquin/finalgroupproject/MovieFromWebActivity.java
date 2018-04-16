@@ -1,21 +1,18 @@
 package com.algonquin.finalgroupproject;
-
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.Xml;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -29,174 +26,246 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+import static com.algonquin.finalgroupproject.MovieFromWebActivity.ACTIVITY_NAME;
 
 public class MovieFromWebActivity extends Activity {
-   //private ImageView img_movie;
-//    TextView tv1;
-    private TextView text_title;
-    private TextView text_actors;
-    private TextView text_length;
-    private TextView text_genre;
-    private TextView text_description;
-//    private TextView text_rating;
-//    private TextView text_http;
-    private ProgressBar progressBar;
+    protected  static final String ACTIVITY_NAME = "MovieFromWebActivity";
+    TextView title;
+    TextView actors;
+    TextView length;
+    TextView description;
+    TextView rating;
+    TextView genre;
+    ImageView img_url;
+
+    TextView title1;
+    TextView actors1;
+    TextView length1;
+    TextView description1;
+    TextView rating1;
+    TextView genre1;
+    ImageView img_url1;
+    ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_from_web);
+        progressBar = findViewById(R.id.progress);
+        //progressBar.setVisibility(View.VISIBLE);
 
-       // img_movie = findViewById(R.id.movieImage);
-//        text_title = findViewById(R.id.title);
-//        text_actors = findViewById(R.id.actors);
-//        text_length = findViewById(R.id.length);
-//        text_genre = findViewById(R.id.genre);
-//        text_description = findViewById(R.id.description);
-//        progressBar = findViewById(R.id.progress);
-//
-//        MovieQuery m = new MovieQuery();
-//        m.execute();
-//
-//        public class MovieQuery extends AsyncTask<String, Integer, String>{
-//              String title;
-//              String actors;
-//              String length;
-//              String genre;
-//              String description;
-//              Bitmap movieInfo;
-//
-//            protected String doInBackground(String... args){
-//                //From: Parsing XML Data.[Web Page] Retrieved from: https://developer.android.com/training/basics/network-ops/xml.html
-//                // Given a string representation of a URL, sets up a connection and gets an input stream.
-//                URL url;
-//                InputStream inStream = null;
-//                try {
-//                    //conncet to an URL, and parser the xml info
-//                    url = new URL("http://torunski.ca/CST2335/MovieInfo.xml");
-//                    HttpURLConnection conn;
-//                    conn = (HttpURLConnection) url.openConnection();
-//                    conn.setReadTimeout(10000 /* milliseconds */);
-//                    conn.setConnectTimeout(15000 /* milliseconds */);
-//                    conn.setRequestMethod("GET");
-//                    conn.setDoInput(true);
-//                    // Starts the query
-//                    conn.connect();
-//                    inStream = conn.getInputStream();
-//
-//                    XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-//                    factory.setNamespaceAware(true);
-//                    XmlPullParser parser = factory.newPullParser();
-//                    parser.setInput(inStream, null);
-//                    int eventType = parser.getEventType();
-//
-//                    //while not end of document
-//                    while(eventType != XmlPullParser.END_DOCUMENT){
-//                        //check eventType
-//                        switch(eventType){
-//                            //if eventType is START_TAG, parser the info needed
-//                            case XmlPullParser.TEXT:
-//                                String text = parser.getName();
-//                                //if tag name is "temperature", get the current temperature, min temperatur, max temperature
-//                                if (text.equalsIgnoreCase("Title")) {
-//                                    crtTemp = parser.getAttributeValue(null, "value");
-//                                    publishProgress(25);
-//                                    minTemp = parser.getAttributeValue(null, "min");
-//                                    publishProgress(50);
-//                                    maxTemp = parser.getAttributeValue(null, "max");
-//                                    publishProgress(75);
-//                                    //if tag name is "wind", get the wind speed
-//                                }else if(parser.getName().equalsIgnoreCase("speed")){
-//                                    windSpeed = parser.getAttributeValue(null, "value");
-//                                    //if tag name is "weather", get the image name
-//                                }else if (parser.getName().equalsIgnoreCase("weather")){
-//                                    //parser the image name
-//                                    weatherName = parser.getAttributeValue(null, "icon");
-//
-////                                    //if image file exists, read it
-////                                    String imagefile = weatherName + ".png";
-////                                    if(fileExistance(imagefile)){
-////                                        FileInputStream fis = null;
-////                                        try {
-////                                            fis = openFileInput(imagefile);
-////                                        }catch (FileNotFoundException e) {
-////                                            e.printStackTrace();
-////                                        }
-////                                        crtWeather = BitmapFactory.decodeStream(fis);
-////                                        Log.i(imagefile, " image is found locally.");
-////                                        //else download it and save it
-////                                    }else{
-////                                        //get the url of the image
-////                                        url = new URL("http://openweathermap.org/img/w/" + imagefile);
-////                                        //download the image from website
-////                                        crtWeather = HttpUtils.getImage(url);
-////                                        FileOutputStream outputStream = openFileOutput( imagefile, Context.MODE_PRIVATE);
-////                                        crtWeather.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
-////                                        outputStream.flush();
-////                                        outputStream.close();
-////                                        Log.i(imagefile, " image has been downloaded.");
-////                                    }
-////                                    publishProgress(100);
-//                                }
-//                                break;
-//                            default:
-//                                break;
-//                        }
-//                        eventType = parser.next();
-//                    }
-//                } catch (XmlPullParserException | IOException e) {
-//                    e.printStackTrace();
-//                } finally {
-//                    try {
-//                        inStream.close();
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//                return null;
-//            }
-//
-//            //check if image file exists
-//            boolean fileExistance(String fname){
-//                File file = getBaseContext().getFileStreamPath(fname);
-//                return file.exists();
-//            }
-//
-//            //each time publishprogress() is called, show the progress of GUI
-//            @Override
-//            protected void onProgressUpdate(Integer... values) {
-//                //set progress bar to be visible
-//                progressBar.setVisibility(View.VISIBLE);
-//                //set the progress bar
-//                progressBar.setProgress(values[0]);
-//                super.onProgressUpdate(values);
-//            }
-//
-//            //get the info from doInBackground(), and update the info on GUI
-//            @Override
-//            protected void onPostExecute(String s) {
-//                if(crtTemp != null) {
-//                    text_crtTemp.setText(getString(R.string.crtTemp) + crtTemp);
-//                }
-//                if(minTemp != null) {
-//                    text_minTemp.setText(getString(R.string.minTemp) + minTemp);
-//                }
-//                if(maxTemp != null) {
-//                    text_maxTemp.setText(getString(R.string.maxTemp) + maxTemp);
-//                }
-//                if(crtWeather != null) {
-//                    img_weather.setImageBitmap(crtWeather);
-//                }
-//
-//                if(windSpeed != null) {
-//                    text_wind.setText(getString(R.string.wind) + windSpeed);
-//                }
-//                super.onPostExecute(s);
-//                //set progress bar to be invisible
-//                progressBar.setVisibility(View.INVISIBLE);
-//            }
-//
-//        }
+        title = findViewById(R.id.title);
+        actors = findViewById(R.id.actors);
+        length = findViewById(R.id.length);
+        description = findViewById(R.id.description);
+        rating = findViewById(R.id.rating);
+        genre = findViewById(R.id.genre);
+        img_url = findViewById(R.id.url);
+
+        title1 = findViewById(R.id.title1);
+        actors1 = findViewById(R.id.actors1);
+        length1 = findViewById(R.id.length1);
+        description1 = findViewById(R.id.description1);
+        rating1 = findViewById(R.id.rating1);
+        genre1 = findViewById(R.id.genre1);
+        img_url1 = findViewById(R.id.url1);
+
+
+        progressBar.setVisibility(View.VISIBLE);
+
+        MovieQuery movie = new MovieQuery();
+        //String urlString = "http://http://torunski.ca/CST2335/MovieInfo.xml";
+        movie.execute();
+        Log.i(ACTIVITY_NAME,"In onCreate()");
+    }
+
+    public class MovieQuery extends AsyncTask<String, Integer, String> {
+        private String mtitle, mtitle1,mactors,mactors1,mlength,mlength1,mdescription,mdescription1,mrating,mrating1,mgenre,mgenre1;
+        private Bitmap mimg,mimg1;
+        protected String doInBackground(String... args){
+            Log.i(ACTIVITY_NAME, "In doInBackground");
+            URL url;
+            InputStream inStream = null;
+            String imgURL;
+            try {
+                url = new URL("http://torunski.ca/CST2335/MovieInfo.xml");
+                HttpURLConnection conn;
+                conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(10000 /* milliseconds */);
+                conn.setConnectTimeout(15000 /* milliseconds */);
+                conn.setRequestMethod("GET");
+                conn.setDoInput(true);
+                // Starts the query
+                conn.connect();
+                inStream = conn.getInputStream();
+
+                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+                factory.setNamespaceAware(true);
+                XmlPullParser parser = factory.newPullParser();
+                parser.setInput(inStream, null);
+                int eventType = parser.getEventType();
+
+                int movieCounter = 0;
+                boolean isTitle = false;
+                boolean isActors = false;
+                boolean isLength = false;
+                boolean isDescription = false;
+                boolean isRating = false;
+                boolean isGenre = false;
+                boolean isImage = false;
+                //while not end of document
+                while(eventType != XmlPullParser.END_DOCUMENT){
+                    //check eventType
+                    switch(eventType){
+                        case XmlPullParser.START_TAG:
+                            String tagname = parser.getName();
+                            if(parser.getName().equalsIgnoreCase("Movie")){
+                                movieCounter++;
+                            }
+                            if(parser.getName().equalsIgnoreCase("Title")){
+                                isTitle = true;
+                            }
+                            if(parser.getName().equalsIgnoreCase("Actors")){
+                                isActors = true;
+                            }
+                            if(parser.getName().equalsIgnoreCase("length")){
+                                isLength = true;
+                            }
+                            if(parser.getName().equalsIgnoreCase("Description")){
+                                isDescription = true;
+                            }
+                            if(parser.getName().equalsIgnoreCase("Rating")){
+                                isRating = true;
+                            }
+                            if(parser.getName().equalsIgnoreCase("Genre")){
+                                isGenre = true;
+                            }
+                            if(parser.getName().equalsIgnoreCase("URL") && movieCounter == 1){
+                                imgURL = parser.getAttributeValue(null, "value");
+                                try {
+                                    url = new URL(imgURL);
+                                    mimg = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                                } catch(IOException e) {
+                                    System.out.println(e);
+                                }
+                            }else if(parser.getName().equalsIgnoreCase("URL") && movieCounter == 2){
+                                imgURL = parser.getAttributeValue(null, "value");
+                                try {
+                                    url = new URL(imgURL);
+                                    mimg1 = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                                } catch(IOException e) {
+                                    System.out.println(e);
+                                }
+                            }
+                            //mimg = parser.getAttributeValue(null, "value");
+
+                            break;
+                        case XmlPullParser.TEXT:
+                            if(movieCounter == 1){
+                                if(isTitle){
+                                    mtitle = parser.getText();
+                                }
+                                if(isActors){
+                                    mactors = parser.getText();
+                                }
+                                if(isLength){
+                                    mlength = parser.getText();
+                                }
+                                if(isDescription){
+                                    mdescription = parser.getText();
+                                }
+                                if(isRating){
+                                    mrating = parser.getText();
+                                }
+                                if(isGenre){
+                                    mgenre = parser.getText();
+                                }
+
+
+                            }
+                            if(movieCounter == 2){
+                                if(isTitle){
+                                    mtitle1 = parser.getText();
+                                }
+                                if(isActors){
+                                    mactors1 = parser.getText();
+                                }
+                                if(isLength){
+                                    mlength1 = parser.getText();
+                                }
+                                if(isDescription){
+                                    mdescription1 = parser.getText();
+                                }
+                                if(isRating){
+                                    mrating1 = parser.getText();
+                                }
+                                if(isGenre){
+                                    mgenre1 = parser.getText();
+                                }
+                            }
+
+                            break;
+                        case XmlPullParser.END_TAG:
+                            if(parser.getName().equalsIgnoreCase("Title")){
+                                isTitle = false;
+                            }
+                            if(parser.getName().equalsIgnoreCase("Actors")){
+                                isActors = false;
+                            }
+                            if(parser.getName().equalsIgnoreCase("length")){
+                                isLength = false;
+                            }
+                            if(parser.getName().equalsIgnoreCase("Description")){
+                                isDescription = false;
+                            }
+                            if(parser.getName().equalsIgnoreCase("Rating")){
+                                isRating = false;
+                            }
+                            if(parser.getName().equalsIgnoreCase("Genre")){
+                                isGenre = false;
+                            }
+                            break;
+                    }
+                    eventType=parser.next();
+                }
+            }
+            catch(Exception e) {e.printStackTrace();}
+            return null;
+        }
+
+        //each time publishprogress() is called, show the progress of GUI
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            //set progress bar to be visible
+            progressBar.setVisibility(View.VISIBLE);
+            //set the progress bar
+            progressBar.setProgress(values[0]);
+        }
+
+        //get the info from doInBackground(), and update the info on GUI
+        @Override
+        protected void onPostExecute(String s) {
+            title.setText(mtitle);
+            actors.setText(mactors);
+            length.setText(mlength);
+            description.setText(mdescription);
+            rating.setText(mrating);
+            genre.setText(mgenre);
+            if(mimg != null) {
+                img_url.setImageBitmap(mimg);
+            }
+
+            title1.setText(mtitle1);
+            actors1.setText(mactors1);
+            length1.setText(mlength1);
+            description1.setText(mdescription1);
+            rating1.setText(mrating1);
+            genre1.setText(mgenre1);
+            if(mimg1 != null) {
+                img_url1.setImageBitmap(mimg1);
+            }
+
+            progressBar.setVisibility(View.INVISIBLE);
         }
     }
+}
