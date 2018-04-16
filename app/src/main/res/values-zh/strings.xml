@@ -64,4 +64,33 @@
     <string name="title_activity_add_patient_toolbar">添加病人</string>
     <string name="patient_form">病例</string>
 
+    <string name="button_addMovie">添加电影</string>
+    <string name="button_update">更新</string>
+    <string name="popularMovie">电影详情</string>
+    <string name="getMovieFromXML">获取电影详情</string>
+    <string name="button_delete">删除</string>
+    <string name="rating">级别</string>
+    <string name="movie_dialog_message">删除电影吗？删除后无法恢复！</string>
+    <string name="movie_dialog_title">删除</string>
+    <string name="MovieTitle">影名：</string>
+    <string name="MainActors">演员：</string>
+    <string name="MovieLength">影长：</string>
+    <string name="MovieGenre">类别：</string>
+    <string name="MovieDescription">简介：</string>
+    <string name="title_web">影名:</string>
+    <string name="actors_web">演员:</string>
+    <string name="length_web">影长:</string>
+    <string name="genre_web">类别：:</string>
+    <string name="description_web">简介:</string>
+    <string name="rating_web">级别:</string>
+    <!--<string name="http_web">Web address:</string>-->
+    <string name="movie_help_author">作者: 博</string>
+    <string name="movie_help_version">版本: V1.0</string>
+    <string name="movie_help_instruction">使用说明: 这是个电影A， 你可以浏览电影信息，也可以添加，更新和删除电影，
+                                          你可以从xml文件种下载电影到你的App。</string>
+    <string name="statistic">电影等级</string>
+    <string name="help">帮助</string>
+    <string name="toast_movie">返回主页面</string>
+    <string name="toastMovieParser">成功获取电影</string>
+    <string name="movie_all">电影信息</string>
 </resources>
