@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -110,6 +111,12 @@ public class OCBusNumberWindow extends AppCompatActivity {
         buttonChat = findViewById(R.id.sendButton);
         buttonChat.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+
+                Snackbar snackbar = Snackbar
+                        .make(v, "Bus Route Added", Snackbar.LENGTH_LONG);
+
+                snackbar.show();
 
 
                 ContentValues contentValues = new ContentValues();
