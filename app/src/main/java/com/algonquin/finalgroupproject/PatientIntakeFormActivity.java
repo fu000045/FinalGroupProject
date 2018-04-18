@@ -1,6 +1,8 @@
 package com.algonquin.finalgroupproject;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -16,6 +18,7 @@ public class PatientIntakeFormActivity extends Activity {
     Button btn_view;
     Button btn_help;
     ProgressBar progressBar;
+    Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +50,14 @@ public class PatientIntakeFormActivity extends Activity {
         btn_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PatientIntakeFormActivity.this, PatientViewStatisticActivity.class);
-                startActivity(intent);
+                PatientDatabaseHelper patientDatabaseHelper = new PatientDatabaseHelper(context);
+                final SQLiteDatabase db = patientDatabaseHelper.getWritableDatabase();
+                int min = patientDatabaseHelper.minAge(db);
+                int max = patientDatabaseHelper.maxAge(db);
+                int avg = patientDatabaseHelper.avgAge(db);
+                Snackbar.make(findViewById(R.id.button_view_statistics), "Min age is: "+min+"Max age is: "+max+"Avg age is: "+avg, Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+
             }
         });
         btn_help.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +83,8 @@ public class PatientIntakeFormActivity extends Activity {
         }
         return true;
         }
+
+
 
 
 }
