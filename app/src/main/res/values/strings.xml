@@ -112,15 +112,14 @@
 
 
 
-
-    <string name="hint_doctorOffice">Any previous surgeries, or allergies?</string>
+    <string name="hint_doctorOffice">Any surgeries allergies?</string>
     <string name="hint_dentist">Have had braces?</string>
-    <string name="hint_optometrist">What date and from where?</string>
-    <string name="hint_doctor_name">The Patient Name?</string>
-    <string name="hint_doctor_address">The Patient address?</string>
-    <string name="hint_doctor_birthday">The Patient birthday?</string>
-    <string name="hint_doctor_phone">The Patient phone number?</string>
-    <string name="hint_doctor_health_card_number">The Patient health card number?</string>
+    <string name="hint_optometrist">What and where?</string>
+    <string name="hint_doctor_name">The Name?</string>
+    <string name="hint_doctor_address">The address?</string>
+    <string name="hint_doctor_birthday">The birthday?</string>
+    <string name="hint_doctor_phone">The phone number?</string>
+    <string name="hint_doctor_health_card_number">The health card?</string>
     <string name="add_patient">Add Patient</string>
     <string name="patient_add_btn">ADD</string>
     <string name="patient_help_btn">HELP</string>
@@ -134,9 +133,7 @@
     <string name="patient_download_xml_file">download xml file</string>
     <string name="patient_view_statistics">view statistics</string>
     <string name="patient_create_update_delete">create update delete patients</string>
-    <string name="title_activity_add_patient_toolbar">add_patient_toolbarActivity</string>
-    <string name="patient_form">Patient form</string>
-
+    <string name="patient_form">Patient Intake Form</string>
 
 
 

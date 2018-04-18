@@ -39,13 +39,12 @@
 
         <activity android:name=".octranspo.OCBusNumberWindow"></activity>
 
-        <activity android:name=".PatientIntakeFormActivity">
 
-
+        <activity android:name=".PatientIntakeFormActivity" >
         </activity>
+
         <activity android:name=".PatientDetails" />
-        <activity android:name=".PatientLoadXML" >
-        </activity>
+        <activity android:name=".PatientLoadXML"></activity>
         <activity android:name=".AddPatientActivity">
 
         </activity>

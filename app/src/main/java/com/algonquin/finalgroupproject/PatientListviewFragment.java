@@ -35,19 +35,17 @@ public class PatientListviewFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
-        usermessage = bundle.getString("Message");
         messageId = bundle.getLong("ID");
+        usermessage = bundle.getString("Message");
+        birthday = bundle.getString("Birthday");
         phone = bundle.getString("Phone");
-        description = bundle.getString("Description");
         address = bundle.getString("Address");
         card = bundle.getString("Card");
-        birthday = bundle.getString("Birthday");
-
+        description = bundle.getString("Description");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-
         View gui = inflater.inflate(R.layout.activity_patient_listview_fragment, null);
         TextView id = gui.findViewById(R.id.text_view_id);
         message = gui.findViewById(R.id.update_edit_text_name);
@@ -56,13 +54,16 @@ public class PatientListviewFragment extends Fragment {
         edit_address = gui.findViewById(R.id.update_edit_text_address);
         edit_card = gui.findViewById(R.id.update_edit_text_card);
         edit_description = gui.findViewById(R.id.update_edit_text_description);
-        id.setText("ID:" + messageId );
-        message.setText(usermessage);
-        edit_phone.setText(phone);
-        edit_birthday.setText(birthday);
-        edit_address.setText(address);
-        edit_card.setText(card);
-        edit_description.setText(description);
+       // id.setText("ID:" + messageId );
+        Bundle bundle = getArguments();
+        bundle.getLong("ID");
+        id.setText("ID:" + bundle.getLong("ID") );
+        message.setText(bundle.getString("Message"));
+        edit_birthday.setText(bundle.getString("Birthday"));
+        edit_phone.setText(bundle.getString("Phone"));
+        edit_address.setText(bundle.getString("Address"));
+        edit_card.setText(bundle.getString("Card"));
+        edit_description.setText(bundle.getString("Description"));
         Button button = gui.findViewById(R.id.btn_delete);
         Button btn_update=gui.findViewById(R.id.btn_update);
 
@@ -70,9 +71,6 @@ public class PatientListviewFragment extends Fragment {
             @Override
             public void onClick(View view){
                 Log.i("MessageFragment", "User clicked Delete Message button");
-
-
-
              //   addPatientActivity.updateMessate();
                 if (addPatientActivity == null) {
                     Intent intent = new Intent();
@@ -84,20 +82,18 @@ public class PatientListviewFragment extends Fragment {
                     card=edit_card.getText().toString();
                     description=edit_description.getText().toString();
                     intent.putExtra("UpdateName", usermessage);
-                intent.putExtra("UpdatePhone", phone);
-                intent.putExtra("UpdateBirthday", birthday);
-                intent.putExtra("UpdateAddress", address);
-                intent.putExtra("UpdateCard", card);
-                intent.putExtra("UpdateDescription", description);
+                    intent.putExtra("UpdateBirthday", birthday);
+                    intent.putExtra("UpdatePhone", phone);
+                    intent.putExtra("UpdateAddress", address);
+                    intent.putExtra("UpdateCard", card);
+                    intent.putExtra("UpdateDescription", description);
                     getActivity().setResult(Activity.RESULT_CANCELED, intent);
                     getActivity().finish();
                 }
                 else{
-                    addPatientActivity.deleteListMessage(messageId);
+                    addPatientActivity.updateMessage(messageId,usermessage,birthday,phone,address,card,description);
                     addPatientActivity.removeFragment();
-                }
-            }
-        });
+                } } });
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

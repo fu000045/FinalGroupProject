@@ -44,6 +44,7 @@ public class PatientIntakeFormActivity extends Activity {
                 startActivity(intent);
             }
         });
+
         btn_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

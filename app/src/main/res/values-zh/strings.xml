@@ -40,29 +40,7 @@
     <string name="cancel">取消</string>
     <string name="button_return">返回</string>
 
-    <string name="hint_doctorOffice">是否有过敏史?</string>
-    <string name="hint_dentist">是否有加冰?</string>
-    <string name="hint_optometrist">从哪何时?</string>
-    <string name="hint_doctor_name">姓名?</string>
-    <string name="hint_doctor_address">地址?</string>
-    <string name="hint_doctor_birthday">生日?</string>
-    <string name="hint_doctor_phone">电话?</string>
-    <string name="hint_doctor_health_card_number">健康卡?</string>
-    <string name="add_patient">添加病人</string>
-    <string name="patient_add_btn">添加</string>
-    <string name="patient_help_btn">帮助</string>
-    <string name="patient_add_doctor_btn">添加医生</string>
-    <string name="patient_add_dentist_btn">牙医</string>
-    <string name="patient_add_opt_btn">眼医</string>
-    <string name="patient_update_btn">更新</string>
-    <string name="patient_delete_btn">删除</string>
-    <string name="patient_cancel_btn">取消</string>
-    <string name="patient_id_is">ID 是</string>
-    <string name="patient_download_xml_file">下载</string>
-    <string name="patient_view_statistics">数据</string>
-    <string name="patient_create_update_delete">添加删除病人</string>
-    <string name="title_activity_add_patient_toolbar">添加病人</string>
-    <string name="patient_form">病例</string>
+
 
     <string name="button_addMovie">添加电影</string>
     <string name="button_update">更新</string>
@@ -93,4 +71,33 @@
     <string name="toast_movie">返回主页面</string>
     <string name="toastMovieParser">成功获取电影</string>
     <string name="movie_all">电影信息</string>
+
+
+
+
+
+
+
+    <string name="hint_doctorOffice">过敏史?</string>
+    <string name="hint_dentist">脚步?</string>
+    <string name="hint_optometrist">何时何地?</string>
+    <string name="hint_doctor_name">姓名?</string>
+    <string name="hint_doctor_address">地址?</string>
+    <string name="hint_doctor_birthday">生日?</string>
+    <string name="hint_doctor_phone">电话?</string>
+    <string name="hint_doctor_health_card_number">健康卡?</string>
+    <string name="add_patient">添加</string>
+    <string name="patient_add_btn">添加</string>
+    <string name="patient_help_btn">帮助</string>
+    <string name="patient_add_doctor_btn">病人</string>
+    <string name="patient_add_dentist_btn">牙医</string>
+    <string name="patient_add_opt_btn">眼医</string>
+    <string name="patient_update_btn">更新</string>
+    <string name="patient_delete_btn">删除</string>
+    <string name="patient_cancel_btn">取消</string>
+    <string name="patient_id_is">ID 是 : </string>
+    <string name="patient_download_xml_file">下载</string>
+    <string name="patient_view_statistics">观测</string>
+    <string name="patient_create_update_delete">添加删除病人</string>
+    <string name="patient_form">病例</string>
 </resources>
